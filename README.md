@@ -1,7 +1,7 @@
 # DSL2
 
 ## SUJET
-Création d'un DSL pour l'interface graphique d'une application web de type Encyclopédie. 
+Création d'un DSL pour l'interface graphique pour la création d'une application web de type Encyclopédie. 
 
 Nous générerons du code ReactJS à l'aide d'un langage interne en TypeScript.
 
