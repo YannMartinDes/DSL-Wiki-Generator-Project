@@ -1,5 +1,5 @@
-import linkable from "../linkable";
+import Linkable from "../linkable";
 
-export default class element {
-    linkTo?:linkable
+export default class Element {
+    linkTo?:Linkable
 }

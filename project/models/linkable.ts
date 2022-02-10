@@ -1,3 +1,3 @@
-export default class linkable {
+export default class Linkable {
 
 }

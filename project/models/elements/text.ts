@@ -1,5 +1,5 @@
-import element from "./element";
+import Element from "./element";
 
-export default class text extends element{
+export default class Text extends Element{
     
 }

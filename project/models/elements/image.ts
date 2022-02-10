@@ -1,5 +1,5 @@
-import element from "./element"
+import Element from "./element"
 
-export default class image extends element{
+export default class Image extends Element{
     
 }
