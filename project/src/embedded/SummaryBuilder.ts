@@ -50,7 +50,7 @@ class SummaryBuilder {
         for(const el of this.elements){
             elementsList.push(el.createModel())
         }
-        return new Summary(elementsList);
+        return new Summary(this.id,elementsList);
     }
 }
 export default SummaryBuilder
