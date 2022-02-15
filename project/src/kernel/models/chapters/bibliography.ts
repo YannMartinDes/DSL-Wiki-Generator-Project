@@ -1,5 +1,5 @@
 
 import Chapter from "./chapter";
 
-export default class Gallery extends Chapter{
+export default class Bibliography extends Chapter{
 }

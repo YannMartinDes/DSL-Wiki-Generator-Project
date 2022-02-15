@@ -1,9 +1,9 @@
-import Chapter from "../kernel/models/chapters/chapter";
+import Bibliography from "../kernel/models/chapters/bibliography";
 import Section from "../kernel/models/section";
 import SectionBuilder from "./SectionBuilder";
 import SubjectBuilder from "./SubjectBuilder";
 
-class ChapterBuilder {
+class BibliographyBuilder {
 
     private rootBuilder:SubjectBuilder;
     public name:string;
@@ -25,13 +25,13 @@ class ChapterBuilder {
         return this.rootBuilder;
     }
     
-    createModel():Chapter {
+    createModel():Bibliography {
         const sectionsList:Section[] = []
         for(const el of this.sections){
             sectionsList.push(el.createModel())
         }
-        return new Chapter(sectionsList);
+        return new Bibliography(sectionsList);
     }
 
 }
-export default ChapterBuilder
+export default BibliographyBuilder

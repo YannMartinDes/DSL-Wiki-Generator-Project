@@ -1,16 +1,20 @@
 import WikiElement from "../kernel/models/elements/wikiElement";
 import Section from "../kernel/models/section";
+import BibliographyBuilder from "./BibliographyBuilder";
 import ChapterBuilder from "./ChapterBuilder";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
+import GalleryBuilder from "./GalleryBuilder";
+import ReferenceBuilder from "./ReferenceBuilder";
+import RelatedSubjectBuilder from "./RelatedSubjectBuilder";
 import WikiElementBuilder from "./wikiElementBuilder";
 
 class SectionBuilder {
     
-    private rootBuilder:ChapterBuilder;
+    private rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder;
     public name:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:ChapterBuilder, name:string) {
+    constructor(rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder, name:string) {
         this.name = name;
         this.rootBuilder = rootBuilder;
         this.elements = []

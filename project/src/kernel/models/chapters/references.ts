@@ -1,5 +1,5 @@
 
 import Chapter from "./chapter";
 
-export default class Bibliography extends Chapter{
+export default class References extends Chapter{
 }
