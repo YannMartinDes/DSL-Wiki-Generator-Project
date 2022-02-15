@@ -1,7 +1,7 @@
 import Chapter from "./chapters/chapter";
 import InfoBox from "./infoBox";
 import Linkable from "./linkable";
-import NavBar from "./NavBar";
+import NavBar from "./navBar";
 import Summary from "./summary";
 import TableOfContent from "./tableOfContent";
 

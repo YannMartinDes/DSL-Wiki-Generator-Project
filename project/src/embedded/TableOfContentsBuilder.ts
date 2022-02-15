@@ -1,5 +1,5 @@
 import TableOfContent from "../kernel/models/tableOfContent";
-import ElementBuilder from "./ElementBuilder";
+import ElementBuilder from "./wikiElementBuilder";
 import SubjectBuilder from "./SubjectBuilder";
 
 class TableOfContentsBuilder {

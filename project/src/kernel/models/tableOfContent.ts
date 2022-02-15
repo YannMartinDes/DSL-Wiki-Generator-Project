@@ -1,5 +1,5 @@
-import Element from "./elements/element";
+import WikiElement from "./elements/wikiElement";
 
 export default class TableOfContent {
-    elements?:Element[];
+    elements?:WikiElement[];
 }

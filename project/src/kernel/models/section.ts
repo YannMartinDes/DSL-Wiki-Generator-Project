@@ -1,6 +1,6 @@
-import Element from "./elements/element";
+import WikiElement from "./elements/wikiElement";
 import Linkable from "./linkable";
 
 export default class Section extends Linkable{
-    elements?:Element[];
+    elements?:WikiElement[];
 }

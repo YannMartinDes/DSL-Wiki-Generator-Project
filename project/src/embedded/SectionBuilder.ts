@@ -1,6 +1,6 @@
 import Section from "../kernel/models/section";
 import ChapterBuilder from "./ChapterBuilder";
-import ElementBuilder from "./ElementBuilder";
+import ElementBuilder from "./wikiElementBuilder";
 
 class SectionBuilder {
     

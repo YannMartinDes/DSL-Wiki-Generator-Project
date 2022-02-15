@@ -1,5 +1,5 @@
 import Summary from "../kernel/models/summary";
-import ElementBuilder from "./ElementBuilder";
+import ElementBuilder from "./wikiElementBuilder";
 import SubjectBuilder from "./SubjectBuilder";
 
 class SummaryBuilder {

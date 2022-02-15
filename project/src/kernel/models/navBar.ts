@@ -1,5 +1,9 @@
-import Element from "./elements/element";
+import WikiElement from "./elements/wikiElement";
 
 export default class NavBar {
-    elements?:Element[];
+    elements:WikiElement[];
+
+    constructor(elements:WikiElement[]){
+        this.elements = elements;
+    }
 }

@@ -1,5 +1,5 @@
-import Element from "./element"
+import WikiElement from "./wikiElement";
 
-export default class Image extends Element{
+export default class Image extends WikiElement{
     
 }

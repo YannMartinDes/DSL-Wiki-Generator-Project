@@ -1,5 +1,4 @@
-import Element from "./elements/element";
-
+import WikiElement from "./elements/wikiElement";
 export default class InfoBox {
-    elements?:Element[];
+    elements?:WikiElement[];
 }

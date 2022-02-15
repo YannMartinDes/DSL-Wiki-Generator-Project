@@ -1,5 +1,5 @@
-import Element from "./element";
+import WikiElement from "./wikiElement";
 
-export default class Table extends Element{
+export default class Table extends WikiElement{
     
 }
