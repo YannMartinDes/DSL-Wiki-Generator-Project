@@ -2,11 +2,6 @@ import Chapter from "../kernel/models/chapters/chapter";
 import SectionBuilder from "./SectionBuilder";
 import SubjectBuilder from "./SubjectBuilder";
 
-const GALLERY = "gallery"
-const RELATED_SUBJECT = "related_subject"
-const REFERENCE = "reference"
-const BIBLIOGRAPHY = "bibliography"
-
 class ChapterBuilder {
 
     private rootBuilder:SubjectBuilder;

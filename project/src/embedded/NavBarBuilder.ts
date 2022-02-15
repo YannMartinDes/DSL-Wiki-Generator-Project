@@ -1,5 +1,4 @@
 import WikiElement from "../kernel/models/elements/wikiElement";
-import Linkable from "../kernel/models/linkable";
 import NavBar from "../kernel/models/navBar";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
 import WikiBuilder from "./WikiBuilder";
@@ -45,11 +44,11 @@ class NavBarBuilder {
         return this.rootBuilder;
     }
 
-    createModel(linkableHM:Map<string,Linkable>):NavBar {
+    createModel():NavBar {
 
         const elementsList:WikiElement[] = []
         for(const el of this.elements){
-            elementsList.push(el.createModel(linkableHM))
+            elementsList.push(el.createModel())
         }
         return new NavBar(elementsList);
     }

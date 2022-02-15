@@ -1,5 +1,4 @@
 import WikiElement from "../kernel/models/elements/wikiElement";
-import Linkable from "../kernel/models/linkable";
 import Section from "../kernel/models/section";
 import ChapterBuilder from "./ChapterBuilder";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
@@ -45,11 +44,13 @@ class SectionBuilder {
         return this.rootBuilder;
     }
     
-    createModel(linkableHM:Map<string,Linkable>):Section {
+    createModel():Section {
         const elementsList:WikiElement[] = []
         for(const el of this.elements){
-            elementsList.push(el.createModel(linkableHM))
+            elementsList.push(el.createModel())
         }
+
+        //add to Singleton HM
         return new Section(elementsList);
     }
 }

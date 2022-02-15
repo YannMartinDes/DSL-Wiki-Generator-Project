@@ -2,7 +2,6 @@ import Button from "../kernel/models/elements/button";
 import Image from "../kernel/models/elements/image";
 import Table from "../kernel/models/elements/table";
 import Text from "../kernel/models/elements/text";
-import Linkable from "../kernel/models/linkable";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
 import InfoBoxBuilder from "./InfoBoxBuilder";
 import NavBarBuilder from "./NavBarBuilder";
@@ -12,14 +11,14 @@ import TableOfContentsBuilder from "./TableOfContentsBuilder";
 class WikiElementBuilder {
     
     private rootBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder;
-    public name:string;
+    public id:string;
     private linkable?:string;
     private kind:string;
 
     constructor(rootBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder, 
-        name:string, 
+        id:string, 
         kind:string) {
-        this.name = name;
+        this.id = id;
         this.rootBuilder = rootBuilder;
         this.kind = kind;
     }
@@ -33,23 +32,25 @@ class WikiElementBuilder {
         return this.rootBuilder;
     }
     
-    createModel(linkableHM:Map<string,Linkable>):(Text|Image|Table|Button) {
-        const link = linkableHM.get(this.linkable||"");
+    createModel():(Text|Image|Table|Button) {
+
+        //Singleton linkTo ? [Objet Element , "Section 1"], [...],...
+        //["Section 1",Obj Section]
 
         if (this.kind == TEXT) {
-            return new Text(link);
+            return new Text(this.id);
         }
         if (this.kind == IMAGE) {
-            return new Image(link);
+            return new Image(this.id);
         }
         if (this.kind == TABLE) {
-            return new Table(link);
+            return new Table(this.id);
         }
         if (this.kind == BUTTON) {
-            return new Button(link);
+            return new Button(this.id);
         }
         console.error("UNDEFINED KIND")
-        return new Text();
+        return new Text("UNDEFINED");
     }
 }
 export default WikiElementBuilder

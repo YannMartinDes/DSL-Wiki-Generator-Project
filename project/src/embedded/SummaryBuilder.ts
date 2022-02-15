@@ -3,7 +3,6 @@ import SubjectBuilder from "./SubjectBuilder";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
 import WikiElementBuilder from "./wikiElementBuilder";
 import WikiElement from "../kernel/models/elements/wikiElement";
-import Linkable from "../kernel/models/linkable";
 
 class SummaryBuilder {
 
@@ -45,11 +44,11 @@ class SummaryBuilder {
         return this.rootBuilder;
     }
 
-    createModel(linkableHM:Map<string,Linkable>):Summary {
+    createModel():Summary {
 
         const elementsList:WikiElement[] = []
         for(const el of this.elements){
-            elementsList.push(el.createModel(linkableHM))
+            elementsList.push(el.createModel())
         }
         return new Summary(elementsList);
     }

@@ -2,8 +2,9 @@ import Linkable from "../linkable";
 
 export default class WikiElement {
     linkTo?:Linkable
+    id:string
 
-    constructor(linkTo?:Linkable){
-        this.linkTo = linkTo;
+    constructor(id:string){
+        this.id = id;
     }
 }

@@ -2,12 +2,10 @@ import TableOfContent from "../kernel/models/tableOfContent";
 import SubjectBuilder from "./SubjectBuilder";
 import WikiElementBuilder from "./wikiElementBuilder";
 import { BUTTON, IMAGE, TABLE, TEXT } from "./Const";
-import Linkable from "../kernel/models/linkable";
 import WikiElement from "../kernel/models/elements/wikiElement";
 
 class TableOfContentsBuilder {
     
-
     private rootBuilder:SubjectBuilder;
     public name:string;
     private elements:WikiElementBuilder[];
@@ -46,11 +44,11 @@ class TableOfContentsBuilder {
         return this.rootBuilder;
     }
 
-    createModel(linkableHM:Map<string,Linkable>):TableOfContent {
+    createModel():TableOfContent {
 
         const elementsList:WikiElement[] = []
         for(const el of this.elements){
-            elementsList.push(el.createModel(linkableHM))
+            elementsList.push(el.createModel())
         }
         return new TableOfContent(elementsList);
     }
