@@ -7,11 +7,11 @@ import WikiElement from "../kernel/models/elements/wikiElement";
 class InfoBoxBuilder {
 
     private rootBuilder:SubjectBuilder;
-    public name:string;
+    public id:string;
     private elements:WikiElementBuilder[]
 
-    constructor(rootBuilder:SubjectBuilder, name:string) {
-        this.name = name;
+    constructor(rootBuilder:SubjectBuilder, id:string) {
+        this.id = id;
         this.rootBuilder = rootBuilder;
         this.elements = []
     }
@@ -49,7 +49,7 @@ class InfoBoxBuilder {
         for(const el of this.elements){
             elementsList.push(el.createModel())
         }
-        return new InfoBox(elementsList);
+        return new InfoBox(this.id,elementsList);
     }
 }
 export default InfoBoxBuilder

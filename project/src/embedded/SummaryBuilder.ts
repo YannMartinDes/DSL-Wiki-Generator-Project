@@ -7,11 +7,11 @@ import WikiElement from "../kernel/models/elements/wikiElement";
 class SummaryBuilder {
 
     private rootBuilder:SubjectBuilder;
-    public name:string;
+    public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:SubjectBuilder, name:string) {
-        this.name = name;
+    constructor(rootBuilder:SubjectBuilder, id:string) {
+        this.id = id;
         this.rootBuilder = rootBuilder;
         this.elements = []
     }

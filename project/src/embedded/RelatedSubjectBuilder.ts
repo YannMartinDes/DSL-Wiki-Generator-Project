@@ -6,11 +6,11 @@ import SubjectBuilder from "./SubjectBuilder";
 class RelatedSubjectBuilder {
 
     private rootBuilder:SubjectBuilder;
-    public name:string;
+    public id:string;
     private sections:SectionBuilder[];
 
-    constructor(rootBuilder:SubjectBuilder, name:string) {
-        this.name = name;
+    constructor(rootBuilder:SubjectBuilder, id:string) {
+        this.id = id;
         this.rootBuilder = rootBuilder;
         this.sections = []
     }
@@ -30,7 +30,7 @@ class RelatedSubjectBuilder {
         for(const el of this.sections){
             sectionsList.push(el.createModel())
         }
-        return new RelatedSubject(sectionsList);
+        return new RelatedSubject(this.id,sectionsList);
     }
 
 }

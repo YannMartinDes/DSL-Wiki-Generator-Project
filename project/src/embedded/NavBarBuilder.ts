@@ -7,12 +7,12 @@ import WikiElementBuilder from "./wikiElementBuilder";
 class NavBarBuilder {
 
     private rootBuilder:WikiBuilder;
-    public name:string;
+    public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:WikiBuilder, name:string) {
+    constructor(rootBuilder:WikiBuilder, id:string) {
         this.rootBuilder = rootBuilder;
-        this.name = name;
+        this.id = id;
         this.elements = []
     }
 
@@ -50,7 +50,7 @@ class NavBarBuilder {
         for(const el of this.elements){
             elementsList.push(el.createModel())
         }
-        return new NavBar(elementsList);
+        return new NavBar(this.id,elementsList);
     }
 }
 

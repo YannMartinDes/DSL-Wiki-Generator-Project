@@ -11,11 +11,11 @@ import WikiElementBuilder from "./wikiElementBuilder";
 class SectionBuilder {
     
     private rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder;
-    public name:string;
+    public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder, name:string) {
-        this.name = name;
+    constructor(rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder, id:string) {
+        this.id = id;
         this.rootBuilder = rootBuilder;
         this.elements = []
     }
@@ -55,7 +55,7 @@ class SectionBuilder {
         }
 
         //add to Singleton HM
-        return new Section(elementsList);
+        return new Section(this.id,elementsList);
     }
 }
 export default SectionBuilder

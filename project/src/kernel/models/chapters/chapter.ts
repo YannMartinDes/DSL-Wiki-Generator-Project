@@ -4,8 +4,8 @@ import Section from "../section";
 export default class Chapter extends Linkable{
     sections:Section[]
 
-    constructor(sections:Section[]) {
-        super();
+    constructor(id:string,sections:Section[]) {
+        super(id);
         this.sections = sections;
     }
 }
