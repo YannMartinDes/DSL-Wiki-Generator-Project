@@ -6,9 +6,9 @@ import { TOCBuilder } from "./TOCBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class SubjectBuilder{
-    title?:TextStyleBuilder<ClassicChapterBuilder>
+    title?:TextStyleBuilder<SubjectBuilder>
     content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder
+    block?:BlockStyleBuilder<SubjectBuilder>
     chapter?:ChapterBuilder
     toc?:TOCBuilder
 
@@ -19,7 +19,7 @@ export class SubjectBuilder{
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder();
+        const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }

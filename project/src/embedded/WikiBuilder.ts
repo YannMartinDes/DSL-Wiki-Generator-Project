@@ -4,12 +4,12 @@ import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class WikiBuilder{
     content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder
+    block?:BlockStyleBuilder<WikiBuilder>
     data?:any
     subject?:SubjectBuilder
 
     editBlock(){
-        const builder = new BlockStyleBuilder();
+        const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }

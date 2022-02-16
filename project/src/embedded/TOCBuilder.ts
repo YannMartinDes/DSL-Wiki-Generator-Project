@@ -4,9 +4,9 @@ import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class TOCBuilder{
-    title?:TextStyleBuilder<ClassicChapterBuilder>
+    title?:TextStyleBuilder<TOCBuilder>
     content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder
+    block?:BlockStyleBuilder<TOCBuilder>
     numerated?:boolean
 
 
@@ -21,7 +21,7 @@ export class TOCBuilder{
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder();
+        const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }

@@ -9,7 +9,7 @@ export class ChapterBuilder {
     subChapter?:ChapterBuilder
     title?:TextStyleBuilder<ChapterBuilder>
     content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder
+    block?:BlockStyleBuilder<ChapterBuilder>
 
     editSubChapter(){
         const builder = new ChapterBuilder();
@@ -24,7 +24,7 @@ export class ChapterBuilder {
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder();
+        const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }

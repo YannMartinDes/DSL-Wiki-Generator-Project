@@ -6,7 +6,7 @@ export class ClassicChapterBuilder{
 
     title?:TextStyleBuilder<ClassicChapterBuilder>
     content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder
+    block?:BlockStyleBuilder<ClassicChapterBuilder>
 
 
     editTitle(){
@@ -16,7 +16,7 @@ export class ClassicChapterBuilder{
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder();
+        const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }
