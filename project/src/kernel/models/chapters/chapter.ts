@@ -1,6 +1,5 @@
 import TextStyle from "../style/textStyle";
 import BlockStyle from "../style/blockStyle";
-import Section from "../section";
 import WikiElementStyle from "../elements/wiki-element-style";
 import Gallery from "./gallery";
 import RelatedSubject from "./relatedSubject";
@@ -20,4 +19,5 @@ export default class Chapter{
     references?:References;
     bibliography?:Bibliography;
     classic?:ClassicChapter;
+
 }
