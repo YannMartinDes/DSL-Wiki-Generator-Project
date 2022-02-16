@@ -4,4 +4,5 @@ import BlockStyle from "./style/blockStyle";
 export default class TableOfContent {
     childStyle?:WikiElementStyle
     blockStyle?:BlockStyle
+    numerated=true;
 }
