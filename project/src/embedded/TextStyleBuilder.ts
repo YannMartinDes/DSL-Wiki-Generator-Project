@@ -1,13 +1,13 @@
 
 export class TextStyleBuilder<parentType> {
 
-    caps:boolean;
-    textAlign:string;
-    bold:boolean;
-    italic:boolean;
-    underline:boolean;
-    fontColor:string;
-    police:string;
+    private caps:boolean;
+    private textAlign:string;
+    private bold:boolean;
+    private italic:boolean;
+    private underline:boolean;
+    private fontColor:string;
+    private police:string;
 
     parentBuilder:parentType;
 
@@ -25,30 +25,37 @@ export class TextStyleBuilder<parentType> {
 
     capitalized(caps:boolean){
         this.caps = caps;
+        return this;
     }
 
     putInBold(bold:boolean){
         this.bold = bold;
+        return this;
     }
 
     italicize(italic:boolean){
         this.italic = italic;
+        return this;
     }
 
     setPolice(police:string){
         this.police = police;
+        return this;
     }
 
     setFontColor(color:string){
         this.fontColor = color;
+        return this;
     }
 
     underlined(underline:boolean){
         this.underline = underline;
+        return this;
     }
 
     setTextAlign(align:string){
         this.textAlign = align;
+        return this;
     }
 
     endTextStyle():parentType{

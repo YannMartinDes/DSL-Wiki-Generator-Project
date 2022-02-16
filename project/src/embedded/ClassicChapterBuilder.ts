@@ -4,9 +4,9 @@ import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class ClassicChapterBuilder{
 
-    title?:TextStyleBuilder<ClassicChapterBuilder>
-    content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder<ClassicChapterBuilder>
+    private title?:TextStyleBuilder<ClassicChapterBuilder>
+    private content?:WikiElementStyleBuilder
+    private block?:BlockStyleBuilder<ClassicChapterBuilder>
 
 
     editTitle(){

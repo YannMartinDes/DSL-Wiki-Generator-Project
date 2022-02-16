@@ -3,12 +3,12 @@ import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class TextBuilder{
 
-    boldText?:TextStyleBuilder<TextBuilder>;
-    italicText?:TextStyleBuilder<TextBuilder>;
-    normalText?:TextStyleBuilder<TextBuilder>;
-    linkText?:TextStyleBuilder<TextBuilder>;
+    private boldText?:TextStyleBuilder<TextBuilder>;
+    private italicText?:TextStyleBuilder<TextBuilder>;
+    private normalText?:TextStyleBuilder<TextBuilder>;
+    private linkText?:TextStyleBuilder<TextBuilder>;
 
-    parentBuilder:WikiElementStyleBuilder;
+    private parentBuilder:WikiElementStyleBuilder;
 
     constructor(parentBuilder:WikiElementStyleBuilder){
         this.parentBuilder = parentBuilder;

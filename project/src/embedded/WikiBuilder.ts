@@ -3,10 +3,10 @@ import { SubjectBuilder } from "./SubjectBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class WikiBuilder{
-    content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder<WikiBuilder>
-    data?:any
-    subject?:SubjectBuilder
+    private content?:WikiElementStyleBuilder
+    private block?:BlockStyleBuilder<WikiBuilder>
+    private data?:any
+    private subject?:SubjectBuilder
 
     editBlock(){
         const builder = new BlockStyleBuilder(this);

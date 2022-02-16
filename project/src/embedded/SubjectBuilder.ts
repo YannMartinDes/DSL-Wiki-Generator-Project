@@ -6,11 +6,11 @@ import { TOCBuilder } from "./TOCBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class SubjectBuilder{
-    title?:TextStyleBuilder<SubjectBuilder>
-    content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder<SubjectBuilder>
-    chapter?:ChapterBuilder
-    toc?:TOCBuilder
+    private title?:TextStyleBuilder<SubjectBuilder>
+    private content?:WikiElementStyleBuilder
+    private block?:BlockStyleBuilder<SubjectBuilder>
+    private chapter?:ChapterBuilder
+    private toc?:TOCBuilder
 
     editTitle(){
         const builder = new TextStyleBuilder(this);

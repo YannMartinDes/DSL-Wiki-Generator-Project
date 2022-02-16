@@ -2,7 +2,7 @@ import { TextBuilder } from "./TextBuilder";
 
 export class WikiElementStyleBuilder{
 
-    text?:TextBuilder
+    private text?:TextBuilder
 
     editText() {
         const builder = new TextBuilder(this);

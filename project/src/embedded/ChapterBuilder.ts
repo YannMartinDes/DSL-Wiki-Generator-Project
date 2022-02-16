@@ -5,11 +5,11 @@ import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder"
 
 export class ChapterBuilder {
 
-    classicChapter?:ClassicChapterBuilder
-    subChapter?:ChapterBuilder
-    title?:TextStyleBuilder<ChapterBuilder>
-    content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder<ChapterBuilder>
+    private classicChapter?:ClassicChapterBuilder
+    private subChapter?:ChapterBuilder
+    private title?:TextStyleBuilder<ChapterBuilder>
+    private content?:WikiElementStyleBuilder
+    private block?:BlockStyleBuilder<ChapterBuilder>
 
     editSubChapter(){
         const builder = new ChapterBuilder();

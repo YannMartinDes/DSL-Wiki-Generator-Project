@@ -4,10 +4,10 @@ import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class TOCBuilder{
-    title?:TextStyleBuilder<TOCBuilder>
-    content?:WikiElementStyleBuilder
-    block?:BlockStyleBuilder<TOCBuilder>
-    numerated?:boolean
+    private title?:TextStyleBuilder<TOCBuilder>
+    private content?:WikiElementStyleBuilder
+    private block?:BlockStyleBuilder<TOCBuilder>
+    private numerated?:boolean
 
 
     editTitle(){
@@ -18,6 +18,7 @@ export class TOCBuilder{
 
     isNumerated(numerated:boolean){
         this.numerated = numerated;
+        return this;
     }
 
     editBlock(){
