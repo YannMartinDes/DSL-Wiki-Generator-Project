@@ -1,14 +1,12 @@
 import TextStyle from "../style/textStyle";
-import WikiElement from "./wikiElement";
 
-export default class Text extends WikiElement{
+export default class Text{
     bold:TextStyle
     italic:TextStyle
     link:TextStyle
     basic:TextStyle
 
-    constructor(id:string, basic:TextStyle, bold:TextStyle, italic:TextStyle, link:TextStyle) {
-        super(id);
+    constructor(basic:TextStyle, bold:TextStyle, italic:TextStyle, link:TextStyle) {
         this.bold = bold;
         this.italic = italic;
         this.link = link;

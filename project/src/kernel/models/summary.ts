@@ -1,11 +1,8 @@
-import WikiElement from "./elements/wikiElement";
+import WikiElementStyle from "./elements/wiki-element-style";
+import BlockStyle from "./style/blockStyle";
 
 export default class Summary {
-    elements:WikiElement[];
-    id:string;
-
-    constructor(id:string,elements:WikiElement[]){
-        this.elements = elements;
-        this.id = id;
-    }
+    
+    childStyle?:WikiElementStyle
+    blockStyle?:BlockStyle
 }

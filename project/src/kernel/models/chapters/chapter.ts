@@ -1,16 +1,21 @@
 import TextStyle from "../style/textStyle";
 import BlockStyle from "../style/blockStyle";
-import Linkable from "../linkable";
 import Section from "../section";
+import WikiElementStyle from "../elements/wiki-element-style";
+import Gallery from "./gallery";
+import RelatedSubject from "./relatedSubject";
+import References from "./references";
+import Bibliography from "./bibliography";
 
-export default class Chapter extends Linkable{
-    sections:Section[]
+export default class Chapter{
+    subChapter?:Chapter
+
+    childStyle?:WikiElementStyle
     blockStyle?:BlockStyle
-    title?:string
     titleStyle?:TextStyle
 
-    constructor(id:string,sections:Section[]) {
-        super(id);
-        this.sections = sections;
-    }
+    gallery?:Gallery
+    relatedSubject?:RelatedSubject
+    references?:References
+    bibliography?:Bibliography
 }

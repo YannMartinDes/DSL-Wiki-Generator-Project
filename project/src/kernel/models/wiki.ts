@@ -1,14 +1,20 @@
+import WikiElementStyle from "./elements/wiki-element-style";
 import NavBar from "./navBar";
 import Subject from "./subject";
 
 export default class Wiki {
     name:string
-    subjects:Subject[]
-    navBars:NavBar[]
+    childStyle?:WikiElementStyle
 
-    constructor(name:string,subjects:Subject[],navBars:NavBar[]){
+    subject?:Subject
+    navBar?:NavBar
+
+    content:any
+
+
+    constructor(name:string,subject:Subject){
         this.name = name;
-        this.subjects = subjects;
-        this.navBars = navBars
+        this.subject=subject;
+
     }
 }
