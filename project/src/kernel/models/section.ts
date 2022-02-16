@@ -6,7 +6,8 @@ import Linkable from "./linkable";
 export default class Section extends Linkable{
     elements:WikiElement[];
     blockStyle?:BlockStyle
-    title?:TextStyle
+    title?:string
+    titleStyle?:TextStyle
 
     constructor(id:string,elements:WikiElement[]){
         super(id);

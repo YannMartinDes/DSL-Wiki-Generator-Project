@@ -6,7 +6,8 @@ import Section from "../section";
 export default class Chapter extends Linkable{
     sections:Section[]
     blockStyle?:BlockStyle
-    title?:TextStyle
+    title?:string
+    titleStyle?:TextStyle
 
     constructor(id:string,sections:Section[]) {
         super(id);
