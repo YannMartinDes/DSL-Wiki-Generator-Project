@@ -6,16 +6,18 @@ import Gallery from "./gallery";
 import RelatedSubject from "./relatedSubject";
 import References from "./references";
 import Bibliography from "./bibliography";
+import ClassicChapter from "./classic-chapter";
 
 export default class Chapter{
-    subChapter?:Chapter
+    subChapter?:Chapter;
 
-    childStyle?:WikiElementStyle
-    blockStyle?:BlockStyle
-    titleStyle?:TextStyle
+    childStyle?:WikiElementStyle;
+    blockStyle?:BlockStyle;
+    titleStyle?:TextStyle;
 
-    gallery?:Gallery
-    relatedSubject?:RelatedSubject
-    references?:References
-    bibliography?:Bibliography
+    gallery?:Gallery;
+    relatedSubject?:RelatedSubject;
+    references?:References;
+    bibliography?:Bibliography;
+    classic?:ClassicChapter;
 }
