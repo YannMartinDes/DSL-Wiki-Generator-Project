@@ -1,4 +1,4 @@
-import { ChapterContent, ChapterTypeContent, ClassicChapterContent, SubjectContent, WikiContent, WikiElementTypeContent } from "../kernel/models/content"
+import { ChapterTypeContent, ClassicChapterContent, SubjectContent, WikiContent, WikiElementTypeContent } from "../kernel/models/content"
 
 const chapter1:ClassicChapterContent = {
     type:ChapterTypeContent.CLASSIC,
@@ -31,7 +31,7 @@ const chapter4:ClassicChapterContent = {
         type:WikiElementTypeContent.TEXT,
         text:
         "(en) Référence <a href=\"\"><span class=\"italic\">NCBI</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span></a> [<a href=\"\">archive</a>] (<a href=\"\">taxons inclus</a> [<a href=\"\">archive</a>]) (consulté le 19 décembre 2012)</br>"
-        +"(en) Référence <a href=\"\"><span class=\"italic\">Reptarium Reptile Database</span></a> [<a href=\"\">archive</span>] : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota, 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
+        +"(en) Référence <a href=\"\"><span class=\"italic\">Reptarium Reptile Database</span></a> [<a href=\"\">archive</span>] : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota, 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)</br>"
         +"(en) Référence <a href=\"\"><span class=\"italic\">uBio</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
 
     }
