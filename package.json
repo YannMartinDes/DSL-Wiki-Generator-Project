@@ -1,0 +1,7 @@
+{
+    "name": "wiki",
+    "workspaces": [
+      "project",
+      "wiki-react"
+    ]
+  }
