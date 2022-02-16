@@ -1,4 +1,4 @@
-import Subject from "../kernel/models/subject";
+import Subject from "../../kernel/models/subject";
 import BibliographyBuilder from "./BibliographyBuilder";
 import ChapterBuilder from "./ChapterBuilder";
 import GalleryBuilder from "./GalleryBuilder";
