@@ -1,4 +1,4 @@
-import TextStyle from "../../textStyle";
+import TextStyle from "../style/textStyle";
 import WikiElement from "./wikiElement";
 
 export default class Text extends WikiElement{

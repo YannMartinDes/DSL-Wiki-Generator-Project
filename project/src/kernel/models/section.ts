@@ -1,5 +1,5 @@
-import TextStyle from "../textStyle";
-import BlockStyle from "./blockStyle";
+import TextStyle from "./style/textStyle";
+import BlockStyle from "./style/blockStyle";
 import WikiElement from "./elements/wikiElement";
 import Linkable from "./linkable";
 

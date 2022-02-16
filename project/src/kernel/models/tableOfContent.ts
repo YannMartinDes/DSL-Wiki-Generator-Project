@@ -1,4 +1,4 @@
-import TextStyle from "../textStyle";
+import TextStyle from "./style/textStyle";
 import WikiElement from "./elements/wikiElement";
 
 export default class TableOfContent {
