@@ -1,15 +1,12 @@
-import React from 'react'
-import { exemplePageTropidophorus } from '../exemple';
+import {default as ToC} from "project/src/kernel/models/tableOfContent"
+import {TOCContent} from "project/src/kernel/models/content"
 
-export default function TableOfContent() {
-    //const CustomList = toc.numbered?"ol":"ul";
 
-    const test = exemplePageTropidophorus;
-    console.log(test.subjects)
-
+export default function TableOfContent({toc,contenu}:{toc:ToC,contenu:TOCContent}) {
+    
+    const CustomList = toc.numerated?"ol":"ul";
     return (
-       <div>test</div>
-        // <CustomList>{toc.elements.map((elt)=>(<li><a href={""}>{elt.id}</a></li>))}</CustomList>
+        <CustomList>{contenu.value.map((elt)=>(<li><a href={elt.url}>{elt.content}</a></li>))}</CustomList>
     )
 }
 
