@@ -3,6 +3,6 @@ import BlockStyle from "./style/blockStyle";
 
 export default class Summary {
     
-    childStyle?:WikiElementStyle
+    contentStyle?:WikiElementStyle
     blockStyle?:BlockStyle
 }

@@ -4,7 +4,7 @@ import Subject from "./subject";
 
 export default class Wiki {
     name:string
-    childStyle?:WikiElementStyle
+    contentStyle?:WikiElementStyle
 
     subject?:Subject
     navBar?:NavBar

@@ -11,7 +11,7 @@ import ClassicChapter from "./classic-chapter";
 export default class Chapter{
     subChapter?:Chapter;
 
-    childStyle?:WikiElementStyle;
+    contentStyle?:WikiElementStyle;
     blockStyle?:BlockStyle;
     titleStyle?:TextStyle;
 

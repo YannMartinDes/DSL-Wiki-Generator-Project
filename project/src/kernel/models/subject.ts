@@ -16,7 +16,7 @@ export default class Subject{
     infoBox?:InfoBox
     chapter?:Chapter
 
-    childStyle?:WikiElementStyle
+    contentStyle?:WikiElementStyle
     blockStyle?:BlockStyle
     
 }
