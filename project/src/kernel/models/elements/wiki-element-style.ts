@@ -1,6 +1,6 @@
-import Button from "./button";
-import Image from "./image";
-import Table from "./table";
+import Button from "./button-style";
+import Image from "./image-style";
+import Table from "./table-style";
 import Text from "./text";
 
 export default class WikiElementStyle {
