@@ -6,13 +6,13 @@ import WikiElement from "../kernel/models/elements/wikiElement";
 
 class SummaryBuilder {
 
-    private rootBuilder:SubjectBuilder;
+    private parentBuilder:SubjectBuilder;
     public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:SubjectBuilder, id:string) {
+    constructor(parentBuilder:SubjectBuilder, id:string) {
         this.id = id;
-        this.rootBuilder = rootBuilder;
+        this.parentBuilder = parentBuilder;
         this.elements = []
     }
 
@@ -40,8 +40,8 @@ class SummaryBuilder {
         return builder;
     }
 
-    root(){
-        return this.rootBuilder;
+    parent(){
+        return this.parentBuilder;
     }
 
     createModel():Summary {

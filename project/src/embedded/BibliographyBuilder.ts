@@ -5,13 +5,13 @@ import SubjectBuilder from "./SubjectBuilder";
 
 class BibliographyBuilder {
 
-    private rootBuilder:SubjectBuilder;
+    private parentBuilder:SubjectBuilder;
     public id:string;
     private sections:SectionBuilder[];
 
-    constructor(rootBuilder:SubjectBuilder, id:string) {
+    constructor(parentBuilder:SubjectBuilder, id:string) {
         this.id = id;
-        this.rootBuilder = rootBuilder;
+        this.parentBuilder = parentBuilder;
         this.sections = []
     }
 
@@ -21,8 +21,8 @@ class BibliographyBuilder {
         return builder;
     }
 
-    root(){
-        return this.rootBuilder;
+    parent(){
+        return this.parentBuilder;
     }
     
     createModel():Bibliography {

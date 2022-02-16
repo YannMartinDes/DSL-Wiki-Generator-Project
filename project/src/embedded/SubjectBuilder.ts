@@ -11,7 +11,7 @@ import WikiBuilder from "./WikiBuilder";
 
 class SubjectBuilder {
 
-    private rootBuilder:WikiBuilder;
+    private parentBuilder:WikiBuilder;
     public id:string;
     private summaries:SummaryBuilder[];
     private tableOfContents:TableOfContentsBuilder[];
@@ -23,9 +23,9 @@ class SubjectBuilder {
     private bibliographies:BibliographyBuilder[];
 
 
-    constructor(rootBuilder:WikiBuilder, id:string) {
+    constructor(parentBuilder:WikiBuilder, id:string) {
         this.id = id;
-        this.rootBuilder = rootBuilder;
+        this.parentBuilder = parentBuilder;
         this.chapters = []
 
         //Remove List if limited to one per subject...
@@ -86,8 +86,8 @@ class SubjectBuilder {
         return builder;
     }
     
-    root(){
-        return this.rootBuilder;
+    parent(){
+        return this.parentBuilder;
     }
 
     createModel():Subject {

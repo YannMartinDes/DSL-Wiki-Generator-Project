@@ -10,13 +10,13 @@ import WikiElementBuilder from "./wikiElementBuilder";
 
 class SectionBuilder {
     
-    private rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder;
+    private parentBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder;
     public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder, id:string) {
+    constructor(parentBuilder:ChapterBuilder|GalleryBuilder|RelatedSubjectBuilder|ReferenceBuilder|BibliographyBuilder, id:string) {
         this.id = id;
-        this.rootBuilder = rootBuilder;
+        this.parentBuilder = parentBuilder;
         this.elements = []
     }
     
@@ -44,8 +44,8 @@ class SectionBuilder {
         return builder;
     }
 
-    root(){
-        return this.rootBuilder;
+    parent(){
+        return this.parentBuilder;
     }
     
     createModel():Section {

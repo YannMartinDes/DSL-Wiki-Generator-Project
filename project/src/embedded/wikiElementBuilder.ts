@@ -10,26 +10,26 @@ import SummaryBuilder from "./SummaryBuilder";
 import TableOfContentsBuilder from "./TableOfContentsBuilder";
 class WikiElementBuilder {
     
-    private rootBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder;
+    private parentBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder;
     public id:string;
     private linkable?:string;
     private kind:string;
 
-    constructor(rootBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder, 
+    constructor(parentBuilder:NavBarBuilder|SummaryBuilder|TableOfContentsBuilder|InfoBoxBuilder|SectionBuilder, 
         id:string, 
         kind:string) {
         this.id = id;
-        this.rootBuilder = rootBuilder;
+        this.parentBuilder = parentBuilder;
         this.kind = kind;
     }
 
-    root(){//To replace
-        return this.rootBuilder;
+    parent(){//To replace
+        return this.parentBuilder;
     }
 
     linkTo(linkable:string){
         this.linkable = linkable;
-        return this.rootBuilder;
+        return this.parentBuilder;
     }
     
     createModel():(Text|Image|Table|Button) {

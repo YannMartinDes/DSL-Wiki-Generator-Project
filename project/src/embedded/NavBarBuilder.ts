@@ -6,12 +6,12 @@ import WikiElementBuilder from "./wikiElementBuilder";
 
 class NavBarBuilder {
 
-    private rootBuilder:WikiBuilder;
+    private parentBuilder:WikiBuilder;
     public id:string;
     private elements:WikiElementBuilder[];
 
-    constructor(rootBuilder:WikiBuilder, id:string) {
-        this.rootBuilder = rootBuilder;
+    constructor(parentBuilder:WikiBuilder, id:string) {
+        this.parentBuilder = parentBuilder;
         this.id = id;
         this.elements = []
     }
@@ -40,8 +40,8 @@ class NavBarBuilder {
         return builder;
     }
 
-    root(){
-        return this.rootBuilder;
+    parent(){
+        return this.parentBuilder;
     }
 
     createModel():NavBar {
