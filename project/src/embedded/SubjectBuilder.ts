@@ -1,6 +1,7 @@
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { ChapterBuilder } from "./ChapterBuilder";
 import { ClassicChapterBuilder } from "./ClassicChapterBuilder";
+import { SummaryBuilder } from "./SummaryBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { TOCBuilder } from "./TOCBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
@@ -9,6 +10,7 @@ export class SubjectBuilder{
     private title?:TextStyleBuilder<SubjectBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<SubjectBuilder>
+    private summary?:SummaryBuilder
     private chapter?:ChapterBuilder
     private toc?:TOCBuilder
 
@@ -39,6 +41,12 @@ export class SubjectBuilder{
     editTableOfContent(){
         const builder = new TOCBuilder();
         this.toc = builder;
+        return builder;
+    }
+
+    editSummary(){
+        const builder = new SummaryBuilder();
+        this.summary = builder;
         return builder;
     }
 

@@ -22,6 +22,11 @@ wikiBuilder
 wikiBuilder.editSubject()
     .editTitle().italicize(true).endTextStyle();//Can continue 
 
+
+wikiBuilder.editSubject().editSummary()
+    .editBlock().setAlignment("center").endBlockEdit()
+    .editContent().editText().italicTextStyle().italicize(true).endTextStyle().endTextEdit()//Can't go further
+
 wikiBuilder.editSubject().editTableOfContent()
     .isNumerated(true)
     .editTitle()
