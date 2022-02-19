@@ -1,23 +1,23 @@
-import TextStyle from "../style/textStyle";
-import BlockStyle from "../style/blockStyle";
-import WikiElementStyle from "../elements/wiki-element-style";
-import Gallery from "./gallery";
-import RelatedSubject from "./relatedSubject";
-import References from "./references";
-import Bibliography from "./bibliography";
-import ClassicChapter from "./classic-chapter";
+import WikiTextStyle from "../style/textStyle";
+import WikiBlockStyle from "../style/blockStyle";
+import WikiWikiElementStyle from "../elements/wiki-element-style";
+import WikiGallery from "./gallery";
+import WikiRelatedSubject from "./relatedSubject";
+import WikiReferences from "./references";
+import WikiBibliography from "./bibliography";
+import WikiClassicChapter from "./classic-chapter";
 
-export default class Chapter{
-    subChapter?:Chapter;
+export default class WikiChapter{
+    subChapter?:WikiChapter;
 
-    contentStyle?:WikiElementStyle;
-    blockStyle?:BlockStyle;
-    titleStyle?:TextStyle;
+    contentStyle?:WikiWikiElementStyle;
+    blockStyle?:WikiBlockStyle;
+    titleStyle?:WikiTextStyle;
 
-    gallery?:Gallery;
-    relatedSubject?:RelatedSubject;
-    references?:References;
-    bibliography?:Bibliography;
-    classic?:ClassicChapter;
+    gallery?:WikiGallery;
+    relatedSubject?:WikiRelatedSubject;
+    references?:WikiReferences;
+    bibliography?:WikiBibliography;
+    classic?:WikiClassicChapter;
 
 }

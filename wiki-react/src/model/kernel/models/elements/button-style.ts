@@ -1,3 +1,3 @@
-export default class Button{
+export default class WikiButton{
     
 }

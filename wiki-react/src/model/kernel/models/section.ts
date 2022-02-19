@@ -1,14 +1,14 @@
-import TextStyle from "./style/textStyle";
-import BlockStyle from "./style/blockStyle";
+import WikiTextStyle from "./style/textStyle";
+import WikiBlockStyle from "./style/blockStyle";
 import WikiElementStyle from "./elements/wiki-element-style";
 
-export default class Section{
+export default class WikiSection{
 
     contentStyle?:WikiElementStyle
 
-    blockStyle?:BlockStyle
+    blockStyle?:WikiBlockStyle
     title?:string
-    titleStyle?:TextStyle
+    titleStyle?:WikiTextStyle
 
     
 }

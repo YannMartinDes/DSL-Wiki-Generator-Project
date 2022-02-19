@@ -6,7 +6,7 @@ export default function TableOfContentComponent({toc,content}:{toc:WikiTableOfCo
     
     const CustomList = toc.numerated?"ol":"ul";
     return (
-        <CustomList>{content.toc.map((elt)=>(<li><a href={elt.url}>{elt.content}</a></li>))}</CustomList>
+        <CustomList>{content.toc.map((elt)=>(<li className="text"><a href={elt.url}>{elt.content}</a></li>))}</CustomList>
     )
 }
 

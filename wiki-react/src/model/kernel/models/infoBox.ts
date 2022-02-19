@@ -1,6 +1,6 @@
 import WikiElementStyle from "./elements/wiki-element-style";
-import BlockStyle from "./style/blockStyle";
-export default class InfoBox {
+import WikiBlockStyle from "./style/blockStyle";
+export default class WikiInfoBox {
     contentStyle?:WikiElementStyle
-    blockStyle?:BlockStyle
+    blockStyle?:WikiBlockStyle
 }

@@ -7,7 +7,7 @@ import Wiki from "./model/kernel/models/wiki";
 
 const test = new Wiki()
 test.contentStyle = new WikiElementStyle();
-test.contentStyle.text = new WikiText({basic:new WikiTextStyle({caps:"uppercase",font_color:"red"})})
+test.contentStyle.text = new WikiText({basic:new WikiTextStyle({caps:"uppercase",font_color:"black"})})
 const cssGenerator = new WikiCssGenerator();
 cssGenerator.generateCssFile(test)
 

@@ -1,4 +1,5 @@
 import './App.css';
+import "./generate.css"
 import WikiComponent from './components/wiki-component';
 import { exemplePageTropidophorus } from './model/exemple/exemple';
 import WikiText from './model/kernel/models/elements/text';

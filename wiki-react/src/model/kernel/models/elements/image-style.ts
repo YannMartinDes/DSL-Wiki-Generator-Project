@@ -1,3 +1,3 @@
-export default class imageStyle{
+export default class WikiimageStyle{
     
 }

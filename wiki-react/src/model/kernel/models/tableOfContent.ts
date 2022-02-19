@@ -1,8 +1,8 @@
 import WikiElementStyle from "./elements/wiki-element-style";
-import BlockStyle from "./style/blockStyle";
+import WikiBlockStyle from "./style/blockStyle";
 
-export default class TableOfContent {
+export default class WikiTableOfContent {
     contentStyle?:WikiElementStyle
-    blockStyle?:BlockStyle
+    blockStyle?:WikiBlockStyle
     numerated=true;
 }

@@ -1,4 +1,4 @@
 
-export default class TableStyle{
+export default class WikiTableStyle{
     
 }

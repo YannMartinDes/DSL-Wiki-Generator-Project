@@ -1,7 +1,7 @@
 import WikiElementStyle from "../elements/wiki-element-style";
-import BlockStyle from "../style/blockStyle";
+import WikiBlockStyle from "../style/blockStyle";
 
-export default class ClassicChapter{
+export default class WikiClassicChapter{
     contentStyle?:WikiElementStyle
-    blockStyle?:BlockStyle
+    blockStyle?:WikiBlockStyle
 }

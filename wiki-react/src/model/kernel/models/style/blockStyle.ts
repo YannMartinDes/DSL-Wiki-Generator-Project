@@ -1,4 +1,4 @@
-export default class BlockStyle {
+export default class WikiBlockStyle {
     margin:string
     padding:string
     border:string

@@ -1,5 +1,5 @@
 
-import Chapter from "./chapter";
+import WikiChapter from "./chapter";
 
-export default class RelatedSubject extends Chapter{
+export default class WikiRelatedSubject extends WikiChapter{
 }

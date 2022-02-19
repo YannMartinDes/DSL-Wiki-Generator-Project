@@ -7,7 +7,7 @@ import { SubjectContent } from '../model/kernel/models/content'
 
 export default function SubjectComponent({subject, content}:{subject:WikiSubject, content:SubjectContent}) {
   return (
-    <div>
+    <div className='subject'>
       <h1>{content.subject}</h1>
       {content.summary?<Summary summary={{}} content={content.summary}/>:undefined}
       {content.tableOfContent?<TableOfContent toc={{numerated:true}} content={content.tableOfContent} />:undefined }

@@ -39,6 +39,9 @@ export class WikiCssGenerator{
         if(subject.blockStyle){
 
         }
+        if(subject.chapter){
+            
+        }
 
 
         this.prefix.pop()
