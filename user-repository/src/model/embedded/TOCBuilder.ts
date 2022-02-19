@@ -1,6 +1,5 @@
 import WikiTableOfContent from "../kernel/models/wiki-table-of-content";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
-import { ClassicChapterBuilder } from "./ClassicChapterBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
@@ -12,8 +11,12 @@ export class TOCBuilder{
 
 
     editTitle(){
-        const builder = new TextStyleBuilder(this);
-        this.title = builder;
+        let builder = this.title;
+
+        if(!builder){
+            builder = new TextStyleBuilder(this);
+            this.title = builder;
+        }
         return builder;
     }
 
@@ -23,14 +26,22 @@ export class TOCBuilder{
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder(this);
-        this.block = builder;
+        let builder = this.block;
+
+        if(!builder){
+            builder = new BlockStyleBuilder(this);
+            this.block = builder;
+        }
         return builder;
     }
 
     editContent(){
-        const builder = new WikiElementStyleBuilder();
-        this.content = builder;
+        let builder = this.content;
+
+        if(!builder){
+            builder = new WikiElementStyleBuilder();
+            this.content = builder;
+        }
         return builder;
     }
 

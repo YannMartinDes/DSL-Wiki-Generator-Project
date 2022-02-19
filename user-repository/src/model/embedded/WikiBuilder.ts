@@ -10,8 +10,12 @@ export class WikiBuilder{
     private subject?:SubjectBuilder
 
     editBlock(){
-        const builder = new BlockStyleBuilder(this);
-        this.block = builder;
+        let builder = this.block;
+
+        if(!builder){
+            builder = new BlockStyleBuilder(this);
+            this.block = builder;
+        }
         return builder;
     }
 

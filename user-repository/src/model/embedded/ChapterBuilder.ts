@@ -13,32 +13,52 @@ export class ChapterBuilder {
     private block?:BlockStyleBuilder<ChapterBuilder>
 
     editSubChapter(){
-        const builder = new ChapterBuilder();
-        this.subChapter = builder;
+        let builder = this.subChapter;
+
+        if(!builder){
+            builder = new ChapterBuilder();
+            this.subChapter = builder;
+        }
         return builder;
     }
 
     editTitle(){
-        const builder = new TextStyleBuilder(this);
-        this.title = builder;
+        let builder = this.title;
+
+        if(!builder){
+            builder = new TextStyleBuilder(this);
+            this.title = builder;
+        }
         return builder;
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder(this);
-        this.block = builder;
+        let builder = this.block;
+
+        if(!builder){
+            builder = new BlockStyleBuilder(this);
+            this.block = builder;
+        }
         return builder;
     }
 
     editContent(){
-        const builder = new WikiElementStyleBuilder();
-        this.content = builder;
+        let builder = this.content;
+
+        if(!builder){
+            builder = new WikiElementStyleBuilder();
+            this.content = builder;
+        }
         return builder;
     }
 
     editClassicChapter(){
-        const builder = new ClassicChapterBuilder();
-        this.classicChapter = builder;
+        let builder = this.classicChapter;
+
+        if(!builder){
+            builder = new ClassicChapterBuilder();
+            this.classicChapter = builder;
+        }
         return builder;
     }
 

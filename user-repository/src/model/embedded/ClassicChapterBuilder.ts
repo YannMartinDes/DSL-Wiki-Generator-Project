@@ -11,20 +11,32 @@ export class ClassicChapterBuilder{
 
 
     editTitle(){
-        const builder = new TextStyleBuilder(this);
-        this.title = builder;
+        let builder = this.title;
+
+        if(!builder){
+            builder = new TextStyleBuilder(this);
+            this.title = builder;
+        }
         return builder;
     }
 
     editBlock(){
-        const builder = new BlockStyleBuilder(this);
-        this.block = builder;
+        let builder = this.block;
+
+        if(!builder){
+            builder = new BlockStyleBuilder(this);
+            this.block = builder;
+        }
         return builder;
     }
 
     editContent(){
-        const builder = new WikiElementStyleBuilder();
-        this.content = builder;
+        let builder = this.content;
+
+        if(!builder){
+            builder = new WikiElementStyleBuilder();
+            this.content = builder;
+        }
         return builder;
     }
 
