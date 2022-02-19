@@ -1,84 +1,79 @@
-export interface WikiContent{
-    subjects:SubjectContent[]
-    navBar?:NavBarContent
+export class WikiContent{
+
+    constructor(
+        public subjects:SubjectContent[]=[],
+        public navBar?:NavBarContent
+    ){
+
+    }
 }
 
-export interface SubjectContent{
-    subject?:string
-    summary?:SummaryContent
-    tableOfContent?:TOCContent
-    infoBox?:InfoBox
-    chapters?:ChapterContent[]
+export class SubjectContent{
+    constructor(
+        public subject?:string,
+        public summary?:SummaryContent,
+        public tableOfContent?:TOCContent,
+        public infoBox?:InfoBox,
+        public chapters?:ChapterContent[],
+    ){
+
+    }
+
+
+}
+
+export class NavBarContent{}
+
+export class SummaryContent{
+    constructor(    
+        public value:TextContent
+    ){}
+}
+
+export class InfoBox{
+}
+
+export class TOCContent{
+    constructor(
+        public toc:{content:string,url:string}[]
+    ){}
+    
+}
+
+export class ChapterContent{
+    constructor(
+        public title:string,
+        public chapterElementContent:ChapterElementContent[],
+    ){
+
+    }
 
 }
 
-export interface NavBarContent{}
+export type ChapterElementContent = WikiElementContent|ChapterContent
 
-export interface SummaryContent{
-    value:TextContent
-}
-
-export interface InfoBox{
+export abstract class WikiElementContent{
 }
 
-export interface TOCContent{
-    value:{content:string,url:string}[]
-}
+export class TextContent extends WikiElementContent{
+    constructor(
+        public formatedText:string
+    ){
+        super()
+    }
 
-export interface ChapterContent{
-    type:ChapterTypeContent,
-    subChapters?:ChapterContent[],
-    title:string
+    
 }
-export interface GalleryChapterContent extends ChapterContent{
-    type:ChapterTypeContent.GALLERY
-}
-export interface RelatedSubjectChapterContent extends ChapterContent{
-    type:ChapterTypeContent.RELATED_SUBJECT
-}
-export interface ReferenceChapterContent extends ChapterContent{
-    type:ChapterTypeContent.REFERENCE
-}
-export interface BibliographyChapterContent extends ChapterContent{
-    type:ChapterTypeContent.BIBLIOGRAPHY
-}
-export interface ClassicChapterContent extends ChapterContent{
-    type:ChapterTypeContent.CLASSIC
-    value:TextContent
-}
-
-export interface WikiElementContent{
-    type:WikiElementTypeContent
-}
-
-export interface TextContent extends WikiElementContent{
-    type:WikiElementTypeContent.TEXT
-    text:string
-}
-export interface ImageContent extends WikiElementContent{
-    type:WikiElementTypeContent.IMAGE
-    text:string
+export class ImageContent extends WikiElementContent{
+    constructor(
+        public url:string,
+        public description:string,
+    ){
+        super()
+    }
 
 }
-export interface ButtonContent extends WikiElementContent{
-    type:WikiElementTypeContent.BUTTON
+export class ButtonContent extends WikiElementContent{
 }
-export interface TableContent extends WikiElementContent{
-    type:WikiElementTypeContent.TABLE
-}
-
-export const enum ChapterTypeContent{
-    CLASSIC="CLASSIC",
-    GALLERY="GALLERY",
-    RELATED_SUBJECT="RELATED_SUBJECT",
-    REFERENCE="REFERENCE",
-    BIBLIOGRAPHY="BIBLIOGRAPHY"
-}
-
-
-export const enum WikiElementTypeContent{
-    TEXT="TEXT",
-    IMAGE="IMAGE",
-    BUTTON="BUTTON",
-    TABLE="TABLE",
+export class TableContent extends WikiElementContent{
 }
