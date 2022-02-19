@@ -1,8 +1,8 @@
-import Chapter from '../model/kernel/models/chapters/chapter'
+import WikiChapter from '../model/kernel/models/chapters/chapter'
 import { ChapterContent, TextContent} from '../model/kernel/models/content'
 import TextComponent from './text-component'
 
-export default function ChapterComponent({chapterStyle,content}:{chapterStyle?:Chapter,content:ChapterContent}) {
+export default function ChapterComponent({chapterStyle,content}:{chapterStyle?:WikiChapter,content:ChapterContent}) {
   return (
     <div className='chapter-style'>
         <h2>{content.title}</h2>

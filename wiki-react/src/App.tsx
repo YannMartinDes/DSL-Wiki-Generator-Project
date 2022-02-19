@@ -1,9 +1,9 @@
 import './App.css';
 import WikiComponent from './components/wiki-component';
 import { exemplePageTropidophorus } from './model/exemple/exemple';
-import Text from './model/kernel/models/elements/text';
+import WikiText from './model/kernel/models/elements/text';
 import WikiElementStyle from './model/kernel/models/elements/wiki-element-style';
-import TextStyle from './model/kernel/models/style/textStyle';
+import WikiTextStyle from './model/kernel/models/style/textStyle';
 import Wiki from './model/kernel/models/wiki';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   // const wikiTest:WikiContent = {subjects:[subjectTest,subjectTest]}
   const wiki = new Wiki()
   wiki.contentStyle = new WikiElementStyle()
-  wiki.contentStyle.text=new Text({basic:new TextStyle({font_color:"red"})})
+  wiki.contentStyle.text=new WikiText({basic:new WikiTextStyle({font_color:"red"})})
   wiki.content=exemplePageTropidophorus
   return (
     <div className="App">
