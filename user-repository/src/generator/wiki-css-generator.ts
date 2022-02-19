@@ -1,11 +1,11 @@
 
-import WikiTextStyle from "../model/kernel/models/style/textStyle";
+import WikiTextStyle from "../model/kernel/models/style/wiki-text-style";
 import Wiki from "../model/kernel/models/wiki";
-import WikiSubject from "../model/kernel/models/subject"
+import WikiSubject from "../model/kernel/models/wiki-subject"
 import createFile from "./utlis/file-utils";
-import WikiElementStyle from "../model/kernel/models/elements/wiki-element-style";
-import WikiText from "../model/kernel/models/elements/text";
-import WikiBlockStyle from "../model/kernel/models/style/blockStyle";
+import WikiElementStyle from "../model/kernel/models/elements/wiki-element";
+import WikiText from "../model/kernel/models/elements/wiki-text";
+import WikiBlockStyle from "../model/kernel/models/style/wiki-block-style";
 
 export class WikiCssGenerator{
     generate:string[]=[]

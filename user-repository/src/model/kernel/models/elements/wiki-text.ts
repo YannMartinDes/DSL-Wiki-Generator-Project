@@ -1,4 +1,4 @@
-import WikiTextStyle from "../style/textStyle";
+import WikiTextStyle from "../style/wiki-text-style";
 
 export default class WikiText{
     bold?:WikiTextStyle
