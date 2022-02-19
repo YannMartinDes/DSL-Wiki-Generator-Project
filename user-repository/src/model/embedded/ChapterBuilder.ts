@@ -1,3 +1,4 @@
+import WikiChapter from "../kernel/models/chapters/wiki-chapter"
 import { BlockStyleBuilder } from "./BlockStyleBuilder"
 import { ClassicChapterBuilder } from "./ClassicChapterBuilder"
 import { TextStyleBuilder } from "./TextStyleBuilder"
@@ -41,8 +42,20 @@ export class ChapterBuilder {
         return builder;
     }
 
-    createModel(){
-        //TODO
+    createModel():WikiChapter{
+        const classicChapter = this.classicChapter?.createModel();
+        const subChapter = this.subChapter?.createModel();
+        const title = this.title?.createModel();
+        const content = this.content?.createModel();
+        const block = this.block?.createModel();
+
+        return new WikiChapter({
+            subChapter:subChapter,
+            title:title, 
+            classicChapter:classicChapter, 
+            content:content, 
+            block:block
+        })
     }
 
 }

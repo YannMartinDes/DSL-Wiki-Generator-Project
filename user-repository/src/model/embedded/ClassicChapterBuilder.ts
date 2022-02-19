@@ -1,3 +1,4 @@
+import WikiClassicChapter from "../kernel/models/chapters/wiki-classic-chapter";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
@@ -28,6 +29,10 @@ export class ClassicChapterBuilder{
     }
 
     createModel(){
-        //TODO
+        const title = this.title?.createModel();
+        const content = this.content?.createModel();
+        const block = this.block?.createModel();
+
+        return new WikiClassicChapter({title:title,content:content,block:block});
     }
 }

@@ -1,3 +1,4 @@
+import WikiSubject from "../kernel/models/wiki-subject";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { ChapterBuilder } from "./ChapterBuilder";
 import { ClassicChapterBuilder } from "./ClassicChapterBuilder";
@@ -51,6 +52,20 @@ export class SubjectBuilder{
     }
 
     createModel(){
-        //TODO
+        const title = this.title?.createModel();
+        const content = this.content?.createModel();
+        const block = this.block?.createModel();
+        const chapter = this.chapter?.createModel();
+        const summary = this.summary?.createModel();
+        const toc = this.toc?.createModel();
+
+        return new WikiSubject({
+            title:title, 
+            content:content, 
+            block:block, 
+            chapter:chapter, 
+            summary:summary, 
+            tableOfContent:toc
+        });
     }
 }

@@ -5,4 +5,9 @@ export default class WikiSummary {
     
     contentStyle?:WikiElementStyle
     blockStyle?:WikiBlockStyle
+
+    constructor({content, block}:{content?:WikiElementStyle, block?:WikiBlockStyle}){
+        this.contentStyle = content;
+        this.blockStyle = block;
+    }
 }

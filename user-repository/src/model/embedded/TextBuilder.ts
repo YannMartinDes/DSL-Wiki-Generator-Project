@@ -1,3 +1,4 @@
+import WikiText from "../kernel/models/elements/wiki-text";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
@@ -44,7 +45,17 @@ export class TextBuilder{
     }
 
     createModel(){
-        //TODO
+        const normalText = this.normalText?.createModel();
+        const italicText = this.italicText?.createModel();
+        const boldText = this.boldText?.createModel();
+        const linkText = this.linkText?.createModel();
+
+        return new WikiText({
+            basic:normalText,
+            bold:boldText,
+            italic:italicText,
+            link:linkText
+        })
     }
 
 }

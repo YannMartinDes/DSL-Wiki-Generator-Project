@@ -6,6 +6,15 @@ import WikiText from "./wiki-text";
 export default class WikiElement{
     button?:WikiButton
     table?:WikiTable
-    imageStyle?:WikiImage
+    image?:WikiImage
     text?:WikiText
+
+    constructor({button,table,text,image}:
+        {button?:WikiButton, table?:WikiTable, image?:WikiImage, text?:WikiText}){
+        this.button = button;
+        this.image = image;
+        this.table = table;
+        this.text = text;    
+    }
+
 }

@@ -1,3 +1,4 @@
+import WikiElement from "../kernel/models/elements/wiki-element";
 import { TextBuilder } from "./TextBuilder";
 
 export class WikiElementStyleBuilder{
@@ -11,7 +12,7 @@ export class WikiElementStyleBuilder{
     }
 
     createModel(){
-        //TODO
+        const text = this.text?.createModel();
+        return new WikiElement({text:text});
     }
-
 }

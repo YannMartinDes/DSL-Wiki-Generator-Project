@@ -1,3 +1,4 @@
+import WikiTableOfContent from "../kernel/models/wiki-table-of-content";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { ClassicChapterBuilder } from "./ClassicChapterBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
@@ -34,6 +35,10 @@ export class TOCBuilder{
     }
 
     createModel(){
-        //TODO
+        const title = this.title?.createModel();
+        const block = this.block?.createModel();
+        const content = this.content?.createModel();
+
+        return new WikiTableOfContent({content:content, title:title, block:block, numerated:this.numerated});
     }
 }

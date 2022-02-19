@@ -72,4 +72,5 @@ wikiBuilder.editSubject().editChapter().editSubChapter()
 
 wikiBuilder.editSubject().editChapter().editSubChapter().editSubChapter().editSubChapter();//Be aware of that....
 
-wikiBuilder.createModel();
+const res = wikiBuilder.createModel();
+console.log(res);

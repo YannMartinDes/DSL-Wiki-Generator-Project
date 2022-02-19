@@ -1,3 +1,4 @@
+import WikiSummary from "../kernel/models/wiki-summary";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
@@ -18,6 +19,9 @@ export class SummaryBuilder {
     }
 
     createModel(){
-        //TODO
+        const content = this.content?.createModel();
+        const block = this.block?.createModel();
+
+        return new WikiSummary({content:content, block:block});
     }
 }

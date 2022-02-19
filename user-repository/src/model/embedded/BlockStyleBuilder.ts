@@ -1,3 +1,5 @@
+import WikiBlockStyle from "../kernel/models/style/wiki-block-style"
+
 export class BlockStyleBuilder<parentType>{
 
     private border?:string
@@ -42,7 +44,13 @@ export class BlockStyleBuilder<parentType>{
     }
 
     createModel(){
-        //TODO
+        return new WikiBlockStyle({
+            margin:this.margin,
+            padding:this.padding,
+            border:this.border,
+            background:this.backgroundColor, 
+            alignment:this.alignment
+        });
     }
     
 }
