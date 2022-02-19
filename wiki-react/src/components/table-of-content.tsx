@@ -1,5 +1,5 @@
-import {default as ToCStyle} from "project/src/kernel/models/tableOfContent"
-import {TOCContent} from "project/src/kernel/models/content"
+import {default as ToCStyle} from "../model/kernel/models/tableOfContent"
+import {TOCContent} from "../model/kernel/models/content"
 
 
 export default function TableOfContent({toc,content}:{toc:ToCStyle,content:TOCContent}) {

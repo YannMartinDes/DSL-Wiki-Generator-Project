@@ -1,6 +1,6 @@
 import React from 'react'
-import {default as ClChptStyle} from "project/src/kernel/models/chapters/classic-chapter"
-import { ClassicChapterContent } from '../content'
+import {default as ClChptStyle} from "../model/kernel/models/chapters/classic-chapter"
+import { ClassicChapterContent } from '../model/kernel/models/content'
 
 export default function ClassicChapter({classicChapter, content}:{classicChapter:ClChptStyle, content:ClassicChapterContent}) {
   return (

@@ -4,8 +4,8 @@ import Subject from './components/subject';
 import Summary from './components/summary';
 import TableOfContent from './components/table-of-content';
 import Wiki from './components/wiki';
-import { ChapterTypeContent, ClassicChapterContent, SubjectContent, SummaryContent, TOCContent, WikiContent, WikiElementTypeContent } from './content';
-import { exemplePageTropidophorus } from './exemple';
+import { ChapterTypeContent, ClassicChapterContent, SubjectContent, SummaryContent, TOCContent, WikiContent, WikiElementTypeContent } from './model/kernel/models/content';
+import { exemplePageTropidophorus } from './model/exemple/exemple';
 
 function App() {
 

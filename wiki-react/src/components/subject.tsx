@@ -1,6 +1,6 @@
 import React from 'react'
-import { ChapterTypeContent, SubjectContent, WikiElementTypeContent } from '../content'
-import {default as SjtStyle} from "project/src/kernel/models/subject"
+import { ChapterTypeContent, SubjectContent, WikiElementTypeContent } from '../model/kernel/models/content'
+import {default as SjtStyle} from "../model/kernel/models/subject"
 import TableOfContent from './table-of-content'
 import ClassicChapter from './classic-chapter'
 import Summary from './summary'
