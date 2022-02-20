@@ -3,10 +3,6 @@ export enum Border {
     DASHED ="dashed",
     SOLID = "solid",
     DOUBLE = "double",
-    GROOVE = "groove",
-    RIDGE = "ridge",
-    INSET = "inset",
     OUTSET = "outset",
     NONE = "none",
-    HIDDEN = "hidden"
 }
