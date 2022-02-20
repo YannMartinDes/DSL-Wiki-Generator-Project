@@ -1,8 +1,10 @@
 import { Color } from "../kernel/models/enum/color.enum";
+import { UnityFontSize } from "../kernel/models/enum/unity-font-size.enum";
 import { FontStyle } from "../kernel/models/enum/font-style.enum";
 import { FontWeight } from "../kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "../kernel/models/enum/text-align.enum";
 import { TextTransform } from "../kernel/models/enum/text-transform.enum";
+import { FontSize } from "../kernel/models/enum/unity-font-size.enum";
 import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 
 export class TextStyleBuilder<parentType> {
@@ -42,8 +44,8 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setFontSize(size:string){
-        this.fontSize = size;
+    setFontSize(size:number,unit:UnityFontSize){
+        this.fontSize = size + unit;
         return this;
     }
 

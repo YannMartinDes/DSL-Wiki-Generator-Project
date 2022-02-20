@@ -1,4 +1,7 @@
 import { AlignContent } from "../kernel/models/enum/align-content.enum"
+import { Border } from "../kernel/models/enum/border.enum"
+import { Color } from "../kernel/models/enum/color.enum"
+import { UnityFontSize } from "../kernel/models/enum/unity-font-size.enum"
 import WikiBlockStyle from "../kernel/models/style/wiki-block-style"
 
 export class BlockStyleBuilder<parentType>{
@@ -15,12 +18,13 @@ export class BlockStyleBuilder<parentType>{
         this.parentBuilder = parentBuilder;
     }
 
-    setBorder(border:string){
-        this.border = border;
+    setBorder(value : number, type : UnityFontSize ,color:Color, border:Border){
+        let borderConstructed=value+type+" "+color+ " "+border
+        this.border = borderConstructed;
         return this;
     }
 
-    setBackgroundColor(color:string){
+    setBackgroundColor(color:Color | string){
         this.backgroundColor = color;
         return this;
     }
@@ -30,13 +34,13 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
-    setPadding(padding:string){
-        this.padding =padding;
+    setPadding(value : number, type : UnityFontSize){
+        this.padding =value+ type;
         return this;
     }
 
-    setMargin(margin:string){
-        this.margin =margin;
+    setMargin(value : number, type : UnityFontSize){
+        this.margin =value + type;
         return this;
     }
 

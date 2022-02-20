@@ -1,7 +1,9 @@
 import { WikiCssGenerator } from "./generator/wiki-css-generator";
 import { WikiBuilder } from "./model/embedded/WikiBuilder";
 import { AlignContent } from "./model/kernel/models/enum/align-content.enum";
+import { Border } from "./model/kernel/models/enum/border.enum";
 import { Color } from "./model/kernel/models/enum/color.enum";
+import { UnityFontSize } from "./model/kernel/models/enum/unity-font-size.enum";
 import { FontStyle } from "./model/kernel/models/enum/font-style.enum";
 import { FontWeight } from "./model/kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "./model/kernel/models/enum/text-align.enum";
@@ -10,8 +12,8 @@ const wikiBuilder = new WikiBuilder()
 wikiBuilder
     .editBlock()
         .setAlignment(AlignContent.CENTER)
-        .setBackgroundColor("red")
-        .setMargin("5%")
+        .setBackgroundColor(Color.ROSE_QUARTZ)
+        .setMargin(5,UnityFontSize.PERCENT)
     .endBlockEdit()
     .editContent().editText()
         .textStyle()
@@ -43,8 +45,8 @@ wikiBuilder.editSubject().editTableOfContent()
         .setFontColor(Color.ROSE_QUARTZ)
     .endTextStyle()
     .editBlock()
-        .setBorder("1px solid black")
-        .setPadding("5px")
+        .setBorder(1,UnityFontSize.PERCENT,Color.ULTRA_VIOLET,Border.SOLID)
+        .setPadding(5,UnityFontSize.PIXEL)
     .endBlockEdit()
     .editContent().editText()
         .linkTextStyle()
@@ -66,8 +68,8 @@ wikiBuilder.editSubject().editChapter().editClassicChapter()
 
 wikiBuilder.editSubject().editChapter().editSubChapter()
     .editBlock()
-        .setBorder("5px black solid")
-        .setMargin("5px")
+        .setBorder(5,UnityFontSize.PIXEL,Color.ULTRA_VIOLET,Border.DOTTED)
+        .setMargin(5,UnityFontSize.PIXEL)
     .endBlockEdit()
     .editTitle()
         .italicize(FontStyle.NORMAL)
