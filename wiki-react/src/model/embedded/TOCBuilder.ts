@@ -7,8 +7,6 @@ export class TOCBuilder{
     private title?:TextStyleBuilder<TOCBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<TOCBuilder>
-    private numerated?:boolean
-
 
     editTitle(){
         let builder = this.title;
@@ -18,11 +16,6 @@ export class TOCBuilder{
             this.title = builder;
         }
         return builder;
-    }
-
-    isNumerated(numerated:boolean){
-        this.numerated = numerated;
-        return this;
     }
 
     editBlock(){
@@ -50,6 +43,6 @@ export class TOCBuilder{
         const block = this.block?.createModel();
         const content = this.content?.createModel();
 
-        return new WikiTableOfContent({content:content, title:title, block:block, numerated:this.numerated});
+        return new WikiTableOfContent({content:content, title:title, block:block});
     }
 }
