@@ -320,22 +320,22 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(text.bold){
-            result.push("\tfont-weight: bold;\n") // Bold seulement ou semi bold ect ??
+            result.push(`\tfont-weight: ${text.bold};\n`) 
         }
         if(text.italic){
-            result.push("\tfont-style: italic;\n") //Idem ? 
+            result.push(`\tfont-style: ${text.italic};\n`) 
         }
         if(text.caps){
-            result.push("\ttext-transform: uppercase;\n") //TODO Trois mode plutot qu'un en réalité
+            result.push(`\ttext-transform: ${text.caps};\n`) 
         }
         if(text.font_color){
-            result.push(`\tcolor: ${text.font_color};\n`)// Enum de color ? 
+            result.push(`\tcolor: ${text.font_color};\n`)
         }
         if(text.font_size){
-            result.push(`\tfont-size: ${text.font_size};\n`) //TODO fixer l'unité avec un complément pour l'unité
+            result.push(`\tfont-size: ${text.font_size};\n`) 
         }
         if(text.underline){
-            result.push(`\ttext-decoration: underline;\n`) //TODO verif que l'on veux pas permetre plus d'attribue comme dotted, une color ou autre
+            result.push(`\ttext-decoration: ${text.underline};\n`)
         }
         if(text.text_alignment){
             result.push(`\ttext-align: ${text.text_alignment};\n`)
@@ -390,10 +390,10 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(block.background){
-            result.push(`\tbackground-color: ${block.background};\n`)// Enum de color ? 
+            result.push(`\tbackground-color: ${block.background};\n`)
         }
         if(block.border){
-            result.push(`\tborder: ${block.border};\n`)//TODO meilleur composition de border ?
+            result.push(`\tborder: ${block.border};\n`)
         }
         if(block.margin){
             result.push(`\tmargin: ${block.margin};\n`)// TODO margin localisée avec multi constructeur
@@ -402,7 +402,7 @@ export class WikiCssGenerator{
             result.push(`\tpadding: ${block.padding};\n`)// TODO padding localisé avec multi constructeur
         }
         if(block.alignment){
-            result.push(`\talign-content: ${block.alignment};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\talign-content: ${block.alignment};\n`)
         }
 
         return result;
