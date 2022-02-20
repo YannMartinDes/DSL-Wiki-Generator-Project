@@ -16,6 +16,9 @@ import WikiRelatedSubject from "../model/kernel/models/chapters/wiki-related-sub
 import WikiGallery from "../model/kernel/models/chapters/wiki-gallery";
 import WikiInfoBox from "../model/kernel/models/wiki-info-box";
 import WikiNavBar from "../model/kernel/models/wiki-nav-bar";
+import WikiImageStyle from "../model/kernel/models/elements/wiki-image";
+import WikiButtonStyle from "../model/kernel/models/elements/wiki-button";
+import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -272,6 +275,15 @@ export class WikiCssGenerator{
         if(element.text){
             this.textGen(element.text)
         }
+        if (element.image) {
+            this.imageStyleGen(element.image);
+        }
+        if (element.table) {
+            this.tableStyleGen(element.table);
+        }
+        if (element.button) {
+            this.buttonStyleGen(element.button);
+        }
     }
 
     textGen(text:WikiText){
@@ -332,6 +344,45 @@ export class WikiCssGenerator{
             result.push(`\tfont-family: ${text.police};\n`);
         }
         return result
+    }
+
+    imageStyleGen(image:WikiImageStyle) {
+        let result:string[] = []
+
+        if(image.border){
+            result.push(`\tborder: ${image.border};\n`)//TODO meilleur composition de border ?
+        }
+        if(image.alignment){
+            result.push(`\talign-content: ${image.alignment};\n`)// TODO padding localisé avec multi constructeur
+        }
+
+        return result;
+    }
+
+    tableStyleGen(table:WikiTableStyle) {
+        let result:string[] = []
+
+        if(table.border){
+            result.push(`\tborder: ${table.border};\n`)//TODO meilleur composition de border ?
+        }
+        if(table.alignment){
+            result.push(`\talign-content: ${table.alignment};\n`)// TODO padding localisé avec multi constructeur
+        }
+
+        return result;
+    }
+
+    buttonStyleGen(button:WikiButtonStyle) {
+        let result:string[] = []
+
+        if(button.border){
+            result.push(`\tborder: ${button.border};\n`)//TODO meilleur composition de border ?
+        }
+        if(button.alignment){
+            result.push(`\talign-content: ${button.alignment};\n`)// TODO padding localisé avec multi constructeur
+        }
+
+        return result;
     }
 
     blockStyleGen(block:WikiBlockStyle){
