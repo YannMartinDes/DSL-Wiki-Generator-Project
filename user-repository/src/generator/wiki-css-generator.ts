@@ -248,13 +248,13 @@ export class WikiCssGenerator{
             this.textGen(element.text)
         }
         if (element.image) {
-            this.imageStyleGen(element.image);
+            this.generate.push(`${this.prefix.join(" ")} .image {\n${this.imageStyleGen(element.image).join("")}}\n`);
         }
         if (element.table) {
-            this.tableStyleGen(element.table);
+            this.generate.push(`${this.prefix.join(" ")} .table {\n${this.tableStyleGen(element.table).join("")}}\n`);
         }
         if (element.button) {
-            this.buttonStyleGen(element.button);
+            this.generate.push(`${this.prefix.join(" ")} .button {\n${this.buttonStyleGen(element.button).join("")}}\n`);
         }
     }
 

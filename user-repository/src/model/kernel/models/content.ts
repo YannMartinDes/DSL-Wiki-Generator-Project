@@ -11,39 +11,40 @@ export class SubjectContent{
         public subject?:string,
         public summary?:SummaryContent,
         public tableOfContent?:TOCContent,
-        public infoBox?:InfoBox,
+        public infoBox?:InfoBoxContent,
         public chapters?:ChapterContent[],
-        public reference?:ChapterContent[],
+        public reference?:ReferencesContent,
+        public relatedSubject?:RelatedSubjectContent,
     ){}
 }
 export class ReferencesContent{
     constructor(
-        public content:WikiElementContent,
+        public content:WikiElementContent[],
         public title:string,
     ){}
 }
 export class RelatedSubjectContent{
     constructor(
-        public content:WikiElementContent,
+        public content:WikiElementContent[],
         public title:string,
     ){}
 }
 
 export class NavBarContent{
     constructor(
-        public navBar:{content:string,url:string}[]
+        public navBar:{content:WikiElementContent,url:string}[]
     ){}
 }
 
 export class SummaryContent{
     constructor(
-        public value:TextContent
+        public content:TextContent
     ){}
 }
 
-export class InfoBox{
+export class InfoBoxContent{
     constructor(
-        public value:TextContent
+        public content:WikiElementContent[]
     ){}
 }
 
@@ -71,13 +72,12 @@ export class GalleryChapterContent extends ChapterContent{
     ){super()}
 }
 
-export class BibliographyContent{
+export class BibliographyContent{//TODO ??
     constructor(
         public textContent:TextContent,
     ){
 
     }
-
 }
 
 export type ClassiqueChapterElementContent = WikiElementContent|ChapterContent
@@ -90,8 +90,6 @@ export class TextContent extends WikiElementContent{
     ){
         super()
     }
-
-
 }
 export class ImageContent extends WikiElementContent{
     constructor(
@@ -100,15 +98,20 @@ export class ImageContent extends WikiElementContent{
     ){
         super()
     }
-
 }
+
 export class ButtonContent extends WikiElementContent{
     constructor(
         public url:string,
-        public description:string,
+        public value:string,
     ){
         super()
     }
 }
-export class TableContent extends WikiElementContent{
+export class TableContent extends WikiElementContent{//TODO??
+    constructor(
+        public table:WikiElementContent[][]
+    ){
+        super()
+    }
 }
