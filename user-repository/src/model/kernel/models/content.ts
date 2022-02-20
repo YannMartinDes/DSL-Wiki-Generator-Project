@@ -117,6 +117,12 @@ export class ImageContent extends WikiElementContent{
 
 }
 export class ButtonContent extends WikiElementContent{
+    constructor(
+        public url:string,
+        public description:string,
+    ){
+        super()
+    }
 }
 export class TableContent extends WikiElementContent{
 }
