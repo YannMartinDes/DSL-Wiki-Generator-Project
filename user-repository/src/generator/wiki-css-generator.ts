@@ -10,6 +10,12 @@ import WikiTableOfContent from "../model/kernel/models/wiki-table-of-content";
 import WikiSummary from "../model/kernel/models/wiki-summary";
 import WikiChapter from "../model/kernel/models/chapters/wiki-chapter";
 import WikiClassicChapter from "../model/kernel/models/chapters/wiki-classic-chapter";
+import WikiBibliography from "../model/kernel/models/chapters/wiki-bibliography";
+import WikiReferences from "../model/kernel/models/chapters/wiki-references";
+import WikiRelatedSubject from "../model/kernel/models/chapters/wiki-related-subject";
+import WikiGallery from "../model/kernel/models/chapters/wiki-gallery";
+import WikiInfoBox from "../model/kernel/models/wiki-info-box";
+import WikiNavBar from "../model/kernel/models/wiki-nav-bar";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -39,7 +45,21 @@ export class WikiCssGenerator{
         if(wiki.subject){
             this.subjectGen(wiki.subject);
         }
-        //TODO ADD NAVBAR
+        if (wiki.navBar) {
+            this.navBarGen(wiki.navBar);
+        }
+        this.prefix.pop();
+    }
+
+    navBarGen(navBar:WikiNavBar){
+        this.prefix.push(".navBar")
+
+        if(navBar.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
+        }
+        if(navBar.contentStyle){
+            this.wikiElementGen(navBar.contentStyle)
+        }
         this.prefix.pop();
     }
 
@@ -61,10 +81,12 @@ export class WikiCssGenerator{
         if(subject.tableOfContent){
             this.tableOfContentGen(subject.tableOfContent);
         }
+        if (subject.infoBox) {
+            this.infoBoxGen(subject.infoBox);
+        }
         if(subject.summary){
             this.summaryGen(subject.summary);
         }
-        //TODO infobox
 
         this.prefix.pop()
     }
@@ -84,10 +106,21 @@ export class WikiCssGenerator{
         if(chapter.classicChapter){
             this.classicChapterGen(chapter.classicChapter);
         }
+        if (chapter.bibliography) {
+            this.bibliographyGen(chapter.bibliography);
+        }
+        if (chapter.references) {
+            this.referenceGen(chapter.references);
+        }
+        if (chapter.relatedSubject) {
+            this.relatedSubjectGen(chapter.relatedSubject);
+        }
+        if (chapter.gallery) {
+            this.galleryGen(chapter.gallery);
+        }
         if(chapter.subChapter){
             this.subChapterGen(chapter.subChapter);
         }
-        //Todo le reste des chapitres particulier
         this.prefix.pop();
     }
 
@@ -103,10 +136,81 @@ export class WikiCssGenerator{
         if(subChapter.contentStyle){
             this.wikiElementGen(subChapter.contentStyle);
         }
+        if (subChapter.bibliography) {
+            this.bibliographyGen(subChapter.bibliography);
+        }
+        if (subChapter.references) {
+            this.referenceGen(subChapter.references);
+        }
+        if (subChapter.relatedSubject) {
+            this.relatedSubjectGen(subChapter.relatedSubject);
+        }
+        if (subChapter.gallery) {
+            this.galleryGen(subChapter.gallery);
+        }
         if(subChapter.classicChapter){
             this.classicChapterGen(subChapter.classicChapter);
         }
-        //Todo le reste des chapitres particulier
+        this.prefix.pop();
+    }
+
+    galleryGen(gallery:WikiGallery){
+        this.prefix.push(".gallery");
+
+        if(gallery.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
+        }
+        if(gallery.titleStyle){
+            this.titleGen(gallery.titleStyle);
+        }
+        if(gallery.contentStyle){
+            this.wikiElementGen(gallery.contentStyle);
+        }
+        this.prefix.pop();
+    }
+    
+    relatedSubjectGen(relatedSubject:WikiRelatedSubject){
+        this.prefix.push(".relatedSubject");
+
+        if(relatedSubject.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(relatedSubject.blockStyle).join("")}}\n`)
+        }
+        if(relatedSubject.titleStyle){
+            this.titleGen(relatedSubject.titleStyle);
+        }
+        if(relatedSubject.contentStyle){
+            this.wikiElementGen(relatedSubject.contentStyle);
+        }
+        this.prefix.pop();
+    }
+
+    referenceGen(reference:WikiReferences){
+        this.prefix.push(".reference");
+
+        if(reference.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
+        }
+        if(reference.titleStyle){
+            this.titleGen(reference.titleStyle);
+        }
+        if(reference.contentStyle){
+            this.wikiElementGen(reference.contentStyle);
+        }
+        this.prefix.pop();
+    }
+
+    bibliographyGen(bibliographyGen:WikiBibliography){
+        this.prefix.push(".bibliography");
+
+        if(bibliographyGen.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
+        }
+        if(bibliographyGen.titleStyle){
+            this.titleGen(bibliographyGen.titleStyle);
+        }
+        if(bibliographyGen.contentStyle){
+            this.wikiElementGen(bibliographyGen.contentStyle);
+        }
         this.prefix.pop();
     }
 
@@ -136,6 +240,18 @@ export class WikiCssGenerator{
         }
         if(toc.contentStyle){
             this.wikiElementGen(toc.contentStyle)
+        }
+        this.prefix.pop();
+    }
+
+    infoBoxGen(infoBox:WikiInfoBox){
+        this.prefix.push(".infoBox");
+
+        if(infoBox.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
+        }
+        if(infoBox.contentStyle){
+            this.wikiElementGen(infoBox.contentStyle)
         }
         this.prefix.pop();
     }
