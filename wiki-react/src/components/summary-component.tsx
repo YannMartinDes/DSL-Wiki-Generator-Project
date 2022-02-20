@@ -4,7 +4,7 @@ import TextComponent from './text-component'
 export default function SummaryComponent({content}:{content:SummaryContent}) {
   return (
     <div className='summary'>
-        <TextComponent content={content.value} />
+        <TextComponent content={content.content} />
     </div>
   )
 }

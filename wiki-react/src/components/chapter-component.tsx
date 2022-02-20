@@ -1,5 +1,6 @@
-import { ChapterContent, ClassiqueChapterContent} from '../model/kernel/models/content'
+import { ChapterContent, ClassiqueChapterContent, GalleryChapterContent} from '../model/kernel/models/content'
 import ClassicChapterComponent from './classic-chapter-component'
+import GalleryComponent from './gallery-component'
 
 export default function ChapterComponent({content}:{content:ChapterContent}) {
   if(content instanceof ClassiqueChapterContent){
@@ -9,9 +10,16 @@ export default function ChapterComponent({content}:{content:ChapterContent}) {
       </div>
     )      
   }
-  return (
-    <div className='chapter'>
-      {/* TODO */}
-    </div>
-  )
+  else if(content instanceof GalleryChapterContent){
+    return (
+      <div className='chapter'>
+        <GalleryComponent content={content}/>
+      </div>
+    )
+  }
+  else{
+    return (
+      null
+    )
+  }
 }

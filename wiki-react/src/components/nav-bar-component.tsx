@@ -12,7 +12,6 @@ export default function NavBarComponent({content}:{content:NavBarContent}) {
                     </li>))}
             </ol>
         </div>
-
     )
 }
 

@@ -10,7 +10,7 @@ export default function ClassicChapterComponent({content}:{content:ClassiqueChap
 
         {content.chapterElementContent.map((elt,index)=>{
             if(elt instanceof ChapterContent){
-                return <ChapterComponent key={index} content={elt}></ChapterComponent>
+                return <ChapterComponent key={index} content={elt}/>
             }
             else if(elt instanceof WikiElementContent){
                 return <WikiElementComponent key={index} content={elt}/>

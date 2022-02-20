@@ -1,10 +1,10 @@
-import {InfoBox} from '../model/kernel/models/content'
-import TextComponent from './text-component'
+import {InfoBoxContent} from '../model/kernel/models/content'
+import WikiElementComponent from './wiki-element-component'
 
-export default function InfoBoxComponent({content}:{content:InfoBox}) {
+export default function InfoBoxComponent({content}:{content:InfoBoxContent}) {
   return (
     <div className='infoBox'>
-        <TextComponent content={content.value} />
+        {content.content.map(wikiElement => <WikiElementComponent content={wikiElement}/>)}
     </div>
   )
 }
