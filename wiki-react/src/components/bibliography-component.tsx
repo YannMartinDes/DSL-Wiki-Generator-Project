@@ -1,4 +1,4 @@
-import {BibliographyContent, GalleryContent, InfoBox} from '../model/kernel/models/content'
+import { BibliographyContent } from '../model/kernel/models/content'
 import TextComponent from './text-component'
 
 export default function BibliographyComponent({content}:{content:BibliographyContent}) {

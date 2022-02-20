@@ -1,19 +1,17 @@
-import { ChapterContent, TextContent} from '../model/kernel/models/content'
-import TextComponent from './text-component'
+import { ChapterContent, ClassiqueChapterContent} from '../model/kernel/models/content'
+import ClassicChapterComponent from './classic-chapter-component'
 
 export default function ChapterComponent({content}:{content:ChapterContent}) {
+  if(content instanceof ClassiqueChapterContent){
+    return (
+      <div className='chapter'>
+        <ClassicChapterComponent content={content}/>
+      </div>
+    )      
+  }
   return (
     <div className='chapter'>
-        <h2 className='title'>{content.title}</h2>
-        {content.chapterElementContent.map((elt)=>{
-            if(elt instanceof ChapterContent){
-                return <ChapterComponent content={elt}></ChapterComponent>
-            }
-            else if(elt instanceof TextContent){
-                return <TextComponent content={elt}></TextComponent>
-            }
-            return undefined;
-        })}
+      {/* TODO */}
     </div>
   )
 }

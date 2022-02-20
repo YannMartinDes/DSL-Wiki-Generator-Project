@@ -1,7 +1,7 @@
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
-import WikiRelatedSubject from "../kernel/models/chapters/wiki-related-subject";
+import WikiRelatedSubject from "../kernel/models/wiki-related-subject";
 
 export class RelatedSubjectBuilder{
 

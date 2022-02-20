@@ -3,9 +3,7 @@ export class WikiContent{
     constructor(
         public subjects:SubjectContent[]=[],
         public navBar?:NavBarContent
-    ){
-
-    }
+    ){}
 }
 
 export class SubjectContent{
@@ -15,11 +13,20 @@ export class SubjectContent{
         public tableOfContent?:TOCContent,
         public infoBox?:InfoBox,
         public chapters?:ChapterContent[],
-    ){
-
-    }
-
-
+        public reference?:ChapterContent[],
+    ){}
+}
+export class ReferencesContent{
+    constructor(
+        public content:WikiElementContent,
+        public title:string,
+    ){}
+}
+export class RelatedSubjectContent{
+    constructor(
+        public content:WikiElementContent,
+        public title:string,
+    ){}
 }
 
 export class NavBarContent{
@@ -47,32 +54,21 @@ export class TOCContent{
 
 }
 
-export class ChapterContent{
+
+export abstract class ChapterContent{}
+
+export class ClassiqueChapterContent extends ChapterContent{
     constructor(
         public title:string,
-        public chapterElementContent:ChapterElementContent[],
-    ){
-
-    }
-
+        public chapterElementContent:ClassiqueChapterElementContent[],
+    ){super()}
 }
 
-export class GalleryContent{
+export class GalleryChapterContent extends ChapterContent{
     constructor(
-        public imagesContent:ImageContent[],
-    ){
-
-    }
-
-}
-
-export class RelatedSubjectContent{
-    constructor(
-        public textContent:TextContent,
-    ){
-
-    }
-
+        public title:string,
+        public images:ImageContent[],
+    ){super()}
 }
 
 export class BibliographyContent{
@@ -84,19 +80,9 @@ export class BibliographyContent{
 
 }
 
-export class ReferencesContent{
-    constructor(
-        public textContent:TextContent,
-    ){
+export type ClassiqueChapterElementContent = WikiElementContent|ChapterContent
 
-    }
-
-}
-
-export type ChapterElementContent = WikiElementContent|ChapterContent
-
-export abstract class WikiElementContent{
-}
+export abstract class WikiElementContent{}
 
 export class TextContent extends WikiElementContent{
     constructor(

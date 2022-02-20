@@ -1,7 +1,6 @@
-
-import WikiTextStyle from "../style/wiki-text-style";
-import WikiElementStyle from "../elements/wiki-element";
-import WikiBlockStyle from "../style/wiki-block-style";
+import WikiBlockStyle from "./style/wiki-block-style";
+import WikiTextStyle from "./style/wiki-text-style";
+import WikiElementStyle from "./elements/wiki-element";
 
 export default class WikiReferences{
     titleStyle?:WikiTextStyle
