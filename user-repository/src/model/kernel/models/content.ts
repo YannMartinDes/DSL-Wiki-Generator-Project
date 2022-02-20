@@ -22,28 +22,71 @@ export class SubjectContent{
 
 }
 
-export class NavBarContent{}
+export class NavBarContent{
+    constructor(
+        public navBar:{content:string,url:string}[]
+    ){}
+}
 
 export class SummaryContent{
-    constructor(    
+    constructor(
         public value:TextContent
     ){}
 }
 
 export class InfoBox{
+    constructor(
+        public value:TextContent
+    ){}
 }
 
 export class TOCContent{
     constructor(
         public toc:{content:string,url:string}[]
     ){}
-    
+
 }
 
 export class ChapterContent{
     constructor(
         public title:string,
         public chapterElementContent:ChapterElementContent[],
+    ){
+
+    }
+
+}
+
+export class GalleryContent{
+    constructor(
+        public imagesContent:ImageContent[],
+    ){
+
+    }
+
+}
+
+export class RelatedSubjectContent{
+    constructor(
+        public textContent:TextContent,
+    ){
+
+    }
+
+}
+
+export class BibliographyContent{
+    constructor(
+        public textContent:TextContent,
+    ){
+
+    }
+
+}
+
+export class ReferencesContent{
+    constructor(
+        public textContent:TextContent,
     ){
 
     }
@@ -62,7 +105,7 @@ export class TextContent extends WikiElementContent{
         super()
     }
 
-    
+
 }
 export class ImageContent extends WikiElementContent{
     constructor(
@@ -74,6 +117,12 @@ export class ImageContent extends WikiElementContent{
 
 }
 export class ButtonContent extends WikiElementContent{
+    constructor(
+        public url:string,
+        public description:string,
+    ){
+        super()
+    }
 }
 export class TableContent extends WikiElementContent{
 }
