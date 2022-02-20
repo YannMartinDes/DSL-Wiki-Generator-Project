@@ -1,7 +1,7 @@
+import WikiReferences from "../kernel/models/wiki-references";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
-import WikiReferences from "../kernel/models/chapters/wiki-references";
 
 export class ReferenceBuilder{
 

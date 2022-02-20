@@ -1,18 +1,18 @@
-import { ChapterContent, SubjectContent, SummaryContent, TextContent, TOCContent, WikiContent } from "../kernel/models/content"
+import { ChapterContent, ClassiqueChapterContent, SubjectContent, SummaryContent, TextContent, TOCContent, WikiContent } from "../kernel/models/content"
 
-const chapter1:ChapterContent = new ChapterContent(
+const chapter1:ChapterContent = new ClassiqueChapterContent(
     "Répartition",
     [new TextContent("Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>.")]
 )
-const chapter2:ChapterContent = new ChapterContent(
+const chapter2:ChapterContent = new ClassiqueChapterContent(
     "Étymologie",
     [new TextContent("Cette espèce est nommée en l'honneur de <a href=\"\">Masafumi Matsui.</a> ")]
 )
-const chapter3:ChapterContent = new ChapterContent(
+const chapter3:ChapterContent = new ClassiqueChapterContent(
     "Publication originale",
     [new TextContent("Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>.")]
 )
-const chapter4:ChapterContent = new ChapterContent(
+const chapter4:ChapterContent = new ClassiqueChapterContent(
     "Liens externes",
     [new TextContent("(en) Référence <a href=\"\"><span class=\"italic\">NCBI</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span></a> [<a href=\"\">archive</a>] (<a href=\"\">taxons inclus</a> [<a href=\"\">archive</a>]) (consulté le 19 décembre 2012)</br>"
     +"(en) Référence <a href=\"\"><span class=\"italic\">Reptarium Reptile Database</span></a> [<a href=\"\">archive</span>] : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota, 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)</br>"

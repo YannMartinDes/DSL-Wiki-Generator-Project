@@ -1,11 +1,12 @@
 .wiki {
-	background-color: red;
+	background-color: green;
 	margin: 5%;
 	align-content: center;
 }
 .wiki .text {
-	font-style: italic;
-	text-transform: uppercase;
+	font-style: normal;
+	text-transform: capitalize;
+	color: gray;
 	text-align: center;
 }
 .wiki .text .bold{
@@ -16,46 +17,49 @@
 	background-color: red;
 }
 .wiki .subject .title {
-	font-style: italic;
+	font-style: normal;
 }
 .wiki .subject .text {
 	color: blue;
 }
 .wiki .subject .chapter .classicChapter .title {
-	text-decoration: underline;
+	text-decoration: true;
 }
 .wiki .subject .chapter .classicChapter .text {
 	font-weight: bold;
+	color: #00FF00;
+	font-family: Arial;
 }
-.wiki .subject .chapter .subChapter {
-	border: 5px black solid;
+.wiki .subject .chapter .chapter {
+	border: 5px violet dotted;
 	margin: 5px;
 }
-.wiki .subject .chapter .subChapter .title {
-	font-style: italic;
+.wiki .subject .chapter .chapter .title {
+	font-style: normal;
 	color: gray;
 	text-align: center;
 }
-.wiki .subject .chapter .subChapter .text .bold{
-	text-transform: uppercase;
+.wiki .subject .chapter .chapter .text .bold{
+	text-transform: capitalize;
 }
-.wiki .subject .chapter .subChapter .text a {
-	text-decoration: underline;
+.wiki .subject .chapter .chapter .text a {
+	text-decoration: true;
 }
 .wiki .subject .tableOfContent {
-	border: 1px solid black;
+	border: 1% red solid;
 	padding: 5px;
 }
 .wiki .subject .tableOfContent .title {
-	text-transform: uppercase;
+	text-transform: capitalize;
+	color: brown;
 }
 .wiki .subject .tableOfContent .text a {
-	font-style: italic;
-	text-decoration: underline;
+	font-style: normal;
+	text-decoration: true;
 }
 .wiki .subject .summary {
 	align-content: center;
 }
 .wiki .subject .summary .text .italic{
-	font-style: italic;
+	font-style: normal;
 }

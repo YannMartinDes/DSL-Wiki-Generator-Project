@@ -3,9 +3,7 @@ export class WikiContent{
     constructor(
         public subjects:SubjectContent[]=[],
         public navBar?:NavBarContent
-    ){
-
-    }
+    ){}
 }
 
 export class SubjectContent{
@@ -15,14 +13,27 @@ export class SubjectContent{
         public tableOfContent?:TOCContent,
         public infoBox?:InfoBox,
         public chapters?:ChapterContent[],
-    ){
-
-    }
-
-
+        public reference?:ChapterContent[],
+    ){}
+}
+export class ReferenceContent{
+    constructor(
+        public content:WikiElementContent[],
+        public title:string,
+    ){}
+}
+export class RelatedSubject{
+    constructor(
+        public content:WikiElementContent[],
+        public title:string,
+    ){}
 }
 
-export class NavBarContent{}
+export class NavBarContent{
+    constructor(
+        public navBar:{content:string,url:string}[]
+    ){}
+}
 
 export class SummaryContent{
     constructor(    
@@ -40,20 +51,27 @@ export class TOCContent{
     
 }
 
-export class ChapterContent{
+
+export abstract class ChapterContent{}
+
+export class ClassiqueChapterContent extends ChapterContent{
     constructor(
         public title:string,
-        public chapterElementContent:ChapterElementContent[],
-    ){
-
-    }
-
+        public chapterElementContent:ClassiqueChapterElementContent[],
+    ){super()}
 }
 
-export type ChapterElementContent = WikiElementContent|ChapterContent
-
-export abstract class WikiElementContent{
+export class GalleryChapterContent extends ChapterContent{
+    constructor(
+        public title:string,
+        public images:ImageContent[],
+    ){super()}
 }
+
+
+export type ClassiqueChapterElementContent = WikiElementContent|ChapterContent
+
+export abstract class WikiElementContent{}
 
 export class TextContent extends WikiElementContent{
     constructor(

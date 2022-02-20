@@ -11,14 +11,14 @@ import WikiSummary from "../model/kernel/models/wiki-summary";
 import WikiChapter from "../model/kernel/models/chapters/wiki-chapter";
 import WikiClassicChapter from "../model/kernel/models/chapters/wiki-classic-chapter";
 import WikiBibliography from "../model/kernel/models/chapters/wiki-bibliography";
-import WikiReferences from "../model/kernel/models/chapters/wiki-references";
-import WikiRelatedSubject from "../model/kernel/models/chapters/wiki-related-subject";
+import WikiRelatedSubject from "../model/kernel/models/wiki-related-subject";
 import WikiGallery from "../model/kernel/models/chapters/wiki-gallery";
 import WikiInfoBox from "../model/kernel/models/wiki-info-box";
 import WikiNavBar from "../model/kernel/models/wiki-nav-bar";
 import WikiImageStyle from "../model/kernel/models/elements/wiki-image";
 import WikiButtonStyle from "../model/kernel/models/elements/wiki-button";
 import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
+import WikiReferences from "../model/kernel/models/wiki-references";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -90,6 +90,12 @@ export class WikiCssGenerator{
         if(subject.summary){
             this.summaryGen(subject.summary);
         }
+        if (subject.references) {
+            this.referenceGen(subject.references);
+        }
+        if (subject.relatedSubject) {
+            this.relatedSubjectGen(subject.relatedSubject);
+        }
 
         this.prefix.pop()
     }
@@ -112,50 +118,16 @@ export class WikiCssGenerator{
         if (chapter.bibliography) {
             this.bibliographyGen(chapter.bibliography);
         }
-        if (chapter.references) {
-            this.referenceGen(chapter.references);
-        }
-        if (chapter.relatedSubject) {
-            this.relatedSubjectGen(chapter.relatedSubject);
-        }
         if (chapter.gallery) {
             this.galleryGen(chapter.gallery);
         }
         if(chapter.subChapter){
-            this.subChapterGen(chapter.subChapter);
+            this.chapterGen(chapter.subChapter);
         }
         this.prefix.pop();
     }
 
-    subChapterGen(subChapter:WikiChapter){
-        this.prefix.push(".subChapter")
 
-        if(subChapter.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(subChapter.blockStyle).join("")}}\n`)
-        }
-        if(subChapter.titleStyle){
-            this.titleGen(subChapter.titleStyle);
-        }
-        if(subChapter.contentStyle){
-            this.wikiElementGen(subChapter.contentStyle);
-        }
-        if (subChapter.bibliography) {
-            this.bibliographyGen(subChapter.bibliography);
-        }
-        if (subChapter.references) {
-            this.referenceGen(subChapter.references);
-        }
-        if (subChapter.relatedSubject) {
-            this.relatedSubjectGen(subChapter.relatedSubject);
-        }
-        if (subChapter.gallery) {
-            this.galleryGen(subChapter.gallery);
-        }
-        if(subChapter.classicChapter){
-            this.classicChapterGen(subChapter.classicChapter);
-        }
-        this.prefix.pop();
-    }
 
     galleryGen(gallery:WikiGallery){
         this.prefix.push(".gallery");

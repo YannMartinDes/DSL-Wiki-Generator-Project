@@ -6,6 +6,8 @@ import { TextStyleBuilder } from "./TextStyleBuilder";
 import { TOCBuilder } from "./TOCBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import {InfoBoxBuilder} from "./InfoBoxBuilder";
+import { ReferenceBuilder } from "./ReferenceBuilder";
+import { RelatedSubjectBuilder } from "./RelatedSubjectBuilder";
 
 export class SubjectBuilder{
     private title?:TextStyleBuilder<SubjectBuilder>
@@ -13,6 +15,8 @@ export class SubjectBuilder{
     private block?:BlockStyleBuilder<SubjectBuilder>
     private summary?:SummaryBuilder
     private infoBox?:InfoBoxBuilder
+    private reference?:ReferenceBuilder
+    private relatedSubject?:RelatedSubjectBuilder
     private chapter?:ChapterBuilder
     private toc?:TOCBuilder
 
@@ -84,6 +88,19 @@ export class SubjectBuilder{
         return this.infoBox;
     }
 
+    editReference(){
+        if(!this.reference){
+            this.reference = new ReferenceBuilder();
+        }
+        return this.reference;
+    }
+
+    editRelatedSubject(){
+        if(!this.relatedSubject){
+            this.relatedSubject = new RelatedSubjectBuilder();
+        }
+        return this.relatedSubject;
+    }
 
     createModel(){
         const title = this.title?.createModel();
@@ -93,6 +110,8 @@ export class SubjectBuilder{
         const summary = this.summary?.createModel();
         const toc = this.toc?.createModel();
         const infoBox = this.infoBox?.createModel();
+        const relatedSubject = this.relatedSubject?.createModel();
+        const reference = this.reference?.createModel();
 
         return new WikiSubject({
             title:title,
@@ -101,7 +120,9 @@ export class SubjectBuilder{
             chapter:chapter,
             summary:summary,
             tableOfContent:toc,
-            infoBox:infoBox
+            infoBox:infoBox,
+            relatedSubject:relatedSubject,
+            references:reference
         });
     }
 }

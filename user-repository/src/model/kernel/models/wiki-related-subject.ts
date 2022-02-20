@@ -1,7 +1,7 @@
 
-import WikiTextStyle from "../style/wiki-text-style";
-import WikiElementStyle from "../elements/wiki-element";
-import WikiBlockStyle from "../style/wiki-block-style";
+import WikiTextStyle from "./style/wiki-text-style";
+import WikiElementStyle from "./elements/wiki-element";
+import WikiBlockStyle from "./style/wiki-block-style";
 
 export default class WikiRelatedSubject{
     titleStyle?:WikiTextStyle
