@@ -14,6 +14,8 @@ import WikiBibliography from "../model/kernel/models/chapters/wiki-bibliography"
 import WikiReferences from "../model/kernel/models/chapters/wiki-references";
 import WikiRelatedSubject from "../model/kernel/models/chapters/wiki-related-subject";
 import WikiGallery from "../model/kernel/models/chapters/wiki-gallery";
+import WikiInfoBox from "../model/kernel/models/wiki-info-box";
+import WikiNavBar from "../model/kernel/models/wiki-nav-bar";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -43,7 +45,21 @@ export class WikiCssGenerator{
         if(wiki.subject){
             this.subjectGen(wiki.subject);
         }
-        //TODO ADD NAVBAR
+        if (wiki.navBar) {
+            this.navBarGen(wiki.navBar);
+        }
+        this.prefix.pop();
+    }
+
+    navBarGen(navBar:WikiNavBar){
+        this.prefix.push(".navBar")
+
+        if(navBar.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
+        }
+        if(navBar.contentStyle){
+            this.wikiElementGen(navBar.contentStyle)
+        }
         this.prefix.pop();
     }
 
@@ -65,10 +81,12 @@ export class WikiCssGenerator{
         if(subject.tableOfContent){
             this.tableOfContentGen(subject.tableOfContent);
         }
+        if (subject.infoBox) {
+            this.infoBoxGen(subject.infoBox);
+        }
         if(subject.summary){
             this.summaryGen(subject.summary);
         }
-        //TODO infobox
 
         this.prefix.pop()
     }
@@ -103,7 +121,6 @@ export class WikiCssGenerator{
         if(chapter.subChapter){
             this.subChapterGen(chapter.subChapter);
         }
-        //Todo le reste des chapitres particulier
         this.prefix.pop();
     }
 
@@ -134,7 +151,6 @@ export class WikiCssGenerator{
         if(subChapter.classicChapter){
             this.classicChapterGen(subChapter.classicChapter);
         }
-        //Todo le reste des chapitres particulier
         this.prefix.pop();
     }
 
@@ -224,6 +240,18 @@ export class WikiCssGenerator{
         }
         if(toc.contentStyle){
             this.wikiElementGen(toc.contentStyle)
+        }
+        this.prefix.pop();
+    }
+
+    infoBoxGen(infoBox:WikiInfoBox){
+        this.prefix.push(".infoBox");
+
+        if(infoBox.blockStyle){
+            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
+        }
+        if(infoBox.contentStyle){
+            this.wikiElementGen(infoBox.contentStyle)
         }
         this.prefix.pop();
     }
