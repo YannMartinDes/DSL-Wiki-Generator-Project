@@ -6,7 +6,7 @@ export default class WikiTableStyle{
     //TODO : element de style pour un tableau?
 
     constructor({border, alignment}:
-                    {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent}) {
+                    {border?:string, alignment?:AlignContent}) {
         this.border = border;
         this.alignment = alignment;
     }

@@ -2,15 +2,16 @@ import { TextAlignment } from "../kernel/models/enum/text-align.enum";
 import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiImageStyle from "../kernel/models/elements/wiki-image";
+import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
 
-export class ImageStyleBuilder<parentType> {
+export class ImageStyleBuilder {
 
     border?:string
     alignment?:AlignContent
 
-    parentBuilder:parentType;
+    parentBuilder:WikiElementStyleBuilder;
 
-    constructor (parentBuilder:parentType){
+    constructor (parentBuilder:WikiElementStyleBuilder){
         this.parentBuilder = parentBuilder;
     }
 
@@ -25,7 +26,7 @@ export class ImageStyleBuilder<parentType> {
     }
 
 
-    endImageStyle():parentType{
+    endImageStyle():WikiElementStyleBuilder{
         return this.parentBuilder;
     }
 

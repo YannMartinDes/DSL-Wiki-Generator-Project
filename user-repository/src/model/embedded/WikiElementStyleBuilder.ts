@@ -7,9 +7,9 @@ import {TableStyleBuilder} from "./TableStyleBuilder";
 export class WikiElementStyleBuilder{
 
     private text?:TextBuilder
-    private image?:ImageStyleBuilder<WikiElementStyleBuilder>
-    private button?:ButtonStyleBuilder<WikiElementStyleBuilder>
-    private table?:TableStyleBuilder<WikiElementStyleBuilder>
+    private image?:ImageStyleBuilder
+    private button?:ButtonStyleBuilder
+    private table?:TableStyleBuilder
 
     editText() {
         const builder = new TextBuilder(this);

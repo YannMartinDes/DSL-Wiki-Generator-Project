@@ -1,14 +1,15 @@
 import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiButtonStyle from "../kernel/models/elements/wiki-button";
+import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
 
-export class ButtonStyleBuilder<parentType> {
+export class ButtonStyleBuilder {
 
     border?:string
     alignment?:AlignContent
 
-    parentBuilder:parentType;
+    parentBuilder:WikiElementStyleBuilder;
 
-    constructor (parentBuilder:parentType){
+    constructor (parentBuilder:WikiElementStyleBuilder){
         this.parentBuilder = parentBuilder;
     }
 
@@ -23,7 +24,7 @@ export class ButtonStyleBuilder<parentType> {
     }
 
 
-    endImageStyle():parentType{
+    endImageStyle():WikiElementStyleBuilder{
         return this.parentBuilder;
     }
 

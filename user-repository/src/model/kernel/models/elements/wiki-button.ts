@@ -6,7 +6,7 @@ export default class WikiButtonStyle{
     //TODO : element de style pour un bouton?
 
     constructor({border, alignment}:
-                    {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent}) {
+                    {border?:string, alignment?:AlignContent}) {
         this.border = border;
         this.alignment = alignment;
     }
