@@ -192,13 +192,13 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(text.bold){
-            result.push("\tfont-weight: bold;\n") // Bold seulement ou semi bold ect ??
+            result.push(`\tfont-weight: ${text.bold};\n`) // Bold seulement ou semi bold ect ?? DONE
         }
         if(text.italic){
-            result.push("\tfont-style: italic;\n") //Idem ? 
+            result.push(`\tfont-style: ${text.italic};\n`) //Idem ? 
         }
         if(text.caps){
-            result.push("\ttext-transform: uppercase;\n") //TODO Trois mode plutot qu'un en réalité
+            result.push(`\ttext-transform: ${text.caps};\n`) //TODO Trois mode plutot qu'un en réalité
         }
         if(text.font_color){
             result.push(`\tcolor: ${text.font_color};\n`)// Enum de color ? 
@@ -207,7 +207,7 @@ export class WikiCssGenerator{
             result.push(`\tfont-size: ${text.font_size};\n`) //TODO fixer l'unité avec un complément pour l'unité
         }
         if(text.underline){
-            result.push(`\ttext-decoration: underline;\n`) //TODO verif que l'on veux pas permetre plus d'attribue comme dotted, une color ou autre
+            result.push(`\ttext-decoration: ${text.underline};\n`) //TODO verif que l'on veux pas permetre plus d'attribue comme dotted, une color ou autre
         }
         if(text.text_alignment){
             result.push(`\ttext-align: ${text.text_alignment};\n`)

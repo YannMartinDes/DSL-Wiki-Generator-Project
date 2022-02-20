@@ -1,14 +1,18 @@
+import { Color } from "../kernel/models/enum/color.enum";
+import { FontStyle } from "../kernel/models/enum/font-style.enum";
+import { FontWeight } from "../kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "../kernel/models/enum/text-align.enum";
+import { TextTransform } from "../kernel/models/enum/text-transform.enum";
 import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 
 export class TextStyleBuilder<parentType> {
 
-    private caps?:boolean;
+    private caps?:TextTransform;
     private textAlign?:TextAlignment;
-    private bold?:boolean;
-    private italic?:boolean;
+    private bold?:FontWeight;
+    private italic?:FontStyle;
     private underline?:boolean;
-    private fontColor?:string;
+    private fontColor?:string | Color;
     private fontSize?:string;
     private police?:string;
 
@@ -18,17 +22,17 @@ export class TextStyleBuilder<parentType> {
         this.parentBuilder = parentBuilder;
     }
 
-    capitalized(caps:boolean){
+    capitalized(caps:TextTransform){
         this.caps = caps;
         return this;
     }
 
-    putInBold(bold:boolean){
+    putInBold(bold:FontWeight){
         this.bold = bold;
         return this;
     }
 
-    italicize(italic:boolean){
+    italicize(italic:FontStyle){
         this.italic = italic;
         return this;
     }
@@ -43,7 +47,7 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setFontColor(color:string){
+    setFontColor(color:string | Color){
         this.fontColor = color;
         return this;
     }
