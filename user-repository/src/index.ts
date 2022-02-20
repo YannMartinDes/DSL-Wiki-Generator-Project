@@ -1,5 +1,6 @@
 import { WikiCssGenerator } from "./generator/wiki-css-generator";
 import { WikiBuilder } from "./model/embedded/WikiBuilder";
+import { TextAlignment } from "./model/kernel/models/enum/text-align.enum";
 
 const wikiBuilder = new WikiBuilder()
 wikiBuilder
@@ -12,7 +13,7 @@ wikiBuilder
         .textStyle()
             .italicize(true)
             .capitalized(true)
-            .setTextAlign("center")
+            .setTextAlign(TextAlignment.CENTER)
         .endTextStyle()
         .boldTextStyle()
             .setFontColor("green")
@@ -60,7 +61,7 @@ wikiBuilder.editSubject().editChapter().editSubChapter()
     .endBlockEdit()
     .editTitle()
         .italicize(true)
-        .setTextAlign("center")
+        .setTextAlign(TextAlignment.CENTER)
     .endTextStyle()
     .editContent().editText()
         .boldTextStyle()
@@ -75,8 +76,6 @@ wikiBuilder.editSubject().editChapter().editSubChapter()
 
 const res = wikiBuilder.createModel();
 console.log(res);
-console.log(res.subject?.title?.italic);
 
-
-// const cssGenerator = new WikiCssGenerator();
-// cssGenerator.generateCssFile(res)
+const cssGenerator = new WikiCssGenerator();
+cssGenerator.generateCssFile(res)

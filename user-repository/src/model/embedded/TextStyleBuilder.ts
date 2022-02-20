@@ -1,9 +1,10 @@
+import { TextAlignment } from "../kernel/models/enum/text-align.enum";
 import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 
 export class TextStyleBuilder<parentType> {
 
     private caps?:boolean;
-    private textAlign?:string;
+    private textAlign?:TextAlignment;
     private bold?:boolean;
     private italic?:boolean;
     private underline?:boolean;
@@ -47,7 +48,7 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setTextAlign(align:string){
+    setTextAlign(align:TextAlignment){
         this.textAlign = align;
         return this;
     }

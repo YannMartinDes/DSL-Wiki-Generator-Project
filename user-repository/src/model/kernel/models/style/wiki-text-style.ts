@@ -1,6 +1,8 @@
+import { TextAlignment } from "../enum/text-align.enum"
+
 export default class WikiTextStyle {
     caps?:boolean
-    text_alignment?:string
+    text_alignment?:TextAlignment
     bold?:boolean
     italic?:boolean
     font_color?:string
@@ -9,7 +11,7 @@ export default class WikiTextStyle {
     police?:string
 
     constructor({caps, text_alignment, bold, italic, font_color, font_size, underline, police}:
-        {caps?:boolean, text_alignment?:string, bold?:boolean, italic?:boolean, font_color?:string, font_size?:string, underline?:boolean, police?:string}) {
+        {caps?:boolean, text_alignment?:TextAlignment, bold?:boolean, italic?:boolean, font_color?:string, font_size?:string, underline?:boolean, police?:string}) {
         this.caps = caps;
         this.text_alignment = text_alignment;
         this.bold = bold;

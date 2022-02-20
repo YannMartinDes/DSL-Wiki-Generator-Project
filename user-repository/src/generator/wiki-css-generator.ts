@@ -17,6 +17,7 @@ export class WikiCssGenerator{
         this.wikiGen(wiki)
         return this.generate.join("")
     }
+
     generateCssFile(wiki:Wiki){
         this.wikiGen(wiki)
         createFile("../wiki-react/src/generate.css",this.generate.join(""))
@@ -33,6 +34,7 @@ export class WikiCssGenerator{
 
     subjectGen(subject:WikiSubject){
         this.prefix.push(".subject")
+
         if(subject.contentStyle){
             this.wikiElementGen(subject.contentStyle)
         }
@@ -50,26 +52,27 @@ export class WikiCssGenerator{
 
     textStyleGen(text:WikiTextStyle){
         let result:string[] = []
+
         if(text.bold){
-            result.push("\tfont-weight: bold;\n")
+            result.push("\tfont-weight: bold;\n") // Bold seulement ou semi bold ect ??
         }
         if(text.italic){
-            result.push("\tfont-style: italic;\n")
+            result.push("\tfont-style: italic;\n") //Idem ? 
         }
         if(text.caps){
-            result.push("\ttext-transform: uppercase;\n")
+            result.push("\ttext-transform: uppercase;\n") //Trois mode plutot qu'un en réalité
         }
         if(text.font_color){
-            result.push(`\tcolor: ${text.font_color};\n`)
+            result.push(`\tcolor: ${text.font_color};\n`)// Enum de color ? 
         }
         if(text.font_size){
-            result.push(`\tfont-size: ${text.font_size} px;\n`) //TODO verif que l'on veux pas changer l'unité
+            result.push(`\tfont-size: ${text.font_size};\n`) //TODO fixer l'unité avec un complément pour l'unité
         }
         if(text.underline){
             result.push(`\ttext-decoration: underline;\n`) //TODO verif que l'on veux pas permetre plus d'attribue comme dotted, une color ou autre
         }
         if(text.text_alignment){
-            result.push(`\ttext-align: start;\n`)
+            result.push(`\ttext-align: start;\n`)//TODO DIFF VALUE
         }
         return result
     }
@@ -82,6 +85,7 @@ export class WikiCssGenerator{
 
     textGen(text:WikiText){
         this.prefix.push(".text")
+
         if(text.basic){
             const basicTextStyle = this.textStyleGen(text.basic)
             if(basicTextStyle.length>0){
