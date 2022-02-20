@@ -1,26 +1,21 @@
+import { TextAlignment } from "../kernel/models/enum/text-align.enum";
+import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 
 export class TextStyleBuilder<parentType> {
 
-    private caps:boolean;
-    private textAlign:string;
-    private bold:boolean;
-    private italic:boolean;
-    private underline:boolean;
-    private fontColor:string;
-    private police:string;
+    private caps?:boolean;
+    private textAlign?:TextAlignment;
+    private bold?:boolean;
+    private italic?:boolean;
+    private underline?:boolean;
+    private fontColor?:string;
+    private fontSize?:string;
+    private police?:string;
 
     parentBuilder:parentType;
 
     constructor (parentBuilder:parentType){
         this.parentBuilder = parentBuilder;
-
-        this.caps = false;
-        this.textAlign = "Left"
-        this.bold = false;
-        this.italic = false;
-        this.underline = false;
-        this.fontColor = "Black";
-        this.police = "Arial"
     }
 
     capitalized(caps:boolean){
@@ -43,6 +38,11 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    setFontSize(size:string){
+        this.fontSize = size;
+        return this;
+    }
+
     setFontColor(color:string){
         this.fontColor = color;
         return this;
@@ -53,7 +53,7 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setTextAlign(align:string){
+    setTextAlign(align:TextAlignment){
         this.textAlign = align;
         return this;
     }
@@ -63,7 +63,16 @@ export class TextStyleBuilder<parentType> {
     }
 
     createModel(){
-        //TODO
+        return new WikiTextStyle({
+            caps:this.caps, 
+            text_alignment:this.textAlign, 
+            bold:this.bold, 
+            italic:this.italic,
+            font_color:this.fontColor, 
+            font_size:this.fontSize, 
+            underline:this.underline, 
+            police:this.police
+        });
     }
 
 }
