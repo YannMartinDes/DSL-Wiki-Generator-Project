@@ -48,7 +48,7 @@ export class SubjectBuilder{
         let builder = this.chapter;
 
         if(!builder){
-            builder = new ChapterBuilder();
+            builder = new ChapterBuilder(false);
             this.chapter = builder;
         }
         return builder;

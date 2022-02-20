@@ -12,11 +12,19 @@ export class ChapterBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ChapterBuilder>
 
+    private isSubChapter?:Boolean;
+
+    constructor(isSubChapter:boolean){
+        this.isSubChapter = isSubChapter;
+    }
+
     editSubChapter(){
+        if(this.isSubChapter) return this;
+
         let builder = this.subChapter;
 
         if(!builder){
-            builder = new ChapterBuilder();
+            builder = new ChapterBuilder(true);
             this.subChapter = builder;
         }
         return builder;

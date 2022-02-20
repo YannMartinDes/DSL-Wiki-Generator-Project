@@ -1,4 +1,61 @@
-.text {
+.wiki {
+	background-color: red;
+	margin: 5%;
+	align-content: center;
+}
+.wiki .text {
+	font-style: italic;
 	text-transform: uppercase;
-	color: black;
+	text-align: center;
+}
+.wiki .text .bold{
+	font-weight: bold;
+	color: green;
+}
+.wiki .subject {
+	background-color: red;
+}
+.wiki .subject .title {
+	font-style: italic;
+}
+.wiki .subject .text {
+	color: blue;
+}
+.wiki .subject .chapter .classicChapter .title {
+	text-decoration: underline;
+}
+.wiki .subject .chapter .classicChapter .text {
+	font-weight: bold;
+}
+.wiki .subject .chapter .subChapter {
+	border: 5px black solid;
+	margin: 5px;
+}
+.wiki .subject .chapter .subChapter .title {
+	font-style: italic;
+	color: gray;
+	text-align: center;
+}
+.wiki .subject .chapter .subChapter .text .bold{
+	text-transform: uppercase;
+}
+.wiki .subject .chapter .subChapter .text a {
+	text-decoration: underline;
+}
+.wiki .subject .tableOfContent {
+	border: 1px solid black;
+	padding: 5px;
+}
+.wiki .subject .tableOfContent .title {
+	text-transform: uppercase;
+}
+.wiki .subject .tableOfContent .text a {
+	font-style: italic;
+	text-decoration: underline;
+}
+.wiki .subject .summary {
+	align-content: center;
+}
+.wiki .subject .summary .text .italic{
+	font-style: italic;
 }

@@ -1,11 +1,12 @@
 import { WikiCssGenerator } from "./generator/wiki-css-generator";
 import { WikiBuilder } from "./model/embedded/WikiBuilder";
+import { AlignContent } from "./model/kernel/models/enum/align-content.enum";
 import { TextAlignment } from "./model/kernel/models/enum/text-align.enum";
 
 const wikiBuilder = new WikiBuilder()
 wikiBuilder
     .editBlock()
-        .setAlignment("center")
+        .setAlignment(AlignContent.CENTER)
         .setBackgroundColor("red")
         .setMargin("5%")
     .endBlockEdit()
@@ -22,11 +23,13 @@ wikiBuilder
     .endTextEdit();//Can't go further
 
 wikiBuilder.editSubject()
-    .editTitle().italicize(true).endTextStyle();//Can continue 
+    .editTitle().italicize(true).endTextStyle()
+    .editBlock().setBackgroundColor("red").endBlockEdit()
+    .editContent().editText().textStyle().setFontColor("blue").endTextStyle();//Can't go further
 
 
 wikiBuilder.editSubject().editSummary()
-    .editBlock().setAlignment("center").endBlockEdit()
+    .editBlock().setAlignment(AlignContent.CENTER).endBlockEdit()
     .editContent().editText().italicTextStyle().italicize(true).endTextStyle().endTextEdit()//Can't go further
 
 wikiBuilder.editSubject().editTableOfContent()
@@ -35,14 +38,15 @@ wikiBuilder.editSubject().editTableOfContent()
         .capitalized(true)
     .endTextStyle()
     .editBlock()
-        .setBorder("1 solid black")
+        .setBorder("1px solid black")
         .setPadding("5px")
     .endBlockEdit()
     .editContent().editText()
         .linkTextStyle()
             .italicize(true)
             .underlined(true)
-        .endTextStyle().endTextEdit();//Can't go further
+        .endTextStyle()
+    .endTextEdit();//Can't go further
 
 wikiBuilder.editSubject().editChapter().editClassicChapter()
     .editTitle()
@@ -72,7 +76,8 @@ wikiBuilder.editSubject().editChapter().editSubChapter()
         .endTextStyle()
     .endTextEdit();//Can't go further
 
-//wikiBuilder.editSubject().editChapter().editSubChapter().editSubChapter().editSubChapter();//Be aware of that....
+//TODO Limiter le nombre de sous-chapitre
+wikiBuilder.editSubject().editChapter().editSubChapter().editSubChapter().editSubChapter().editTitle().setFontColor("gray");//Be aware of that....mddify only one level of subchapter
 
 const res = wikiBuilder.createModel();
 console.log(res);

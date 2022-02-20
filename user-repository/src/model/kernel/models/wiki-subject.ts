@@ -13,14 +13,14 @@ export default class WikiSubject{
     infoBox?:WikiInfoBox
     chapter?:WikiChapter
 
-    title?:WikiTextStyle
+    titleStyle?:WikiTextStyle
     contentStyle?:WikiElementStyle
     blockStyle?:WikiBlockStyle
     
     constructor({title, summary, tableOfContent, infoBox, chapter, content, block}
         :{title?:WikiTextStyle, summary?:WikiSummary, tableOfContent?:WikiTableOfContent, infoBox?:WikiInfoBox, chapter?:WikiChapter
         content?:WikiElementStyle, block?:WikiBlockStyle}){
-        this.title = title;
+        this.titleStyle = title;
         this.summary = summary;
         this.tableOfContent =tableOfContent;
         this.infoBox = infoBox;
