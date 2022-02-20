@@ -1,5 +1,5 @@
 import { Color } from "../kernel/models/enum/color.enum";
-import { UnityFontSize } from "../kernel/models/enum/font-size.enum";
+import { UnityFontSize } from "../kernel/models/enum/unity-font-size.enum";
 import { FontStyle } from "../kernel/models/enum/font-style.enum";
 import { FontWeight } from "../kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "../kernel/models/enum/text-align.enum";
@@ -44,15 +44,10 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setFontSize(size:number,unity:UnityFontSize){
-        this.fontSize = size + unity;
+    setFontSize(size:number,unit:UnityFontSize){
+        this.fontSize = size + unit;
         return this;
     }
-    setFontSizeWithType(sizeType:FontSize){
-        this.fontSize = sizeType
-        return this;
-    }
-
 
     setFontColor(color:string | Color){
         this.fontColor = color;

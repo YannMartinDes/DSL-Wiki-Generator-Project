@@ -3,7 +3,7 @@ import { WikiBuilder } from "./model/embedded/WikiBuilder";
 import { AlignContent } from "./model/kernel/models/enum/align-content.enum";
 import { Border } from "./model/kernel/models/enum/border.enum";
 import { Color } from "./model/kernel/models/enum/color.enum";
-import { UnityFontSize } from "./model/kernel/models/enum/font-size.enum";
+import { UnityFontSize } from "./model/kernel/models/enum/unity-font-size.enum";
 import { FontStyle } from "./model/kernel/models/enum/font-style.enum";
 import { FontWeight } from "./model/kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "./model/kernel/models/enum/text-align.enum";
@@ -68,7 +68,7 @@ wikiBuilder.editSubject().editChapter().editClassicChapter()
 
 wikiBuilder.editSubject().editChapter().editSubChapter()
     .editBlock()
-        .setBorder(5,UnityFontSize.PIXEL,Color.ULTRA_VIOLET,Border.DOTTED,Border.SOLID)
+        .setBorder(5,UnityFontSize.PIXEL,Color.ULTRA_VIOLET,Border.DOTTED)
         .setMargin(5,UnityFontSize.PIXEL)
     .endBlockEdit()
     .editTitle()
