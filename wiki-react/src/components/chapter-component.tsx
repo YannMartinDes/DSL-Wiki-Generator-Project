@@ -1,18 +1,18 @@
-import WikiChapter from '../model/kernel/models/chapters/chapter'
 import { ChapterContent, TextContent} from '../model/kernel/models/content'
 import TextComponent from './text-component'
 
-export default function ChapterComponent({chapterStyle,content}:{chapterStyle?:WikiChapter,content:ChapterContent}) {
+export default function ChapterComponent({content}:{content:ChapterContent}) {
   return (
-    <div className='chapter-style'>
-        <h2>{content.title}</h2>
+    <div className='chapter'>
+        <h2 className='title'>{content.title}</h2>
         {content.chapterElementContent.map((elt)=>{
             if(elt instanceof ChapterContent){
-                return <ChapterComponent content={elt} chapterStyle={chapterStyle?.subChapter}></ChapterComponent>
+                return <ChapterComponent content={elt}></ChapterComponent>
             }
             else if(elt instanceof TextContent){
-                return <TextComponent content={elt} textFormated={chapterStyle?.contentStyle?.text}></TextComponent>
+                return <TextComponent content={elt}></TextComponent>
             }
+            return undefined;
         })}
     </div>
   )
