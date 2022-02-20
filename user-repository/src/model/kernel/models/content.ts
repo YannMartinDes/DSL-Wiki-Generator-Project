@@ -7,26 +7,34 @@ export class WikiContent{
 }
 
 export class SubjectContent{
-    constructor(
-        public subject?:string,
-        public summary?:SummaryContent,
-        public tableOfContent?:TOCContent,
-        public infoBox?:InfoBoxContent,
-        public chapters?:ChapterContent[],
-        public reference?:ReferencesContent,
-        public relatedSubject?:RelatedSubjectContent,
-    ){}
+    subject?:string
+    summary?:SummaryContent
+    tableOfContent?:TOCContent
+    infoBox?:InfoBoxContent
+    chapters?:ChapterContent[]
+    reference?:ReferencesContent
+    relatedSubject?:RelatedSubjectContent
+    constructor({ subject,summary,tableOfContent,infoBox,chapters,reference,relatedSubject}:
+        {subject?:string,summary?:SummaryContent,tableOfContent?:TOCContent,infoBox?:InfoBoxContent,
+            chapters?:ChapterContent[],reference?:ReferencesContent,relatedSubject?:RelatedSubjectContent}
+    ){
+        this.subject=subject
+        this.summary=summary
+        this.tableOfContent=tableOfContent
+        this.infoBox=infoBox
+        this.chapters=chapters
+        this.reference=reference
+        this.relatedSubject=relatedSubject
+    }
 }
 export class ReferencesContent{
     constructor(
         public content:WikiElementContent[],
-        public title:string,
     ){}
 }
 export class RelatedSubjectContent{
     constructor(
         public content:WikiElementContent[],
-        public title:string,
     ){}
 }
 

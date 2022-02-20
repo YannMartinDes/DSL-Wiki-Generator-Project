@@ -1,7 +1,7 @@
 import './App.css';
 import "./generate.css"
 import WikiComponent from './components/wiki-component';
-import { exemplePageTropidophorus } from './model/exemple/exemple';
+import { exemplePageTropidophorus } from './model/exemple/exemple2';
 
 function App() {
  
