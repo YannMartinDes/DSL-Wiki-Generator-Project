@@ -223,10 +223,10 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(block.background){
-            result.push(`\tbackground-color: ${block.background};\n`)// Enum de color ? 
+            result.push(`\tbackground-color: ${block.background};\n`)
         }
         if(block.border){
-            result.push(`\tborder: ${block.border};\n`)//TODO meilleur composition de border ?
+            result.push(`\tborder: ${block.border};\n`)
         }
         if(block.margin){
             result.push(`\tmargin: ${block.margin};\n`)// TODO margin localisée avec multi constructeur
@@ -235,7 +235,7 @@ export class WikiCssGenerator{
             result.push(`\tpadding: ${block.padding};\n`)// TODO padding localisé avec multi constructeur
         }
         if(block.alignment){
-            result.push(`\talign-content: ${block.alignment};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\talign-content: ${block.alignment};\n`)
         }
 
         return result;
