@@ -1,10 +1,11 @@
 import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiButtonStyle from "../kernel/models/elements/wiki-button";
 import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
+import { Border } from "../kernel/models/enum/border.enum";
 
 export class ButtonStyleBuilder {
 
-    border?:string
+    border?:Border
     alignment?:AlignContent
 
     parentBuilder:WikiElementStyleBuilder;
@@ -13,7 +14,7 @@ export class ButtonStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    editBorder(border:string){
+    editBorder(border:Border){
         this.border=border;
         return this;
     }

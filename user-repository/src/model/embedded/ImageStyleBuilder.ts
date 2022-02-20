@@ -3,10 +3,11 @@ import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiImageStyle from "../kernel/models/elements/wiki-image";
 import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
+import { Border } from "../kernel/models/enum/border.enum";
 
 export class ImageStyleBuilder {
 
-    border?:string
+    border?:Border
     alignment?:AlignContent
 
     parentBuilder:WikiElementStyleBuilder;
@@ -15,7 +16,7 @@ export class ImageStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    editBorder(border:string){
+    editBorder(border:Border){
         this.border=border;
         return this;
     }
