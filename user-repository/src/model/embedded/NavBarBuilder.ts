@@ -1,22 +1,10 @@
-import WikiTableOfContent from "../kernel/models/wiki-table-of-content";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
-import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
+import WikiNavBar from "../kernel/models/wiki-nav-bar";
 
-export class TOCBuilder{
-    private title?:TextStyleBuilder<TOCBuilder>
+export class NavBarBuilder {
     private content?:WikiElementStyleBuilder
-    private block?:BlockStyleBuilder<TOCBuilder>
-
-    editTitle(){
-        let builder = this.title;
-
-        if(!builder){
-            builder = new TextStyleBuilder(this);
-            this.title = builder;
-        }
-        return builder;
-    }
+    private block?:BlockStyleBuilder<NavBarBuilder>
 
     editBlock(){
         let builder = this.block;
@@ -39,10 +27,9 @@ export class TOCBuilder{
     }
 
     createModel(){
-        const title = this.title?.createModel();
-        const block = this.block?.createModel();
         const content = this.content?.createModel();
+        const block = this.block?.createModel();
 
-        return new WikiTableOfContent({content:content, title:title, block:block});
+        return new WikiNavBar({content:content, block:block});
     }
 }

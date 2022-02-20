@@ -1,10 +1,9 @@
 import { SummaryContent } from '../model/kernel/models/content'
-import WikiSummary from '../model/kernel/models/summary'
 import TextComponent from './text-component'
 
-export default function SummaryComponent({summary, content}:{summary:WikiSummary, content:SummaryContent}) {
+export default function SummaryComponent({content}:{content:SummaryContent}) {
   return (
-    <div>
+    <div className='summary'>
         <TextComponent content={content.value} />
     </div>
   )

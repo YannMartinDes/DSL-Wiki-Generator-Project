@@ -6,13 +6,11 @@ export default class WikiTableOfContent {
     contentStyle?:WikiElementStyle
     titleStyle?:WikiTextStyle
     blockStyle?:WikiBlockStyle
-    numerated?:boolean
 
-    constructor({content,title,block,numerated}:
-        {content?:WikiElementStyle, title?:WikiTextStyle, block?:WikiBlockStyle, numerated?:boolean}){
+    constructor({content,title,block}:
+        {content?:WikiElementStyle, title?:WikiTextStyle, block?:WikiBlockStyle}){
         this.contentStyle =content;
         this.titleStyle = title;
         this.blockStyle = block;
-        this.numerated = numerated;
     }
 }

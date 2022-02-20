@@ -1,12 +1,14 @@
-import WikiTableOfContent from "../kernel/models/wiki-table-of-content";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
+import WikiRelatedSubject from "../kernel/models/chapters/wiki-related-subject";
 
-export class TOCBuilder{
-    private title?:TextStyleBuilder<TOCBuilder>
+export class RelatedSubjectBuilder{
+
+    private title?:TextStyleBuilder<RelatedSubjectBuilder>
     private content?:WikiElementStyleBuilder
-    private block?:BlockStyleBuilder<TOCBuilder>
+    private block?:BlockStyleBuilder<RelatedSubjectBuilder>
+
 
     editTitle(){
         let builder = this.title;
@@ -40,9 +42,9 @@ export class TOCBuilder{
 
     createModel(){
         const title = this.title?.createModel();
-        const block = this.block?.createModel();
         const content = this.content?.createModel();
+        const block = this.block?.createModel();
 
-        return new WikiTableOfContent({content:content, title:title, block:block});
+        return new WikiRelatedSubject({title:title,content:content,block:block});
     }
 }

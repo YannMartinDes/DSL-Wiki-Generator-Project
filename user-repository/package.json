@@ -5,7 +5,10 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "generate": "tsc && node ./dist/index.js"
+    "generate": "tsc && node ./dist/index.js",
+    "update-model":"npm run remove-gen && npm run copy-gen",
+    "remove-gen":"rm -rf ../wiki-react/src/model",
+    "copy-gen":"cp -r ./src/model ../wiki-react/src/"
   },
   "keywords": [],
   "author": "",
