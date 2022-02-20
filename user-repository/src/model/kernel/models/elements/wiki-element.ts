@@ -1,20 +1,21 @@
-import WikiButton from "./wiki-button";
-import WikiImage from "./wiki-image";
-import WikiTable from "./wiki-table";
 import WikiText from "./wiki-text";
+import WikiButtonStyle from "./wiki-button";
+import WikiTableStyle from "./wiki-table";
+import WikiImageStyle from "./wiki-image";
+
 
 export default class WikiElement{
-    button?:WikiButton
-    table?:WikiTable
-    image?:WikiImage
+    button?:WikiButtonStyle
+    table?:WikiTableStyle
+    image?:WikiImageStyle
     text?:WikiText
 
     constructor({button,table,text,image}:
-        {button?:WikiButton, table?:WikiTable, image?:WikiImage, text?:WikiText}){
+        {button?:WikiButtonStyle, table?:WikiTableStyle, image?:WikiImageStyle, text?:WikiText}){
         this.button = button;
         this.image = image;
         this.table = table;
-        this.text = text;    
+        this.text = text;
     }
 
 }

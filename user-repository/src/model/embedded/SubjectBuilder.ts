@@ -5,12 +5,14 @@ import { SummaryBuilder } from "./SummaryBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { TOCBuilder } from "./TOCBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
+import {InfoBoxBuilder} from "./InfoBoxBuilder";
 
 export class SubjectBuilder{
     private title?:TextStyleBuilder<SubjectBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<SubjectBuilder>
     private summary?:SummaryBuilder
+    private infoBox?:InfoBoxBuilder
     private chapter?:ChapterBuilder
     private toc?:TOCBuilder
 
@@ -74,6 +76,15 @@ export class SubjectBuilder{
         return builder;
     }
 
+
+    editInfoBox(){
+        if(!this.infoBox){
+            this.infoBox = new InfoBoxBuilder();
+        }
+        return this.infoBox;
+    }
+
+
     createModel(){
         const title = this.title?.createModel();
         const content = this.content?.createModel();
@@ -81,14 +92,16 @@ export class SubjectBuilder{
         const chapter = this.chapter?.createModel();
         const summary = this.summary?.createModel();
         const toc = this.toc?.createModel();
+        const infoBox = this.infoBox?.createModel();
 
         return new WikiSubject({
-            title:title, 
-            content:content, 
-            block:block, 
-            chapter:chapter, 
-            summary:summary, 
-            tableOfContent:toc
+            title:title,
+            content:content,
+            block:block,
+            chapter:chapter,
+            summary:summary,
+            tableOfContent:toc,
+            infoBox:infoBox
         });
     }
 }

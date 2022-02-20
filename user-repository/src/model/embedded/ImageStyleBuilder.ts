@@ -1,0 +1,41 @@
+import { TextAlignment } from "../kernel/models/enum/text-align.enum";
+import WikiTextStyle from "../kernel/models/style/wiki-text-style";
+import {AlignContent} from "../kernel/models/enum/align-content.enum";
+import WikiImageStyle from "../kernel/models/elements/wiki-image";
+import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
+
+export class ImageStyleBuilder {
+
+    border?:string
+    alignment?:AlignContent
+
+    parentBuilder:WikiElementStyleBuilder;
+
+    constructor (parentBuilder:WikiElementStyleBuilder){
+        this.parentBuilder = parentBuilder;
+    }
+
+    editBorder(border:string){
+        this.border=border;
+        return this;
+    }
+
+    editAlignement(alignment:AlignContent){
+        this.alignment=alignment;
+        return this;
+    }
+
+
+    endImageStyle():WikiElementStyleBuilder{
+        return this.parentBuilder;
+    }
+
+    createModel(){
+
+        return new WikiImageStyle({
+            border:this.border,
+            alignment:this.alignment
+        });
+    }
+
+}
