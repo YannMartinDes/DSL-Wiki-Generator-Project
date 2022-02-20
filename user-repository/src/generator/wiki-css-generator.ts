@@ -212,6 +212,9 @@ export class WikiCssGenerator{
         if(text.text_alignment){
             result.push(`\ttext-align: ${text.text_alignment};\n`)
         }
+        if(text.police){
+            result.push(`\tfont-family: ${text.police};\n`);
+        }
         return result
     }
 

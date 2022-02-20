@@ -38,6 +38,11 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    setFontSize(size:string){
+        this.fontSize = size;
+        return this;
+    }
+
     setFontColor(color:string){
         this.fontColor = color;
         return this;
