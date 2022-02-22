@@ -10,8 +10,8 @@ const chapter2:ChapterContent = new ClassiqueChapterContent(
 )
 const chapter3:ChapterContent = new ClassiqueChapterContent(
     "Publication originale",
-    [new TextContent("Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>."),new ImageContent('https://commons.wikimedia.org/wiki/File:Lizardicon.svg?uselang=fr',"un lezard"),new ButtonContent('https://fr.wikipedia.org/wiki/Tropidophorus_matsuii',"wikipedia page")]
-)
+    [new TextContent("Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>."),new ImageContent('/images/lezard.jpeg',"un lezard"),new ButtonContent('https://fr.wikipedia.org/wiki/Tropidophorus_matsuii',"wikipedia page")]
+    )
 
 const infoBox :InfoBoxContent = new InfoBoxContent([new TextContent(`<ul>endémique<li> </li><li>originale</li><li>Masafumi Matsui</li></ul>`)])
 const reference = new ReferencesContent([new TextContent("(en) Référence <a href=\"\"><span class=\"italic\">NCBI</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span></a> [<a href=\"\">archive</a>] (<a href=\"\">taxons inclus</a> [<a href=\"\">archive</a>]) (consulté le 19 décembre 2012)</br>"

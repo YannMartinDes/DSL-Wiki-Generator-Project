@@ -13,6 +13,9 @@
 	font-weight: bold;
 	color: green;
 }
+.wiki .button {
+	border: solid;
+}
 .wiki .subject {
 	background-color: red;
 }
