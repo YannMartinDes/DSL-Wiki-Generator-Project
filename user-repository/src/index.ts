@@ -87,6 +87,17 @@ wikiBuilder.editSubject().editChapter().editSubChapter()
 
 wikiBuilder.editSubject().editChapter().editSubChapter().editSubChapter().editSubChapter().editTitle().setFontColor("gray");//Be aware of that....mddify only one level of subchapter
 
+wikiBuilder.editHover().editNavBar()
+    .editBlock()
+        .setMargin(8,UnitySize.PERCENT)
+        .setBackgroundColor(Color.BROWN)
+    .endBlockEdit();
+
+wikiBuilder.editHover().editSubject().editChapter()
+    .editTitle().italicize(FontStyle.ITALIC).endTextStyle()
+    .editGallery().editContent().editText().linkTextStyle().putInBold(FontWeight.BOLDER).endTextStyle().endTextEdit();
+
+
 const res = wikiBuilder.createModel();
 console.log(res);
 

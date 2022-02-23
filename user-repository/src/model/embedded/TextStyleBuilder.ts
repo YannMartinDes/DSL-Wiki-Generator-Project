@@ -5,6 +5,7 @@ import { FontWeight } from "../kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "../kernel/models/enum/text-align.enum";
 import { TextTransform } from "../kernel/models/enum/text-transform.enum";
 import WikiTextStyle from "../kernel/models/style/wiki-text-style";
+import { TextDecoration } from "../kernel/models/enum/text-decoration.enum";
 
 export class TextStyleBuilder<parentType> {
 
@@ -12,7 +13,7 @@ export class TextStyleBuilder<parentType> {
     private textAlign?:TextAlignment;
     private bold?:FontWeight;
     private italic?:FontStyle;
-    private underline?:boolean;
+    private underline?:TextDecoration;
     private fontColor?:string | Color;
     private fontSize?:string;
     private police?:string;
@@ -53,7 +54,7 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    underlined(underline:boolean){
+    underlined(underline:TextDecoration){
         this.underline = underline;
         return this;
     }
