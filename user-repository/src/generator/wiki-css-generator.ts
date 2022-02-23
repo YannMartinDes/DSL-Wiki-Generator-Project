@@ -322,8 +322,8 @@ export class WikiCssGenerator{
         let result:string[] = []
 
 
-        if(image.style){
-            result = this.blockStyleGen(image.style)
+        if(image.blockStyle){
+            result = this.blockStyleGen(image.blockStyle)
         }
 
         return result;

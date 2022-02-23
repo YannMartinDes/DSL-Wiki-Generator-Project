@@ -4,9 +4,9 @@ import {UnitySize} from "../enum/unity-font-size.enum";
 import WikiBlockStyle from "../style/wiki-block-style";
 
 export default class WikiImageStyle{
-    style?: WikiBlockStyle
+    blockStyle?: WikiBlockStyle
 
     constructor({style}:{style?:WikiBlockStyle}) {
-        this.style=style;
+        this.blockStyle=style;
     }
 }

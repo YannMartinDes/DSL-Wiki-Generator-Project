@@ -17,7 +17,7 @@ export class TextStyleBuilder<parentType> {
     private fontSize?:string;
     private police?:string;
 
-    parentBuilder:parentType;
+    private parentBuilder:parentType;
 
     constructor (parentBuilder:parentType){
         this.parentBuilder = parentBuilder;

@@ -10,12 +10,12 @@ import { UnitySize } from "../kernel/models/enum/unity-font-size.enum";
 
 export class TableStyleBuilder {
 
-    border?:Border
-    alignment?:AlignContent
-    size?:string
-    backgroundColor?:Color
-    color?:Color
-    parentBuilder:WikiElementStyleBuilder;
+    private border?:Border
+    private alignment?:AlignContent
+    private size?:string
+    private backgroundColor?:Color
+    private color?:Color
+    private parentBuilder:WikiElementStyleBuilder;
 
     constructor (parentBuilder:WikiElementStyleBuilder){
         this.parentBuilder = parentBuilder;
