@@ -13,12 +13,13 @@ export default class Wiki {
     displaySize:DisplaySize<Wiki>[]=[]
     hoverStyle?:Wiki
 
-    constructor({content, subject, block, navBar, hover}:
-        {content?:WikiElementStyle, subject?:WikiSubject, navBar?:WikiNavBar, block?:WikiBlockStyle, hover?:Wiki}){
+    constructor({content, subject, block, navBar, hover,displaySize=[]}:
+        {content?:WikiElementStyle, subject?:WikiSubject, navBar?:WikiNavBar, block?:WikiBlockStyle, hover?:Wiki,displaySize?:DisplaySize<Wiki>[]}){
         this.contentStyle =content;
         this.subject = subject;
         this.blockStyle = block;
         this.navBar = navBar;
         this.hoverStyle = hover;
+        this.displaySize = displaySize
     }
 }

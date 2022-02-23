@@ -3,6 +3,7 @@ import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { SubjectBuilder } from "./SubjectBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import {NavBarBuilder} from "./NavBarBuilder";
+import { DisplaySize } from "../kernel/models/display-size";
 
 export class WikiBuilder{
     private content?:WikiElementStyleBuilder
@@ -10,10 +11,22 @@ export class WikiBuilder{
     private subject?:SubjectBuilder
     private navBar?:NavBarBuilder
     private hover?:WikiBuilder
-    private isHover:boolean
+    private isHover!:boolean
+    private displaySize:DisplaySize<WikiBuilder>[]=[]
+    private root!:WikiBuilder
 
-    constructor(isHover:boolean = false){
-        this.isHover = isHover;
+
+    private constructor(isHover:boolean,root?:WikiBuilder){
+        this.isHover=isHover
+        if(root){
+            this.root=root;
+        }else{
+            this.root=this
+        }
+     }
+    static createWiki(){
+        const rootBuilder = new WikiBuilder(false)
+        return rootBuilder;
     }
 
     editHover(){
@@ -23,6 +36,30 @@ export class WikiBuilder{
             this.hover = new WikiBuilder(true);
         }
         return this.hover;
+    }
+    editDisplaySize({minWidth,minHeght,maxWidth,maxHeight}:
+        {minWidth:number,minHeght:number,maxWidth:number,maxHeight:number}){
+        const displaySize = new DisplaySize(new WikiBuilder(this.isHover,this.root))
+        if(minHeght){
+            displaySize.minHeight=minHeght
+        }
+        if(minWidth){
+            displaySize.minWidth=minWidth
+        }
+        if(maxHeight){
+            displaySize.maxHeight=maxHeight
+        }
+        if(maxWidth){
+            displaySize.maxWidth=maxWidth
+        }
+
+        displaySize.minWidth
+        this.root.displaySize.push(displaySize)
+
+        return displaySize.element;
+    }
+    returnNormalDisplaySize(){
+        return this.root;
     }
 
     editBlock(){
@@ -61,6 +98,7 @@ export class WikiBuilder{
         }
         return this.navBar;
     }
+
 
 
     createModel():Wiki{
