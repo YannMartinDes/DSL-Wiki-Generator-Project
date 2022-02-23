@@ -59,7 +59,7 @@ export class WikiCssGenerator{
         }
         
         if(wiki.hoverStyle){
-            this.hoverPrefix = " :hover";
+            this.hoverPrefix = ":hover";
             this.wikiGen(wiki.hoverStyle);
             this.hoverPrefix = "";
         }
