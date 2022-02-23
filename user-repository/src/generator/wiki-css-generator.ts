@@ -338,7 +338,7 @@ export class WikiCssGenerator{
             result.push(`\tborder: ${table.border};\n`)//TODO meilleur composition de border ?
         }
         if(table.alignment){
-            result.push(`\talign-content: ${table.alignment};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\talign-content: ${table.alignment};\n`)
         }
 
         return result;
@@ -351,7 +351,7 @@ export class WikiCssGenerator{
             result.push(`\tborder: ${button.border};\n`)//TODO meilleur composition de border ?
         }
         if(button.alignment){
-            result.push(`\talign-content: ${button.alignment};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\talign-content: ${button.alignment};\n`)
         }
 
         return result;

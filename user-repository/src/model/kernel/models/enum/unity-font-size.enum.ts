@@ -1,4 +1,4 @@
-export enum UnityFontSize{
+export enum UnitySize{
     PERCENT = "%",
     PIXEL = "px"
 }
