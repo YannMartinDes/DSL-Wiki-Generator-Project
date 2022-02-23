@@ -1,14 +1,13 @@
-import {AlignContent} from "../enum/align-content.enum";
-import { Border } from "../enum/border.enum";
+import WikiBlockStyle from "../style/wiki-block-style";
+import WikiTextStyle from "../style/wiki-text-style";
 
 export default class WikiButtonStyle{
-    border?:Border
-    alignment?:AlignContent
-    //TODO : element de style pour un bouton?
+    block?:WikiBlockStyle
+    text?:WikiTextStyle
 
-    constructor({border, alignment}:
-                    {border?:Border, alignment?:AlignContent}) {
-        this.border = border;
-        this.alignment = alignment;
+    constructor({block, text}:
+                    {block?:WikiBlockStyle, text?:WikiTextStyle}) {
+        this.block = block;
+        this.text = text;
     }
 }

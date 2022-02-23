@@ -2,7 +2,7 @@
 import WikiTextStyle from "../model/kernel/models/style/wiki-text-style";
 import Wiki from "../model/kernel/models/wiki";
 import WikiSubject from "../model/kernel/models/wiki-subject"
-import createFile from "./utlis/file-utils";
+import createFile from "./utils/file-utils";
 import WikiElementStyle from "../model/kernel/models/elements/wiki-element";
 import WikiText from "../model/kernel/models/elements/wiki-text";
 import WikiBlockStyle from "../model/kernel/models/style/wiki-block-style";
@@ -248,13 +248,13 @@ export class WikiCssGenerator{
             this.textGen(element.text)
         }
         if (element.image) {
-            this.generate.push(`${this.prefix.join(" ")} .image {\n${this.imageStyleGen(element.image).join("")}}\n`);
-        }
+            this.imageStyleGen(element.image)
+         }
         if (element.table) {
             this.generate.push(`${this.prefix.join(" ")} .table {\n${this.tableStyleGen(element.table).join("")}}\n`);
         }
         if (element.button) {
-            this.generate.push(`${this.prefix.join(" ")} .button {\n${this.buttonStyleGen(element.button).join("")}}\n`);
+            this.buttonStyleGen(element.button)
         }
     }
 
@@ -319,14 +319,14 @@ export class WikiCssGenerator{
     }
 
     imageStyleGen(image:WikiImageStyle) {
-        let result:string[] = []
-
+        this.prefix.push("img")
 
         if(image.blockStyle){
-            result = this.blockStyleGen(image.blockStyle)
+            const imageStyle = this.blockStyleGen(image.blockStyle)
+            this.generate.push(`${this.prefix.join(" ")} .italic{\n${imageStyle.join("")}}\n`)
         }
 
-        return result;
+        this.prefix.pop();
     }
 
     tableStyleGen(table:WikiTableStyle) {
@@ -343,16 +343,17 @@ export class WikiCssGenerator{
     }
 
     buttonStyleGen(button:WikiButtonStyle) {
-        let result:string[] = []
+        this.prefix.push("button")
 
-        if(button.border){
-            result.push(`\tborder: ${button.border};\n`)//TODO meilleur composition de border ?
+        if(button.block){
+            const blockStyle = this.blockStyleGen(button.block)
+            this.generate.push(`${this.prefix.join(" ")} .italic{\n${blockStyle.join("")}}\n`)
         }
-        if(button.alignment){
-            result.push(`\talign-content: ${button.alignment};\n`)
+        if(button.text){
+            const textStyle = this.textStyleGen(button.text)
+            this.generate.push(`${this.prefix.join(" ")} .italic{\n${textStyle.join("")}}\n`)
         }
-
-        return result;
+        this.prefix.pop();
     }
 
     blockStyleGen(block:WikiBlockStyle){
@@ -374,7 +375,12 @@ export class WikiCssGenerator{
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
         }
-
+        if(block.display) {
+            result.push(`\tdisplay: ${block.display};\n`)
+        }
+        if(block.float) {
+            result.push(`\tfloat: ${block.float};\n`)
+        }
         return result;
     }
 
