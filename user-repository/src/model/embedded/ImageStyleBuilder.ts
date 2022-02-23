@@ -1,5 +1,3 @@
-import { TextAlignment } from "../kernel/models/enum/text-align.enum";
-import WikiTextStyle from "../kernel/models/style/wiki-text-style";
 import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiImageStyle from "../kernel/models/elements/wiki-image";
 import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
@@ -8,19 +6,18 @@ import {BlockStyleBuilder} from "./BlockStyleBuilder";
 
 export class ImageStyleBuilder {
 
-    style?:BlockStyleBuilder<ImageStyleBuilder>
-
-    parentBuilder:WikiElementStyleBuilder;
+    private blockStyle?:BlockStyleBuilder<ImageStyleBuilder>
+    private parentBuilder:WikiElementStyleBuilder;
 
     constructor (parentBuilder:WikiElementStyleBuilder){
         this.parentBuilder = parentBuilder;
     }
 
     editStyle(){
-        if(!this.style){
-            this.style=new BlockStyleBuilder<ImageStyleBuilder>(this);
+        if(!this.blockStyle){
+            this.blockStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
         }
-        return this.style;
+        return this.blockStyle;
     }
 
 
@@ -29,7 +26,7 @@ export class ImageStyleBuilder {
     }
 
     createModel(){
-        const style = this.style?.createModel();
+        const style = this.blockStyle?.createModel();
 
         return new WikiImageStyle({
             style:style

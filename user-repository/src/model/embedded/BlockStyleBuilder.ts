@@ -1,6 +1,7 @@
 import { AlignContent } from "../kernel/models/enum/align-content.enum"
 import { Border } from "../kernel/models/enum/border.enum"
 import { Color } from "../kernel/models/enum/color.enum"
+import { Float } from "../kernel/models/enum/float"
 import { UnitySize } from "../kernel/models/enum/unity-font-size.enum"
 import WikiBlockStyle from "../kernel/models/style/wiki-block-style"
 
@@ -11,6 +12,8 @@ export class BlockStyleBuilder<parentType>{
     private alignment?:AlignContent
     private padding?:string
     private margin?:string
+    private display?:string
+    private float?:Float
 
     private parentBuilder:parentType
 
@@ -60,6 +63,16 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    setDisplay(display:string) {
+        this.display = display;
+        return this;
+    }
+
+    setFloat(float:Float) {
+        this.float = float;
+        return this;
+    }
+
     endBlockEdit():parentType{
         return this.parentBuilder;
     }
@@ -69,8 +82,10 @@ export class BlockStyleBuilder<parentType>{
             margin:this.margin,
             padding:this.padding,
             border:this.border,
-            background:this.backgroundColor,
-            alignment:this.alignment
+            background:this.backgroundColor, 
+            alignment:this.alignment,
+            display:this.display,
+            float:this.float
         });
     }
 
