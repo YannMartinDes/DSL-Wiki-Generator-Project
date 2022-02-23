@@ -24,7 +24,7 @@ export class WikiCssGenerator{
     generate:string[]=[]
     tab = 0;
     prefix:string[] = []
-
+    hoverPrefix:string = "";
 
     generateCss(wiki:Wiki){
         this.wikiGen(wiki)
@@ -40,7 +40,7 @@ export class WikiCssGenerator{
         this.prefix.push(".wiki")
 
         if(wiki.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(wiki.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(wiki.blockStyle).join("")}}\n`)
         }
         if(wiki.contentStyle){
             this.wikiElementGen(wiki.contentStyle)
@@ -51,6 +51,11 @@ export class WikiCssGenerator{
         if (wiki.navBar) {
             this.navBarGen(wiki.navBar);
         }
+        if(wiki.hoverStyle){
+            this.hoverPrefix = " :hover";
+            this.wikiGen(wiki.hoverStyle);
+            this.hoverPrefix = "";
+        }
         this.prefix.pop();
     }
 
@@ -58,7 +63,7 @@ export class WikiCssGenerator{
         this.prefix.push(".navBar")
 
         if(navBar.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
         }
         if(navBar.contentStyle){
             this.wikiElementGen(navBar.contentStyle)
@@ -70,7 +75,7 @@ export class WikiCssGenerator{
         this.prefix.push(".subject")
 
         if(subject.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(subject.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(subject.blockStyle).join("")}}\n`)
         }
         if(subject.titleStyle){
             this.titleGen(subject.titleStyle);
@@ -101,10 +106,10 @@ export class WikiCssGenerator{
     }
 
     chapterGen(chapter:WikiChapter){
-        this.prefix.push(".chapter")
+        this.prefix.push(".chapter")  
 
         if(chapter.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(chapter.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(chapter.blockStyle).join("")}}\n`)
         }
         if(chapter.titleStyle){
             this.titleGen(chapter.titleStyle);
@@ -133,7 +138,7 @@ export class WikiCssGenerator{
         this.prefix.push(".gallery");
 
         if(gallery.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
         }
         if(gallery.titleStyle){
             this.titleGen(gallery.titleStyle);
@@ -145,10 +150,10 @@ export class WikiCssGenerator{
     }
 
     relatedSubjectGen(relatedSubject:WikiRelatedSubject){
-        this.prefix.push(".relatedSubject");
+        this.prefix.push(".relatedSubject");    
 
         if(relatedSubject.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(relatedSubject.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(relatedSubject.blockStyle).join("")}}\n`)
         }
         if(relatedSubject.titleStyle){
             this.titleGen(relatedSubject.titleStyle);
@@ -160,10 +165,10 @@ export class WikiCssGenerator{
     }
 
     referenceGen(reference:WikiReferences){
-        this.prefix.push(".reference");
+        this.prefix.push(".reference");       
 
         if(reference.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
         }
         if(reference.titleStyle){
             this.titleGen(reference.titleStyle);
@@ -176,9 +181,9 @@ export class WikiCssGenerator{
 
     bibliographyGen(bibliographyGen:WikiBibliography){
         this.prefix.push(".bibliography");
-
+        
         if(bibliographyGen.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
         }
         if(bibliographyGen.titleStyle){
             this.titleGen(bibliographyGen.titleStyle);
@@ -193,7 +198,7 @@ export class WikiCssGenerator{
         this.prefix.push(".classicChapter");
 
         if(classicChap.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(classicChap.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(classicChap.blockStyle).join("")}}\n`)
         }
         if(classicChap.titleStyle){
             this.titleGen(classicChap.titleStyle);
@@ -205,10 +210,10 @@ export class WikiCssGenerator{
     }
 
     tableOfContentGen(toc:WikiTableOfContent){
-        this.prefix.push(".tableOfContent");
+        this.prefix.push(".tableOfContent");    
 
         if(toc.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(toc.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(toc.blockStyle).join("")}}\n`)
         }
         if(toc.titleStyle){
             this.titleGen(toc.titleStyle);
@@ -223,7 +228,7 @@ export class WikiCssGenerator{
         this.prefix.push(".infoBox");
 
         if(infoBox.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
         }
         if(infoBox.contentStyle){
             this.wikiElementGen(infoBox.contentStyle)
@@ -232,10 +237,10 @@ export class WikiCssGenerator{
     }
 
     summaryGen(summary:WikiSummary){
-        this.prefix.push(".summary");
+        this.prefix.push(".summary");       
 
         if(summary.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(summary.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(summary.blockStyle).join("")}}\n`)
         }
         if(summary.contentStyle){
             this.wikiElementGen(summary.contentStyle)
@@ -243,7 +248,8 @@ export class WikiCssGenerator{
         this.prefix.pop();
     }
 
-    wikiElementGen(element:WikiElementStyle){
+    wikiElementGen(element:WikiElementStyle){  
+
         if(element.text){
             this.textGen(element.text)
         }
@@ -251,7 +257,7 @@ export class WikiCssGenerator{
             this.imageStyleGen(element.image)
          }
         if (element.table) {
-            this.generate.push(`${this.prefix.join(" ")} .table {\n${this.tableStyleGen(element.table).join("")}}\n`);
+            this.generate.push(`${this.prefix.join(" ")} .table${this.hoverPrefix}{\n${this.tableStyleGen(element.table).join("")}}\n`);
         }
         if (element.button) {
             this.buttonStyleGen(element.button)
@@ -264,25 +270,25 @@ export class WikiCssGenerator{
         if(text.basic){
             const basicTextStyle = this.textStyleGen(text.basic)
             if(basicTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} {\n${basicTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${basicTextStyle.join("")}}\n`)
             }
         }
         if(text.bold){
             const boldTextStyle = this.textStyleGen(text.bold)
             if(boldTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .bold{\n${boldTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} .bold${this.hoverPrefix}{\n${boldTextStyle.join("")}}\n`)
             }
         }
         if(text.italic){
             const italicTextStyle = this.textStyleGen(text.italic)
             if(italicTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .italic{\n${italicTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} .italic${this.hoverPrefix}{\n${italicTextStyle.join("")}}\n`)
             }
         }
         if(text.link){
             const linkTextStyle = this.textStyleGen(text.link)
             if(linkTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} a {\n${linkTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} a${this.hoverPrefix}{\n${linkTextStyle.join("")}}\n`)
             }
         }
         this.prefix.pop()
@@ -323,7 +329,7 @@ export class WikiCssGenerator{
 
         if(image.blockStyle){
             const imageStyle = this.blockStyleGen(image.blockStyle)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${imageStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.prefix}{\n${imageStyle.join("")}}\n`)
         }
 
         this.prefix.pop();
@@ -333,7 +339,7 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(table.border){
-            result.push(`\tborder: ${table.border};\n`)//TODO meilleur composition de border ?
+            result.push(`\tborder: ${table.border};\n`)
         }
         if(table.alignment){
             result.push(`\talign-content: ${table.alignment};\n`)
@@ -347,11 +353,11 @@ export class WikiCssGenerator{
 
         if(button.block){
             const blockStyle = this.blockStyleGen(button.block)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${blockStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${blockStyle.join("")}}\n`)
         }
         if(button.text){
             const textStyle = this.textStyleGen(button.text)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${textStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${textStyle.join("")}}\n`)
         }
         this.prefix.pop();
     }
@@ -367,10 +373,10 @@ export class WikiCssGenerator{
             result.push(`\tborder: ${block.border};\n`)
         }
         if(block.margin){
-            result.push(`\tmargin: ${block.margin};\n`)// TODO margin localisée avec multi constructeur
+            result.push(`\tmargin: ${block.margin};\n`)
         }
         if(block.padding){
-            result.push(`\tpadding: ${block.padding};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\tpadding: ${block.padding};\n`)
         }
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
@@ -386,7 +392,7 @@ export class WikiCssGenerator{
 
     titleGen(title:WikiTextStyle){
         this.prefix.push(".title");
-        this.generate.push(`${this.prefix.join(" ")} {\n${this.textStyleGen(title).join("")}}\n`)
+        this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.textStyleGen(title).join("")}}\n`)
         this.prefix.pop();
     }
 

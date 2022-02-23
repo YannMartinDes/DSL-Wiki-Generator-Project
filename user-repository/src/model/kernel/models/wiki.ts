@@ -9,12 +9,14 @@ export default class Wiki {
     blockStyle?:WikiBlockStyle
     subject?:WikiSubject
     navBar?:WikiNavBar
+    hoverStyle?:Wiki
 
-    constructor({content, subject, block, navBar}:
-        {content?:WikiElementStyle, subject?:WikiSubject, navBar?:WikiNavBar, block?:WikiBlockStyle}){
+    constructor({content, subject, block, navBar, hover}:
+        {content?:WikiElementStyle, subject?:WikiSubject, navBar?:WikiNavBar, block?:WikiBlockStyle, hover?:Wiki}){
         this.contentStyle =content;
         this.subject = subject;
         this.blockStyle = block;
         this.navBar = navBar;
+        this.hoverStyle = hover;
     }
 }
