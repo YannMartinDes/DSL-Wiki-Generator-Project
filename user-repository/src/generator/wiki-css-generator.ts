@@ -51,12 +51,6 @@ export class WikiCssGenerator{
         if (wiki.navBar) {
             this.navBarGen(wiki.navBar);
         }
-
-        for(const displaySize of wiki.displaySize){
-            this.generate.push(this.displaySizeStary(displaySize));
-            this.wikiGen(displaySize.element);
-            this.generate.push("}");
-        }
         
         if(wiki.hoverStyle){
             this.hoverPrefix = ":hover";
@@ -66,22 +60,27 @@ export class WikiCssGenerator{
         if((!wiki.blockStyle) && (!wiki.contentStyle) && (!wiki.subject) && (!wiki.navBar)){
             console.warn('You created a wiki without any content')
         }
+        for(const displaySize of wiki.displaySize){
+            this.generate.push(this.displaySizeStary(displaySize));
+            this.wikiGen(displaySize.element);
+            this.generate.push("}");
+        }
         this.prefix.pop();
     }
 
     displaySizeStary<T>(displaySize:DisplaySize<T>){
         const result:string[] = ["@media screen"]
         if(displaySize.maxHeight!==-1){
-            result.push(`and (max-height ${displaySize.maxHeight})`)
+            result.push(`and (max-height: ${displaySize.maxHeight}px)`)
         }
         if(displaySize.maxWidth!==-1){
-            result.push(`and (max-width ${displaySize.maxHeight})`)
+            result.push(`and (max-width: ${displaySize.maxWidth}px)`)
         }
         if(displaySize.minWidth!==-1){
-            result.push(`and (min-width ${displaySize.maxHeight})`)
+            result.push(`and (min-width: ${displaySize.minWidth}px)`)
         }
         if(displaySize.minHeight!==-1){
-            result.push(`and (min-height ${displaySize.maxHeight})`)
+            result.push(`and (min-height: ${displaySize.minHeight}px)`)
         }
         result.push("{\n")
         return result.join(" ")

@@ -74,3 +74,8 @@
 	background-color: brown;
 	margin: 8%;
 }
+@media screen and (max-width: 500px) {
+.wiki .subject {
+	background-color: aqua;
+}
+}

@@ -10,7 +10,7 @@ import {TextAlignment} from "./model/kernel/models/enum/text-align.enum";
 import {TextTransform} from "./model/kernel/models/enum/text-transform.enum";
 import {TextDecoration} from "./model/kernel/models/enum/text-decoration.enum";
 
-const wikiBuilder = new WikiBuilder(false)
+const wikiBuilder = WikiBuilder.createWiki()
 wikiBuilder
     .editBlock()
         .setAlignment(AlignContent.CENTER)
@@ -99,6 +99,7 @@ wikiBuilder.editHover().editSubject().editChapter()
     .editTitle().italicize(FontStyle.ITALIC).endTextStyle()
     .editGallery().editContent().editText().linkTextStyle().putInBold(FontWeight.BOLDER).endTextStyle().endTextEdit();
 
+wikiBuilder.editDisplaySize({maxWidth:500}).editSubject().editBlock().setBackgroundColor(Color.AQUA)
 
 const res = wikiBuilder.createModel();
 console.log(res);

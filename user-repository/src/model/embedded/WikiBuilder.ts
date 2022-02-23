@@ -38,7 +38,7 @@ export class WikiBuilder{
         return this.hover;
     }
     editDisplaySize({minWidth,minHeght,maxWidth,maxHeight}:
-        {minWidth:number,minHeght:number,maxWidth:number,maxHeight:number}){
+        {minWidth?:number,minHeght?:number,maxWidth?:number,maxHeight?:number}){
         const displaySize = new DisplaySize(new WikiBuilder(this.isHover,this.root))
         if(minHeght){
             displaySize.minHeight=minHeght
@@ -107,7 +107,14 @@ export class WikiBuilder{
         const subject = this.subject?.createModel();
         const navBar = this.navBar?.createModel();
         const hover = this.hover?.createModel();
-
-        return new Wiki({content:content, block:block, subject:subject, navBar:navBar, hover:hover});
+        const displaySize = this.displaySize.map((elt)=>{
+            const elementSized = new DisplaySize(elt.element.createModel())
+            elementSized.maxHeight=elt.maxHeight
+            elementSized.maxWidth=elt.maxWidth
+            elementSized.minHeight=elt.minHeight
+            elementSized.minWidth=elt.minWidth
+            return elementSized
+        })
+        return new Wiki({content:content, block:block, subject:subject, navBar:navBar, hover:hover,displaySize:displaySize});
     }
 }
