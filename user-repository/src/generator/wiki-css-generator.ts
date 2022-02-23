@@ -19,6 +19,7 @@ import WikiImageStyle from "../model/kernel/models/elements/wiki-image";
 import WikiButtonStyle from "../model/kernel/models/elements/wiki-button";
 import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
 import WikiReferences from "../model/kernel/models/wiki-references";
+import { DisplaySize } from "../model/kernel/models/display-size";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -51,6 +52,13 @@ export class WikiCssGenerator{
         if (wiki.navBar) {
             this.navBarGen(wiki.navBar);
         }
+
+        for(const displaySize of wiki.displaySize){
+            this.generate.push(this.displaySizeStary(displaySize));
+            this.wikiGen(displaySize.element);
+            this.generate.push("}");
+        }
+        
         if(wiki.hoverStyle){
             this.hoverPrefix = " :hover";
             this.wikiGen(wiki.hoverStyle);
@@ -60,6 +68,24 @@ export class WikiCssGenerator{
             console.warn('You created a wiki without any content')
         }
         this.prefix.pop();
+    }
+
+    displaySizeStary<T>(displaySize:DisplaySize<T>){
+        const result:string[] = ["@media screen"]
+        if(displaySize.maxHeight!==-1){
+            result.push(`and (max-height ${displaySize.maxHeight})`)
+        }
+        if(displaySize.maxWidth!==-1){
+            result.push(`and (max-width ${displaySize.maxHeight})`)
+        }
+        if(displaySize.minWidth!==-1){
+            result.push(`and (min-width ${displaySize.maxHeight})`)
+        }
+        if(displaySize.minHeight!==-1){
+            result.push(`and (min-height ${displaySize.maxHeight})`)
+        }
+        result.push("{\n")
+        return result.join(" ")
     }
 
     navBarGen(navBar:WikiNavBar){
