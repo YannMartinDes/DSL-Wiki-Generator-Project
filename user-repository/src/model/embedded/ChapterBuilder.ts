@@ -22,7 +22,10 @@ export class ChapterBuilder {
     }
 
     editSubChapter(){
-        if(this.isSubChapter) return this;
+        if(this.isSubChapter){
+            console.warn("You are overriding a subchapter, try not chaining editSubChapter()")
+            return this;
+        }
 
         let builder = this.subChapter;
 

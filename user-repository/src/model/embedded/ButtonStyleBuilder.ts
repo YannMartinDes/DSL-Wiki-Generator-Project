@@ -9,7 +9,6 @@ export class ButtonStyleBuilder {
 
     private block?:BlockStyleBuilder<ButtonStyleBuilder>
     private text?:TextStyleBuilder<ButtonStyleBuilder>
-    private display?:String
 
     parentBuilder:WikiElementStyleBuilder;
 
@@ -17,21 +16,16 @@ export class ButtonStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    createBlock() {
+    editBlock() {
         const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }
 
-    createText() {
+    editText() {
         const builder = new TextStyleBuilder(this);
         this.text = builder;
         return builder;
-    }
-
-    editDisplay(display:string) {
-        this.display=display;
-        return this;
     }
 
     endButtonStyle():WikiElementStyleBuilder{

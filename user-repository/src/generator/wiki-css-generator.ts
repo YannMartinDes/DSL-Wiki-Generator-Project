@@ -19,12 +19,13 @@ import WikiImageStyle from "../model/kernel/models/elements/wiki-image";
 import WikiButtonStyle from "../model/kernel/models/elements/wiki-button";
 import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
 import WikiReferences from "../model/kernel/models/wiki-references";
+import { DisplaySize } from "../model/kernel/models/display-size";
 
 export class WikiCssGenerator{
     generate:string[]=[]
     tab = 0;
     prefix:string[] = []
-
+    hoverPrefix:string = "";
 
     generateCss(wiki:Wiki){
         this.wikiGen(wiki)
@@ -40,7 +41,7 @@ export class WikiCssGenerator{
         this.prefix.push(".wiki")
 
         if(wiki.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(wiki.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(wiki.blockStyle).join("")}}\n`)
         }
         if(wiki.contentStyle){
             this.wikiElementGen(wiki.contentStyle)
@@ -51,18 +52,56 @@ export class WikiCssGenerator{
         if (wiki.navBar) {
             this.navBarGen(wiki.navBar);
         }
+
+        for(const displaySize of wiki.displaySize){
+            this.generate.push(this.displaySizeStary(displaySize));
+            this.wikiGen(displaySize.element);
+            this.generate.push("}");
+        }
+        
+        if(wiki.hoverStyle){
+            this.hoverPrefix = " :hover";
+            this.wikiGen(wiki.hoverStyle);
+            this.hoverPrefix = "";
+        }
+        if((!wiki.blockStyle) && (!wiki.contentStyle) && (!wiki.subject) && (!wiki.navBar)){
+            console.warn('You created a wiki without any content')
+        }
         this.prefix.pop();
+    }
+
+    displaySizeStary<T>(displaySize:DisplaySize<T>){
+        const result:string[] = ["@media screen"]
+        if(displaySize.maxHeight!==-1){
+            result.push(`and (max-height ${displaySize.maxHeight})`)
+        }
+        if(displaySize.maxWidth!==-1){
+            result.push(`and (max-width ${displaySize.maxHeight})`)
+        }
+        if(displaySize.minWidth!==-1){
+            result.push(`and (min-width ${displaySize.maxHeight})`)
+        }
+        if(displaySize.minHeight!==-1){
+            result.push(`and (min-height ${displaySize.maxHeight})`)
+        }
+        result.push("{\n")
+        return result.join(" ")
     }
 
     navBarGen(navBar:WikiNavBar){
         this.prefix.push(".navBar")
 
         if(navBar.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(navBar.blockStyle).join("")}}\n`)
         }
         if(navBar.contentStyle){
             this.wikiElementGen(navBar.contentStyle)
         }
+
+        if((!navBar.blockStyle) && (!navBar.contentStyle)){
+            console.warn('You created a nav bar without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -70,7 +109,7 @@ export class WikiCssGenerator{
         this.prefix.push(".subject")
 
         if(subject.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(subject.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(subject.blockStyle).join("")}}\n`)
         }
         if(subject.titleStyle){
             this.titleGen(subject.titleStyle);
@@ -97,14 +136,18 @@ export class WikiCssGenerator{
             this.relatedSubjectGen(subject.relatedSubject);
         }
 
+        if ((!subject.blockStyle) && (!subject.titleStyle) && (!subject.contentStyle) && (!subject.chapter) && (!subject.tableOfContent) && (!subject.infoBox) && (!subject.summary) && (!subject.references) && (!subject.relatedSubject)){
+            console.warn('You created a subject without any content')
+        }
+
         this.prefix.pop()
     }
 
     chapterGen(chapter:WikiChapter){
-        this.prefix.push(".chapter")
+        this.prefix.push(".chapter")  
 
         if(chapter.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(chapter.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(chapter.blockStyle).join("")}}\n`)
         }
         if(chapter.titleStyle){
             this.titleGen(chapter.titleStyle);
@@ -124,6 +167,11 @@ export class WikiCssGenerator{
         if(chapter.subChapter){
             this.chapterGen(chapter.subChapter);
         }
+
+        if((!chapter.blockStyle) && (!chapter.titleStyle) && (!chapter.contentStyle) && (!chapter.classicChapter) && (!chapter.bibliography) && (!chapter.gallery) && (!chapter.subChapter)){
+            console.warn('You created a chapter without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -133,7 +181,7 @@ export class WikiCssGenerator{
         this.prefix.push(".gallery");
 
         if(gallery.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
         }
         if(gallery.titleStyle){
             this.titleGen(gallery.titleStyle);
@@ -141,14 +189,18 @@ export class WikiCssGenerator{
         if(gallery.contentStyle){
             this.wikiElementGen(gallery.contentStyle);
         }
+
+        if((!gallery.blockStyle) && (!gallery.titleStyle) && (!(gallery.contentStyle))){
+            console.warn('You created a gallery without any content')
+        }
         this.prefix.pop();
     }
 
     relatedSubjectGen(relatedSubject:WikiRelatedSubject){
-        this.prefix.push(".relatedSubject");
+        this.prefix.push(".relatedSubject");    
 
         if(relatedSubject.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(relatedSubject.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(relatedSubject.blockStyle).join("")}}\n`)
         }
         if(relatedSubject.titleStyle){
             this.titleGen(relatedSubject.titleStyle);
@@ -156,14 +208,19 @@ export class WikiCssGenerator{
         if(relatedSubject.contentStyle){
             this.wikiElementGen(relatedSubject.contentStyle);
         }
+
+        if((!relatedSubject.blockStyle) && (!relatedSubject.titleStyle) && (!(relatedSubject.contentStyle))){
+            console.warn('You created a related subject without any content')
+        }
+
         this.prefix.pop();
     }
 
     referenceGen(reference:WikiReferences){
-        this.prefix.push(".reference");
+        this.prefix.push(".reference");       
 
         if(reference.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
         }
         if(reference.titleStyle){
             this.titleGen(reference.titleStyle);
@@ -171,14 +228,19 @@ export class WikiCssGenerator{
         if(reference.contentStyle){
             this.wikiElementGen(reference.contentStyle);
         }
+
+        if((!reference.blockStyle) && (!reference.titleStyle) && (!(reference.contentStyle))){
+            console.warn('You created a reference without any content')
+        }
+
         this.prefix.pop();
     }
 
     bibliographyGen(bibliographyGen:WikiBibliography){
         this.prefix.push(".bibliography");
-
+        
         if(bibliographyGen.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
         }
         if(bibliographyGen.titleStyle){
             this.titleGen(bibliographyGen.titleStyle);
@@ -186,6 +248,11 @@ export class WikiCssGenerator{
         if(bibliographyGen.contentStyle){
             this.wikiElementGen(bibliographyGen.contentStyle);
         }
+
+        if((!bibliographyGen.blockStyle) && (!bibliographyGen.titleStyle) && (!(bibliographyGen.contentStyle))){
+            console.warn('You created a bibliography without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -193,7 +260,7 @@ export class WikiCssGenerator{
         this.prefix.push(".classicChapter");
 
         if(classicChap.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(classicChap.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(classicChap.blockStyle).join("")}}\n`)
         }
         if(classicChap.titleStyle){
             this.titleGen(classicChap.titleStyle);
@@ -201,14 +268,19 @@ export class WikiCssGenerator{
         if(classicChap.contentStyle){
             this.wikiElementGen(classicChap.contentStyle);
         }
+
+        if((!classicChap.blockStyle) && (!classicChap.titleStyle) && (!(classicChap.contentStyle))){
+            console.warn('You created a classic chapter without any content')
+        }
+
         this.prefix.pop();
     }
 
     tableOfContentGen(toc:WikiTableOfContent){
-        this.prefix.push(".tableOfContent");
+        this.prefix.push(".tableOfContent");    
 
         if(toc.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(toc.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(toc.blockStyle).join("")}}\n`)
         }
         if(toc.titleStyle){
             this.titleGen(toc.titleStyle);
@@ -216,6 +288,11 @@ export class WikiCssGenerator{
         if(toc.contentStyle){
             this.wikiElementGen(toc.contentStyle)
         }
+
+        if((!toc.blockStyle) && (!toc.titleStyle) && (!(toc.contentStyle))){
+            console.warn('You created a table of content without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -223,27 +300,38 @@ export class WikiCssGenerator{
         this.prefix.push(".infoBox");
 
         if(infoBox.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(infoBox.blockStyle).join("")}}\n`)
         }
         if(infoBox.contentStyle){
             this.wikiElementGen(infoBox.contentStyle)
         }
+
+        if((!infoBox.blockStyle) && (!(infoBox.contentStyle))){
+            console.warn('You created an info box without any content')
+        }
+
         this.prefix.pop();
     }
 
     summaryGen(summary:WikiSummary){
-        this.prefix.push(".summary");
+        this.prefix.push(".summary");       
 
         if(summary.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")} {\n${this.blockStyleGen(summary.blockStyle).join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(summary.blockStyle).join("")}}\n`)
         }
         if(summary.contentStyle){
             this.wikiElementGen(summary.contentStyle)
         }
+
+        if((!summary.blockStyle) && (!(summary.contentStyle))){
+            console.warn('You created a summary without any content')
+        }
+
         this.prefix.pop();
     }
 
-    wikiElementGen(element:WikiElementStyle){
+    wikiElementGen(element:WikiElementStyle){  
+
         if(element.text){
             this.textGen(element.text)
         }
@@ -251,11 +339,16 @@ export class WikiCssGenerator{
             this.imageStyleGen(element.image)
          }
         if (element.table) {
-            this.generate.push(`${this.prefix.join(" ")} .table {\n${this.tableStyleGen(element.table).join("")}}\n`);
+            this.generate.push(`${this.prefix.join(" ")} .table${this.hoverPrefix}{\n${this.tableStyleGen(element.table).join("")}}\n`);
         }
         if (element.button) {
             this.buttonStyleGen(element.button)
         }
+
+        if((!element.text) && (!element.image) && (!element.table) && (!element.button)){
+            console.warn('You created an element without any content')
+        }
+
     }
 
     textGen(text:WikiText){
@@ -264,27 +357,32 @@ export class WikiCssGenerator{
         if(text.basic){
             const basicTextStyle = this.textStyleGen(text.basic)
             if(basicTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} {\n${basicTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${basicTextStyle.join("")}}\n`)
             }
         }
         if(text.bold){
             const boldTextStyle = this.textStyleGen(text.bold)
             if(boldTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .bold{\n${boldTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} .bold${this.hoverPrefix}{\n${boldTextStyle.join("")}}\n`)
             }
         }
         if(text.italic){
             const italicTextStyle = this.textStyleGen(text.italic)
             if(italicTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .italic{\n${italicTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} .italic${this.hoverPrefix}{\n${italicTextStyle.join("")}}\n`)
             }
         }
         if(text.link){
             const linkTextStyle = this.textStyleGen(text.link)
             if(linkTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} a {\n${linkTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} a${this.hoverPrefix}{\n${linkTextStyle.join("")}}\n`)
             }
         }
+
+        if((!text.basic) && (!text.bold) && (!text.italic) && (!text.link)){
+            console.warn('You created a text without any content')
+        }
+
         this.prefix.pop()
     }
 
@@ -315,6 +413,11 @@ export class WikiCssGenerator{
         if(text.police){
             result.push(`\tfont-family: ${text.police};\n`);
         }
+
+        if (result.length == 0){
+            console.warn('You created a textStyle without setting any attributes')
+        }
+
         return result
     }
 
@@ -323,17 +426,19 @@ export class WikiCssGenerator{
 
         if(image.blockStyle){
             const imageStyle = this.blockStyleGen(image.blockStyle)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${imageStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.prefix}{\n${imageStyle.join("")}}\n`)
         }
-
+        if((!image.blockStyle)){
+            console.warn('You created a image without any content')
+        }
         this.prefix.pop();
     }
 
-    tableStyleGen(table:WikiTableStyle) {
+    tableStyleGen(table:WikiTableStyle) {//TODO
         let result:string[] = []
 
         if(table.border){
-            result.push(`\tborder: ${table.border};\n`)//TODO meilleur composition de border ?
+            result.push(`\tborder: ${table.border};\n`)
         }
         if(table.alignment){
             result.push(`\talign-content: ${table.alignment};\n`)
@@ -347,11 +452,14 @@ export class WikiCssGenerator{
 
         if(button.block){
             const blockStyle = this.blockStyleGen(button.block)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${blockStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${blockStyle.join("")}}\n`)
         }
         if(button.text){
             const textStyle = this.textStyleGen(button.text)
-            this.generate.push(`${this.prefix.join(" ")} .italic{\n${textStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${textStyle.join("")}}\n`)
+        }
+        if((!button.block) && (!button.text)){
+            console.warn('You created a button without any content')
         }
         this.prefix.pop();
     }
@@ -367,26 +475,32 @@ export class WikiCssGenerator{
             result.push(`\tborder: ${block.border};\n`)
         }
         if(block.margin){
-            result.push(`\tmargin: ${block.margin};\n`)// TODO margin localisée avec multi constructeur
+            result.push(`\tmargin: ${block.margin};\n`)
         }
         if(block.padding){
-            result.push(`\tpadding: ${block.padding};\n`)// TODO padding localisé avec multi constructeur
+            result.push(`\tpadding: ${block.padding};\n`)
         }
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
         }
+
         if(block.display) {
             result.push(`\tdisplay: ${block.display};\n`)
         }
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
+
+        if (result.length == 0){
+            console.warn('You created a blockStyle without setting any attributes')
+        }
+
         return result;
     }
 
     titleGen(title:WikiTextStyle){
         this.prefix.push(".title");
-        this.generate.push(`${this.prefix.join(" ")} {\n${this.textStyleGen(title).join("")}}\n`)
+        this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.textStyleGen(title).join("")}}\n`)
         this.prefix.pop();
     }
 
