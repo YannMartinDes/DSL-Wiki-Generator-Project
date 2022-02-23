@@ -1,4 +1,9 @@
 export enum UnitySize{
     PERCENT = "%",
-    PIXEL = "px"
+    PIXEL = "px",
+    EM = "em",
+    VIEWPORTHEIGHT = "vh",
+    VIEWPORTWIDTH = "vw",
+    POINT = "pt",
+    CENTIMETER = "cm"
 }

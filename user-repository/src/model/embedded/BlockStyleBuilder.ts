@@ -11,7 +11,6 @@ export class BlockStyleBuilder<parentType>{
     private alignment?:AlignContent
     private padding?:string
     private margin?:string
-    private marginLTRB?:number
 
     private parentBuilder:parentType
 
@@ -40,13 +39,19 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    setPaddingSides(top:number, right:number, bottom:number, left:number, type:UnitySize){
+        this.padding = top+type+" "+right+type+" "+bottom+type+" "+left+type;
+        return this;
+    }
+
     setMargin(value : number, type : UnitySize){
         this.margin =value + type;
         return this;
     }
 
-    setMarginSide(top:number, right:number, bottom:number, left:number, type:UnitySize){
-
+    setMarginSides(top:number, right:number, bottom:number, left:number, type:UnitySize){
+        this.margin = top+type+" "+right+type+" "+bottom+type+" "+left+type;
+        return this;
     }
 
     endBlockEdit():parentType{
