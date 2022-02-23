@@ -1,14 +1,12 @@
 import {AlignContent} from "../enum/align-content.enum";
 import { Border } from '../enum/border.enum';
+import {UnitySize} from "../enum/unity-font-size.enum";
+import WikiBlockStyle from "../style/wiki-block-style";
 
 export default class WikiImageStyle{
-    border?:Border
-    alignment?:AlignContent
-    //TODO : element de style pour une image?
+    style?: WikiBlockStyle
 
-    constructor({border, alignment}:
-                    {border?:Border, alignment?:AlignContent}) {
-        this.border = border;
-        this.alignment = alignment;
+    constructor({style}:{style?:WikiBlockStyle}) {
+        this.style=style;
     }
 }

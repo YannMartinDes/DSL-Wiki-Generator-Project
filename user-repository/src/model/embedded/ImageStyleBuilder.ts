@@ -4,11 +4,11 @@ import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiImageStyle from "../kernel/models/elements/wiki-image";
 import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
 import { Border } from "../kernel/models/enum/border.enum";
+import {BlockStyleBuilder} from "./BlockStyleBuilder";
 
 export class ImageStyleBuilder {
 
-    border?:Border
-    alignment?:AlignContent
+    style?:BlockStyleBuilder<ImageStyleBuilder>
 
     parentBuilder:WikiElementStyleBuilder;
 
@@ -16,14 +16,11 @@ export class ImageStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    editBorder(border:Border){
-        this.border=border;
-        return this;
-    }
-
-    editAlignement(alignment:AlignContent){
-        this.alignment=alignment;
-        return this;
+    editStyle(){
+        if(!this.style){
+            this.style=new BlockStyleBuilder<ImageStyleBuilder>(this);
+        }
+        return this.style;
     }
 
 
@@ -32,10 +29,10 @@ export class ImageStyleBuilder {
     }
 
     createModel(){
+        const style = this.style?.createModel();
 
         return new WikiImageStyle({
-            border:this.border,
-            alignment:this.alignment
+            style:style
         });
     }
 
