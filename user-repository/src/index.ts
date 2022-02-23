@@ -8,7 +8,7 @@ import { FontStyle } from "./model/kernel/models/enum/font-style.enum";
 import { FontWeight } from "./model/kernel/models/enum/font-weight.enum";
 import { TextAlignment } from "./model/kernel/models/enum/text-align.enum";
 import { TextTransform } from "./model/kernel/models/enum/text-transform.enum";
-const wikiBuilder = new WikiBuilder()
+const wikiBuilder = new WikiBuilder(false)
 wikiBuilder
     .editBlock()
         .setAlignment(AlignContent.CENTER)
@@ -45,7 +45,7 @@ wikiBuilder.editSubject().editTableOfContent()
         .setFontColor(Color.BROWN)
     .endTextStyle()
     .editBlock()
-        .setBorder(1,UnitySize.PERCENT,Color.RED,Border.SOLID)
+        .setBorder(1,Color.RED,Border.SOLID)
         .setPadding(5,UnitySize.PIXEL)
         .setMarginSides(5,4,0,3,UnitySize.PERCENT)
     .endBlockEdit()
@@ -69,7 +69,7 @@ wikiBuilder.editSubject().editChapter().editClassicChapter()
 
 wikiBuilder.editSubject().editChapter().editSubChapter()
     .editBlock()
-        .setBorder(5,UnitySize.PIXEL,Color.VIOLET,Border.DOTTED)
+        .setBorder(5,Color.VIOLET,Border.DOTTED)
         .setMargin(5,UnitySize.PIXEL)
     .endBlockEdit()
     .editTitle()
