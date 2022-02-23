@@ -13,9 +13,6 @@
 	font-weight: bold;
 	color: green;
 }
-.wiki .button {
-	border: solid;
-}
 .wiki .subject {
 	background-color: red;
 }
@@ -50,6 +47,7 @@
 }
 .wiki .subject .tableOfContent {
 	border: 1% red solid;
+	margin: 5% 4% 0% 3%;
 	padding: 5px;
 }
 .wiki .subject .tableOfContent .title {
