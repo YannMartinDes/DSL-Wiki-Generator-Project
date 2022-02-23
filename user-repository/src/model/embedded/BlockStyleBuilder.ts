@@ -21,8 +21,8 @@ export class BlockStyleBuilder<parentType>{
         this.parentBuilder = parentBuilder;
     }
 
-    setBorder(value : number, type : UnitySize ,color:Color, border:Border){
-        let borderConstructed=value+type+" "+color+ " "+border
+    setBorder(value : number, color:Color, border:Border){
+        let borderConstructed=value+"px "+color+ " "+border
         this.border = borderConstructed;
         return this;
     }
@@ -82,7 +82,7 @@ export class BlockStyleBuilder<parentType>{
             margin:this.margin,
             padding:this.padding,
             border:this.border,
-            background:this.backgroundColor, 
+            background:this.backgroundColor,
             alignment:this.alignment,
             display:this.display,
             float:this.float
