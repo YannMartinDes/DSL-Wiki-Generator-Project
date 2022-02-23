@@ -143,7 +143,7 @@ export class WikiCssGenerator{
         }
         this.prefix.pop();
     }
-    
+
     relatedSubjectGen(relatedSubject:WikiRelatedSubject){
         this.prefix.push(".relatedSubject");
 
@@ -203,7 +203,7 @@ export class WikiCssGenerator{
         }
         this.prefix.pop();
     }
-    
+
     tableOfContentGen(toc:WikiTableOfContent){
         this.prefix.push(".tableOfContent");
 
@@ -292,19 +292,19 @@ export class WikiCssGenerator{
         let result:string[] = []
 
         if(text.bold){
-            result.push(`\tfont-weight: ${text.bold};\n`) 
+            result.push(`\tfont-weight: ${text.bold};\n`)
         }
         if(text.italic){
-            result.push(`\tfont-style: ${text.italic};\n`) 
+            result.push(`\tfont-style: ${text.italic};\n`)
         }
         if(text.caps){
-            result.push(`\ttext-transform: ${text.caps};\n`) 
+            result.push(`\ttext-transform: ${text.caps};\n`)
         }
         if(text.font_color){
             result.push(`\tcolor: ${text.font_color};\n`)
         }
         if(text.font_size){
-            result.push(`\tfont-size: ${text.font_size};\n`) 
+            result.push(`\tfont-size: ${text.font_size};\n`)
         }
         if(text.underline){
             result.push(`\ttext-decoration: ${text.underline};\n`)
@@ -321,11 +321,9 @@ export class WikiCssGenerator{
     imageStyleGen(image:WikiImageStyle) {
         let result:string[] = []
 
-        if(image.border){
-            result.push(`\tborder: ${image.border};\n`)//TODO meilleur composition de border ?
-        }
-        if(image.alignment){
-            result.push(`\talign-content: ${image.alignment};\n`)// TODO padding localisé avec multi constructeur
+
+        if(image.style){
+            result = this.blockStyleGen(image.style)
         }
 
         return result;
@@ -358,7 +356,7 @@ export class WikiCssGenerator{
     }
 
     blockStyleGen(block:WikiBlockStyle){
-        //Add class ? 
+        //Add class ?
         let result:string[] = []
 
         if(block.background){
