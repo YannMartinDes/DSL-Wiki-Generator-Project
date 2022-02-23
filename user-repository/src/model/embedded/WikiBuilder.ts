@@ -12,7 +12,7 @@ export class WikiBuilder{
     private hover?:WikiBuilder
     private isHover:boolean
 
-    constructor(isHover:boolean){
+    constructor(isHover:boolean = false){
         this.isHover = isHover;
     }
 

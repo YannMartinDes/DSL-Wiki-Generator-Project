@@ -38,7 +38,7 @@ export class WikiCssGenerator{
     }
 
     wikiGen(wiki:Wiki){
-        this.prefix.push(".wiki")
+        if(this.hoverPrefix === "") this.prefix.push(".wiki")
 
         if(wiki.blockStyle){
             this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(wiki.blockStyle).join("")}}\n`)
