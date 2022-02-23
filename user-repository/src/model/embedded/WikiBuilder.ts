@@ -9,6 +9,21 @@ export class WikiBuilder{
     private block?:BlockStyleBuilder<WikiBuilder>
     private subject?:SubjectBuilder
     private navBar?:NavBarBuilder
+    private hover?:WikiBuilder
+    private isHover:boolean
+
+    constructor(isHover:boolean){
+        this.isHover = isHover;
+    }
+
+    editHover(){
+        if(this.isHover) return this;
+
+        if(!this.hover){
+            this.hover = new WikiBuilder(true);
+        }
+        return this.hover;
+    }
 
     editBlock(){
         let builder = this.block;
@@ -48,12 +63,13 @@ export class WikiBuilder{
     }
 
 
-    createModel(){
+    createModel():Wiki{
         const content = this.content?.createModel();
         const block = this.block?.createModel();
         const subject = this.subject?.createModel();
         const navBar = this.navBar?.createModel();
+        const hover = this.hover?.createModel();
 
-        return new Wiki({content:content, block:block, subject:subject, navBar:navBar});
+        return new Wiki({content:content, block:block, subject:subject, navBar:navBar, hover:hover});
     }
 }
