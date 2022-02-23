@@ -56,6 +56,9 @@ export class WikiCssGenerator{
             this.wikiGen(wiki.hoverStyle);
             this.hoverPrefix = "";
         }
+        if((!wiki.blockStyle) && (!wiki.contentStyle) && (!wiki.subject) && (!wiki.navBar)){
+            console.warn('You created a wiki without any content')
+        }
         this.prefix.pop();
     }
 
@@ -68,6 +71,11 @@ export class WikiCssGenerator{
         if(navBar.contentStyle){
             this.wikiElementGen(navBar.contentStyle)
         }
+
+        if((!navBar.blockStyle) && (!navBar.contentStyle)){
+            console.warn('You created a nav bar without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -102,6 +110,10 @@ export class WikiCssGenerator{
             this.relatedSubjectGen(subject.relatedSubject);
         }
 
+        if ((!subject.blockStyle) && (!subject.titleStyle) && (!subject.contentStyle) && (!subject.chapter) && (!subject.tableOfContent) && (!subject.infoBox) && (!subject.summary) && (!subject.references) && (!subject.relatedSubject)){
+            console.warn('You created a subject without any content')
+        }
+
         this.prefix.pop()
     }
 
@@ -129,6 +141,11 @@ export class WikiCssGenerator{
         if(chapter.subChapter){
             this.chapterGen(chapter.subChapter);
         }
+
+        if((!chapter.blockStyle) && (!chapter.titleStyle) && (!chapter.contentStyle) && (!chapter.classicChapter) && (!chapter.bibliography) && (!chapter.gallery) && (!chapter.subChapter)){
+            console.warn('You created a chapter without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -146,6 +163,10 @@ export class WikiCssGenerator{
         if(gallery.contentStyle){
             this.wikiElementGen(gallery.contentStyle);
         }
+
+        if((!gallery.blockStyle) && (!gallery.titleStyle) && (!(gallery.contentStyle))){
+            console.warn('You created a gallery without any content')
+        }
         this.prefix.pop();
     }
 
@@ -161,6 +182,11 @@ export class WikiCssGenerator{
         if(relatedSubject.contentStyle){
             this.wikiElementGen(relatedSubject.contentStyle);
         }
+
+        if((!relatedSubject.blockStyle) && (!relatedSubject.titleStyle) && (!(relatedSubject.contentStyle))){
+            console.warn('You created a related subject without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -176,6 +202,11 @@ export class WikiCssGenerator{
         if(reference.contentStyle){
             this.wikiElementGen(reference.contentStyle);
         }
+
+        if((!reference.blockStyle) && (!reference.titleStyle) && (!(reference.contentStyle))){
+            console.warn('You created a reference without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -191,6 +222,11 @@ export class WikiCssGenerator{
         if(bibliographyGen.contentStyle){
             this.wikiElementGen(bibliographyGen.contentStyle);
         }
+
+        if((!bibliographyGen.blockStyle) && (!bibliographyGen.titleStyle) && (!(bibliographyGen.contentStyle))){
+            console.warn('You created a bibliography without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -206,6 +242,11 @@ export class WikiCssGenerator{
         if(classicChap.contentStyle){
             this.wikiElementGen(classicChap.contentStyle);
         }
+
+        if((!classicChap.blockStyle) && (!classicChap.titleStyle) && (!(classicChap.contentStyle))){
+            console.warn('You created a classic chapter without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -221,6 +262,11 @@ export class WikiCssGenerator{
         if(toc.contentStyle){
             this.wikiElementGen(toc.contentStyle)
         }
+
+        if((!toc.blockStyle) && (!toc.titleStyle) && (!(toc.contentStyle))){
+            console.warn('You created a table of content without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -233,6 +279,11 @@ export class WikiCssGenerator{
         if(infoBox.contentStyle){
             this.wikiElementGen(infoBox.contentStyle)
         }
+
+        if((!infoBox.blockStyle) && (!(infoBox.contentStyle))){
+            console.warn('You created an info box without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -245,6 +296,11 @@ export class WikiCssGenerator{
         if(summary.contentStyle){
             this.wikiElementGen(summary.contentStyle)
         }
+
+        if((!summary.blockStyle) && (!(summary.contentStyle))){
+            console.warn('You created a summary without any content')
+        }
+
         this.prefix.pop();
     }
 
@@ -262,6 +318,11 @@ export class WikiCssGenerator{
         if (element.button) {
             this.buttonStyleGen(element.button)
         }
+
+        if((!element.text) && (!element.image) && (!element.table) && (!element.button)){
+            console.warn('You created an element without any content')
+        }
+
     }
 
     textGen(text:WikiText){
@@ -291,6 +352,11 @@ export class WikiCssGenerator{
                 this.generate.push(`${this.prefix.join(" ")} a${this.hoverPrefix}{\n${linkTextStyle.join("")}}\n`)
             }
         }
+
+        if((!text.basic) && (!text.bold) && (!text.italic) && (!text.link)){
+            console.warn('You created a text without any content')
+        }
+
         this.prefix.pop()
     }
 
@@ -321,6 +387,11 @@ export class WikiCssGenerator{
         if(text.police){
             result.push(`\tfont-family: ${text.police};\n`);
         }
+
+        if (result.length == 0){
+            console.warn('You created a textStyle without setting any attributes')
+        }
+
         return result
     }
 
@@ -331,11 +402,13 @@ export class WikiCssGenerator{
             const imageStyle = this.blockStyleGen(image.blockStyle)
             this.generate.push(`${this.prefix.join(" ")+this.prefix}{\n${imageStyle.join("")}}\n`)
         }
-
+        if((!image.blockStyle)){
+            console.warn('You created a image without any content')
+        }
         this.prefix.pop();
     }
 
-    tableStyleGen(table:WikiTableStyle) {
+    tableStyleGen(table:WikiTableStyle) {//TODO
         let result:string[] = []
 
         if(table.border){
@@ -359,6 +432,9 @@ export class WikiCssGenerator{
             const textStyle = this.textStyleGen(button.text)
             this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${textStyle.join("")}}\n`)
         }
+        if((!button.block) && (!button.text)){
+            console.warn('You created a button without any content')
+        }
         this.prefix.pop();
     }
 
@@ -381,12 +457,18 @@ export class WikiCssGenerator{
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
         }
+
         if(block.display) {
             result.push(`\tdisplay: ${block.display};\n`)
         }
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
+
+        if (result.length == 0){
+            console.warn('You created a blockStyle without setting any attributes')
+        }
+
         return result;
     }
 

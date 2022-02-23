@@ -38,11 +38,17 @@ export class BlockStyleBuilder<parentType>{
     }
 
     setPadding(value : number, type : UnitySize){
+        if(value<0){
+            console.warn('You passed a negative value to setPadding, padding doesn\'t take negative values')
+        }
         this.padding =value+ type;
         return this;
     }
 
     setPaddingSides(top:number, right:number, bottom:number, left:number, type:UnitySize){
+        if(top<0 || right<0 || left<0 || bottom<0){
+            console.warn('You passed a negative value to setPaddingSides, padding doesn\'t take negative values')
+        }
         this.padding = top+type+" "+right+type+" "+bottom+type+" "+left+type;
         return this;
     }
@@ -82,5 +88,5 @@ export class BlockStyleBuilder<parentType>{
             float:this.float
         });
     }
-    
+
 }
