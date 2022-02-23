@@ -27,8 +27,6 @@ wikiBuilder
             .putInBold(FontWeight.BOLD)
         .endTextStyle()
     .endTextEdit()//Can't go further
-    .editButtonStyle()
-        .editBorder(Border.SOLID)
 
 wikiBuilder.editSubject()
     .editTitle().italicize(FontStyle.NORMAL).endTextStyle()
