@@ -4,7 +4,6 @@ import { ClassicChapterBuilder } from "./ClassicChapterBuilder"
 import { TextStyleBuilder } from "./TextStyleBuilder"
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder"
 import {GalleryBuilder} from "./GalleryBuilder";
-import {BibliographyBuilder} from "./BibliographyBuilder";
 
 export class ChapterBuilder {
 
@@ -14,7 +13,6 @@ export class ChapterBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ChapterBuilder>
     private gallery?:GalleryBuilder
-    private bibliography?:BibliographyBuilder
     private isSubChapter?:Boolean;
 
     constructor(isSubChapter:boolean){
@@ -83,13 +81,6 @@ export class ChapterBuilder {
         return this.gallery;
     }
 
-    editBibliography(){
-        if(!this.bibliography){
-            this.bibliography = new BibliographyBuilder();
-        }
-        return this.bibliography;
-    }
-
     createModel():WikiChapter{
         const classicChapter = this.classicChapter?.createModel();
         const subChapter = this.subChapter?.createModel();
@@ -97,7 +88,6 @@ export class ChapterBuilder {
         const content = this.content?.createModel();
         const block = this.block?.createModel();
         const gallery = this.gallery?.createModel();
-        const bibliography = this.bibliography?.createModel();
 
         return new WikiChapter({
             subChapter:subChapter,
@@ -106,7 +96,6 @@ export class ChapterBuilder {
             content:content,
             block:block,
             gallery:gallery,
-            bibliography:bibliography
         })
     }
 

@@ -10,7 +10,6 @@ import WikiTableOfContent from "../model/kernel/models/wiki-table-of-content";
 import WikiSummary from "../model/kernel/models/wiki-summary";
 import WikiChapter from "../model/kernel/models/chapters/wiki-chapter";
 import WikiClassicChapter from "../model/kernel/models/chapters/wiki-classic-chapter";
-import WikiBibliography from "../model/kernel/models/chapters/wiki-bibliography";
 import WikiRelatedSubject from "../model/kernel/models/wiki-related-subject";
 import WikiGallery from "../model/kernel/models/chapters/wiki-gallery";
 import WikiInfoBox from "../model/kernel/models/wiki-info-box";
@@ -158,9 +157,6 @@ export class WikiCssGenerator{
         if(chapter.classicChapter){
             this.classicChapterGen(chapter.classicChapter);
         }
-        if (chapter.bibliography) {
-            this.bibliographyGen(chapter.bibliography);
-        }
         if (chapter.gallery) {
             this.galleryGen(chapter.gallery);
         }
@@ -168,7 +164,7 @@ export class WikiCssGenerator{
             this.chapterGen(chapter.subChapter);
         }
 
-        if((!chapter.blockStyle) && (!chapter.titleStyle) && (!chapter.contentStyle) && (!chapter.classicChapter) && (!chapter.bibliography) && (!chapter.gallery) && (!chapter.subChapter)){
+        if((!chapter.blockStyle) && (!chapter.titleStyle) && (!chapter.contentStyle) && (!chapter.classicChapter) && (!chapter.gallery) && (!chapter.subChapter)){
             console.warn('You created a chapter without any content')
         }
 
@@ -231,26 +227,6 @@ export class WikiCssGenerator{
 
         if((!reference.blockStyle) && (!reference.titleStyle) && (!(reference.contentStyle))){
             console.warn('You created a reference without any content')
-        }
-
-        this.prefix.pop();
-    }
-
-    bibliographyGen(bibliographyGen:WikiBibliography){
-        this.prefix.push(".bibliography");
-        
-        if(bibliographyGen.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(bibliographyGen.blockStyle).join("")}}\n`)
-        }
-        if(bibliographyGen.titleStyle){
-            this.titleGen(bibliographyGen.titleStyle);
-        }
-        if(bibliographyGen.contentStyle){
-            this.wikiElementGen(bibliographyGen.contentStyle);
-        }
-
-        if((!bibliographyGen.blockStyle) && (!bibliographyGen.titleStyle) && (!(bibliographyGen.contentStyle))){
-            console.warn('You created a bibliography without any content')
         }
 
         this.prefix.pop();

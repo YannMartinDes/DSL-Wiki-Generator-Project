@@ -80,14 +80,6 @@ export class GalleryChapterContent extends ChapterContent{
     ){super()}
 }
 
-export class BibliographyContent{//TODO ??
-    constructor(
-        public textContent:TextContent,
-    ){
-
-    }
-}
-
 export type ClassiqueChapterElementContent = WikiElementContent|ChapterContent
 
 export abstract class WikiElementContent{}
