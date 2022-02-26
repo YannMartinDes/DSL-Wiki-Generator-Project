@@ -1,11 +1,12 @@
 import WikiClassicChapter from "../kernel/models/chapters/wiki-classic-chapter";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class ClassicChapterBuilder{
 
-    private title?:TextStyleBuilder<ClassicChapterBuilder>
+    private title?:TitleStyleBuilder<ClassicChapterBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ClassicChapterBuilder>
 
@@ -14,7 +15,7 @@ export class ClassicChapterBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

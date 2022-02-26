@@ -9,6 +9,7 @@ import {FontWeight} from "./model/kernel/models/enum/font-weight.enum";
 import {TextAlignment} from "./model/kernel/models/enum/text-align.enum";
 import {TextTransform} from "./model/kernel/models/enum/text-transform.enum";
 import {TextDecoration} from "./model/kernel/models/enum/text-decoration.enum";
+import { Float } from "./model/kernel/models/enum/float";
 
 const wikiBuilder = WikiBuilder.createWiki()
 // wikiBuilder
@@ -105,6 +106,34 @@ wikiBuilder.editSubject().editBlock()
     .endBlockEdit()
     .editChapter()
         .editTitle()
+            .editBlock()
+                .setBorderBot(2,Color.BLACK,Border.SOLID)
+            .endBlockEdit()
+            .editContent()
+                .setFontSize(2,UnitySize.EM)
+            .endTextStyle()
+        .endTitle()
+        .editContent()
+            .editImageStyle()
+                .editStyle()
+                    .setFloat(Float.RIGHT)
+                    .setBackgroundColor("#EEEEEE")
+                    .setPadding(5,UnitySize.PIXEL)
+                    .setBorder(2,Color.BLACK,Border.SOLID)
+                .endBlockEdit()
+                .editResumeStyle()
+                    .italicize(FontStyle.ITALIC)
+                    .setTextAlign(TextAlignment.CENTER)
+                .endTextStyle()
+            .endImageStyle()
+
+wikiBuilder.editSubject().editChapter().editSubChapter().editTitle()
+    .editBlock().setBorderBot(4,Color.GRAY,Border.DOTTED).endBlockEdit()
+    .editContent().setFontSize(1.5,UnitySize.EM)
+
+wikiBuilder.editNavBar().editBlock().setBackgroundColor("#EEEEEE")
+wikiBuilder.editSubject().editTableOfContent().editBlock().setBorder(1,Color.GRAY,Border.SOLID).setBackgroundColor("#EEEEEE")
+
 const res = wikiBuilder.createModel();
 console.log(res);
 

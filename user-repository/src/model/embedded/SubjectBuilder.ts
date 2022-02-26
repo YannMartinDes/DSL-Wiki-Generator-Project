@@ -8,9 +8,10 @@ import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import {InfoBoxBuilder} from "./InfoBoxBuilder";
 import { ReferenceBuilder } from "./ReferenceBuilder";
 import { RelatedSubjectBuilder } from "./RelatedSubjectBuilder";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 
 export class SubjectBuilder{
-    private title?:TextStyleBuilder<SubjectBuilder>
+    private title?:TitleStyleBuilder<SubjectBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<SubjectBuilder>
     private summary?:SummaryBuilder
@@ -24,7 +25,7 @@ export class SubjectBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

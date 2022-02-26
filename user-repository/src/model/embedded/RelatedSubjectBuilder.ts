@@ -2,10 +2,11 @@ import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import WikiRelatedSubject from "../kernel/models/wiki-related-subject";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 
 export class RelatedSubjectBuilder{
 
-    private title?:TextStyleBuilder<RelatedSubjectBuilder>
+    private title?:TitleStyleBuilder<RelatedSubjectBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<RelatedSubjectBuilder>
 
@@ -14,7 +15,7 @@ export class RelatedSubjectBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

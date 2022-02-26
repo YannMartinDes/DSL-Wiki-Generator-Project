@@ -5,13 +5,19 @@ export default class WikiBlockStyle {
     margin?:string
     padding?:string
     border?:string
+    borderBot?:string
+    borderTop?:string
+    borderLeft?:string
+    borderRight?:string
+
     background?:string
     alignment?:AlignContent
     display?:string
     float?:Float
     
-    constructor({margin, padding, border, background, alignment, display, float}:
-        {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:string, float?:Float}) {
+    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot}:
+        {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:string, float?:Float,
+        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string}) {
         this.margin = margin;
         this.padding = padding;
         this.border = border;
@@ -19,5 +25,9 @@ export default class WikiBlockStyle {
         this.alignment = alignment;
         this.display = display;
         this.float = float;
+        this.borderRight=borderRight;
+        this.borderLeft=borderLeft;
+        this.borderTop = borderTop;
+        this.borderBot = borderBot;
     }
 }

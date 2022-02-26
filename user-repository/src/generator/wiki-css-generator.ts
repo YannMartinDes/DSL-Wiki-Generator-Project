@@ -19,6 +19,7 @@ import WikiButtonStyle from "../model/kernel/models/elements/wiki-button";
 import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
 import WikiReferences from "../model/kernel/models/wiki-references";
 import { DisplaySize } from "../model/kernel/models/display-size";
+import { WikiTitleStyle } from "../model/kernel/models/style/wiki-title-style";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -397,11 +398,15 @@ export class WikiCssGenerator{
     }
 
     imageStyleGen(image:WikiImageStyle) {
-        this.prefix.push("img")
+        this.prefix.push(".image")
 
         if(image.blockStyle){
             const imageStyle = this.blockStyleGen(image.blockStyle)
-            this.generate.push(`${this.prefix.join(" ")+this.prefix}{\n${imageStyle.join("")}}\n`)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${imageStyle.join("")}}\n`)
+        }
+        if(image.resumeStyle){
+            const resumeStyle = this.textStyleGen(image.resumeStyle)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${resumeStyle.join("")}}\n`)
         }
         if((!image.blockStyle)){
             console.warn('You created a image without any content')
@@ -449,6 +454,18 @@ export class WikiCssGenerator{
         if(block.border){
             result.push(`\tborder: ${block.border};\n`)
         }
+        if(block.borderTop){
+            result.push(`\tborder-top: ${block.borderTop};\n`)
+        }
+        if(block.borderBot){
+            result.push(`\tborder-bottom: ${block.borderBot};\n`)
+        }
+        if(block.borderLeft){
+            result.push(`\tborder-left: ${block.borderLeft};\n`)
+        }
+        if(block.borderRight){
+            result.push(`\tborder-right: ${block.borderRight};\n`)
+        }
         if(block.margin){
             result.push(`\tmargin: ${block.margin};\n`)
         }
@@ -465,6 +482,7 @@ export class WikiCssGenerator{
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
+        
 
         if (result.length == 0){
             console.warn('You created a blockStyle without setting any attributes')
@@ -473,9 +491,17 @@ export class WikiCssGenerator{
         return result;
     }
 
-    titleGen(title:WikiTextStyle){
+    titleGen(title:WikiTitleStyle){
+        if(!title.wikiTextStyle&&!title.wikiBlockStyle){return}
         this.prefix.push(".title");
-        this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.textStyleGen(title).join("")}}\n`)
+        this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n`);
+        if(title.wikiTextStyle){
+            this.generate.push(`${this.textStyleGen(title.wikiTextStyle).join("")}`);
+        }
+        if(title.wikiBlockStyle){
+            this.generate.push(`${this.blockStyleGen(title.wikiBlockStyle).join("")}`);
+        }
+        this.generate.push("}\n");
         this.prefix.pop();
     }
 

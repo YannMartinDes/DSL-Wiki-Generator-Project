@@ -1,11 +1,12 @@
 import WikiReferences from "../kernel/models/wiki-references";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class ReferenceBuilder{
 
-    private title?:TextStyleBuilder<ReferenceBuilder>
+    private title?:TitleStyleBuilder<ReferenceBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ReferenceBuilder>
 
@@ -14,7 +15,7 @@ export class ReferenceBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

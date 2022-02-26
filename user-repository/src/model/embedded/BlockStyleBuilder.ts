@@ -8,6 +8,10 @@ import WikiBlockStyle from "../kernel/models/style/wiki-block-style"
 export class BlockStyleBuilder<parentType>{
 
     private border?:string
+    private borderTop?:string
+    private borderBot?:string
+    private borderLeft?:string
+    private borderRight?:string
     private backgroundColor?:string
     private alignment?:AlignContent
     private padding?:string
@@ -24,6 +28,27 @@ export class BlockStyleBuilder<parentType>{
     setBorder(value : number, color:Color, border:Border){
         let borderConstructed=value+"px "+color+ " "+border
         this.border = borderConstructed;
+        return this;
+    }
+
+    setBorderTop(value : number, color:Color, border:Border){
+        let borderConstructed=value+"px "+color+ " "+border
+        this.borderTop = borderConstructed;
+        return this;
+    }
+    setBorderBot(value : number, color:Color, border:Border){
+        let borderConstructed=value+"px "+color+ " "+border
+        this.borderBot = borderConstructed;
+        return this;
+    }
+    setBorderLeft(value : number, color:Color, border:Border){
+        let borderConstructed=value+"px "+color+ " "+border
+        this.borderLeft = borderConstructed;
+        return this;
+    }
+    setBorderRight(value : number, color:Color, border:Border){
+        let borderConstructed=value+"px "+color+ " "+border
+        this.borderRight = borderConstructed;
         return this;
     }
 
@@ -85,7 +110,11 @@ export class BlockStyleBuilder<parentType>{
             background:this.backgroundColor,
             alignment:this.alignment,
             display:this.display,
-            float:this.float
+            float:this.float,
+            borderBot:this.borderBot,
+            borderLeft:this.borderLeft,
+            borderRight: this.borderRight,
+            borderTop: this.borderTop
         });
     }
 

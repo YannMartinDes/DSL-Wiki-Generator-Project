@@ -9,6 +9,8 @@ export default function ClassicChapterComponent({content}:{content:ClassiqueChap
         <h2 className='title'>{content.title}</h2>
 
         {content.chapterElementContent.map((elt,index)=>{
+            console.log(elt)
+
             if(elt instanceof ChapterContent){
                 return <ChapterComponent key={index} content={elt}/>
             }

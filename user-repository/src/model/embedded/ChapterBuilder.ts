@@ -4,12 +4,13 @@ import { ClassicChapterBuilder } from "./ClassicChapterBuilder"
 import { TextStyleBuilder } from "./TextStyleBuilder"
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder"
 import {GalleryBuilder} from "./GalleryBuilder";
+import { TitleStyleBuilder } from "./TitleStyleBuilder"
 
 export class ChapterBuilder {
 
     private classicChapter?:ClassicChapterBuilder
     private subChapter?:ChapterBuilder
-    private title?:TextStyleBuilder<ChapterBuilder>
+    private title?:TitleStyleBuilder<ChapterBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ChapterBuilder>
     private gallery?:GalleryBuilder
@@ -38,7 +39,7 @@ export class ChapterBuilder {
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

@@ -1,3 +1,28 @@
 .wiki .subject {
 	margin: 0% 10% 0% 10%;
 }
+.wiki .subject .chapter .title {
+	font-size: 2em;
+	border-bottom: 2px black solid;
+}
+.wiki .subject .chapter .image{
+	background-color: #EEEEEE;
+	border: 2px black solid;
+	padding: 5px;
+	float: right;
+}
+.wiki .subject .chapter .image{
+	font-style: italic;
+	text-align: center;
+}
+.wiki .subject .chapter .chapter .title {
+	font-size: 1.5em;
+	border-bottom: 4px gray dotted;
+}
+.wiki .subject .tableOfContent {
+	background-color: #EEEEEE;
+	border: 1px gray solid;
+}
+.wiki .navBar {
+	background-color: #EEEEEE;
+}

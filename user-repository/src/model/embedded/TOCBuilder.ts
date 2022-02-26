@@ -1,10 +1,11 @@
 import WikiTableOfContent from "../kernel/models/wiki-table-of-content";
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 
 export class TOCBuilder{
-    private title?:TextStyleBuilder<TOCBuilder>
+    private title?:TitleStyleBuilder<TOCBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<TOCBuilder>
 
@@ -12,7 +13,7 @@ export class TOCBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;

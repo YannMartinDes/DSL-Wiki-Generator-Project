@@ -2,10 +2,11 @@ import { BlockStyleBuilder } from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import WikiGallery from "../kernel/models/chapters/wiki-gallery";
+import { TitleStyleBuilder } from "./TitleStyleBuilder";
 
 export class GalleryBuilder{
 
-    private title?:TextStyleBuilder<GalleryBuilder>
+    private title?:TitleStyleBuilder<GalleryBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<GalleryBuilder>
 
@@ -14,7 +15,7 @@ export class GalleryBuilder{
         let builder = this.title;
 
         if(!builder){
-            builder = new TextStyleBuilder(this);
+            builder = new TitleStyleBuilder(this);
             this.title = builder;
         }
         return builder;
