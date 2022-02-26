@@ -6,7 +6,7 @@ export class NavBarBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<NavBarBuilder>
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -16,7 +16,7 @@ export class NavBarBuilder {
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

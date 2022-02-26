@@ -9,7 +9,7 @@ export class TOCBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<TOCBuilder>
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -19,7 +19,7 @@ export class TOCBuilder{
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -29,7 +29,7 @@ export class TOCBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

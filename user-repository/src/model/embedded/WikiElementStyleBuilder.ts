@@ -11,7 +11,7 @@ export class WikiElementStyleBuilder{
     private button?:ButtonStyleBuilder
     private table?:TableStyleBuilder
 
-    editText() {
+    editTextStyle() {
         const builder = new TextBuilder(this);
         this.text = builder;
         return builder;

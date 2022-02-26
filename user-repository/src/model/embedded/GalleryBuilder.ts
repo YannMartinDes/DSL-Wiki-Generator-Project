@@ -11,7 +11,7 @@ export class GalleryBuilder{
     private block?:BlockStyleBuilder<GalleryBuilder>
 
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -21,7 +21,7 @@ export class GalleryBuilder{
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -31,7 +31,7 @@ export class GalleryBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

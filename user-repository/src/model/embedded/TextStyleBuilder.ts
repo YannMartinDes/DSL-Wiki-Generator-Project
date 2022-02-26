@@ -24,17 +24,23 @@ export class TextStyleBuilder<parentType> {
         this.parentBuilder = parentBuilder;
     }
 
-    capitalized(caps:TextTransform){
+    capitalizedText(caps?:TextTransform){
+        if(!caps) caps = TextTransform.CAPITALIZE;
+
         this.caps = caps;
         return this;
     }
 
-    putInBold(bold:FontWeight){
+    putInBold(bold?:FontWeight){
+        if(!bold) bold = FontWeight.BOLD;
+
         this.bold = bold;
         return this;
     }
 
-    italicize(italic:FontStyle){
+    italicize(italic?:FontStyle){
+        if(!italic) italic = FontStyle.ITALIC;
+
         this.italic = italic;
         return this;
     }
@@ -44,7 +50,9 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    setFontSize(size:number,unit:UnitySize){
+    setFontSize(size:number,unit?:UnitySize){
+        if(!unit) unit = UnitySize.POINT;
+
         this.fontSize = size + unit;
         return this;
     }
@@ -54,8 +62,15 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    underlined(underline:TextDecoration){
+    underlined(underline?:TextDecoration){
+        if(!underline) underline = TextDecoration.UNDERLINE;
+
         this.underline = underline;
+        return this;
+    }
+
+    centerText(){
+        this.textAlign = TextAlignment.CENTER;
         return this;
     }
 
@@ -64,7 +79,7 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
-    endTextStyle():parentType{
+    endTextEdit():parentType{
         return this.parentBuilder;
     }
 

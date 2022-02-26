@@ -6,13 +6,13 @@ import { TextStyleBuilder } from "./TextStyleBuilder";
 export class TitleStyleBuilder<ParentType>{
     private text?:TextStyleBuilder<TitleStyleBuilder<ParentType>>
     private block?:BlockStyleBuilder<TitleStyleBuilder<ParentType>>
-    parentBuilder:ParentType
+    private parentBuilder:ParentType
     
     constructor (parentBuilder:ParentType){
         this.parentBuilder = parentBuilder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -22,7 +22,7 @@ export class TitleStyleBuilder<ParentType>{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.text;
 
         if(!builder){
@@ -32,7 +32,7 @@ export class TitleStyleBuilder<ParentType>{
         return builder;
     }
 
-    endTitle(){
+    endTitleEdit(){
         return this.parentBuilder;
     }
 

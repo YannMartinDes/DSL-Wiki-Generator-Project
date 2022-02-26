@@ -16,19 +16,19 @@ export class ButtonStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    editBlock() {
+    editContentBoxStyle() {
         const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }
 
-    editText() {
+    editButtonTextStyle() {
         const builder = new TextStyleBuilder(this);
         this.text = builder;
         return builder;
     }
 
-    endButtonStyle():WikiElementStyleBuilder{
+    endButtonEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }
 

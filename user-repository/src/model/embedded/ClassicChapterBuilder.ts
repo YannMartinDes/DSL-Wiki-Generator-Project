@@ -11,7 +11,7 @@ export class ClassicChapterBuilder{
     private block?:BlockStyleBuilder<ClassicChapterBuilder>
 
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -21,7 +21,7 @@ export class ClassicChapterBuilder{
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -31,7 +31,7 @@ export class ClassicChapterBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

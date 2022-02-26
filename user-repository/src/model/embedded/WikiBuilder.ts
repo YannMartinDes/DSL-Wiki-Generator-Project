@@ -29,7 +29,7 @@ export class WikiBuilder{
         return rootBuilder;
     }
 
-    editHover(){
+    editOnHoverStyle(){
         if(this.isHover) return this;
 
         if(!this.hover){
@@ -37,7 +37,7 @@ export class WikiBuilder{
         }
         return this.hover;
     }
-    editDisplaySize({minWidth,minHeght,maxWidth,maxHeight}:
+    editAlternativeDisplayStyle({minWidth,minHeght,maxWidth,maxHeight}:
         {minWidth?:number,minHeght?:number,maxWidth?:number,maxHeight?:number}){
         const displaySize = new DisplaySize(new WikiBuilder(this.isHover,this.root))
         if(minHeght){
@@ -58,11 +58,12 @@ export class WikiBuilder{
 
         return displaySize.element;
     }
-    returnNormalDisplaySize(){
+
+    returnToNormalDisplayStyle(){
         return this.root;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -72,7 +73,7 @@ export class WikiBuilder{
         return builder;
     }
 
-    editSubject(){
+    editSubjectStyle(){
         let builder = this.subject;
 
         if(!builder!){
@@ -82,7 +83,7 @@ export class WikiBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){
@@ -92,7 +93,7 @@ export class WikiBuilder{
         return builder;
     }
 
-    editNavBar(){
+    editNavBarStyle(){
         if(!this.navBar){
             this.navBar = new NavBarBuilder();
         }

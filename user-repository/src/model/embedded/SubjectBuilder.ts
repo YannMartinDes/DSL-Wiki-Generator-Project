@@ -21,7 +21,7 @@ export class SubjectBuilder{
     private chapter?:ChapterBuilder
     private toc?:TOCBuilder
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -31,7 +31,7 @@ export class SubjectBuilder{
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -41,7 +41,7 @@ export class SubjectBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){
@@ -51,7 +51,7 @@ export class SubjectBuilder{
         return builder;
     }
 
-    editChapter(){
+    editChapterStyle(){
         let builder = this.chapter;
 
         if(!builder){
@@ -61,7 +61,7 @@ export class SubjectBuilder{
         return builder;
     }
 
-    editTableOfContent(){
+    editTableOfContentStyle(){
         let builder = this.toc;
 
         if(!builder){
@@ -71,7 +71,7 @@ export class SubjectBuilder{
         return builder;
     }
 
-    editSummary(){
+    editSummaryStyle(){
         let builder = this.summary;
 
         if(!builder){
@@ -82,21 +82,21 @@ export class SubjectBuilder{
     }
 
 
-    editInfoBox(){
+    editInfoBoxStyle(){
         if(!this.infoBox){
             this.infoBox = new InfoBoxBuilder();
         }
         return this.infoBox;
     }
 
-    editReference(){
+    editReferenceStyle(){
         if(!this.reference){
             this.reference = new ReferenceBuilder();
         }
         return this.reference;
     }
 
-    editRelatedSubject(){
+    editRelatedSubjectStyle(){
         if(!this.relatedSubject){
             this.relatedSubject = new RelatedSubjectBuilder();
         }
