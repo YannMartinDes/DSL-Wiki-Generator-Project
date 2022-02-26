@@ -1,4 +1,5 @@
 import { AlignContent } from "../enum/align-content.enum"
+import { Display } from "../enum/display.enum"
 import { Float } from "../enum/float"
 
 export default class WikiBlockStyle {
@@ -12,11 +13,11 @@ export default class WikiBlockStyle {
 
     background?:string
     alignment?:AlignContent
-    display?:string
+    display?:Display
     float?:Float
     
     constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot}:
-        {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:string, float?:Float,
+        {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:Display, float?:Float,
         borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string}) {
         this.margin = margin;
         this.padding = padding;

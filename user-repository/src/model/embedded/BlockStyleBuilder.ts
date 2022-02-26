@@ -1,6 +1,7 @@
 import { AlignContent } from "../kernel/models/enum/align-content.enum"
 import { Border } from "../kernel/models/enum/border.enum"
 import { Color } from "../kernel/models/enum/color.enum"
+import { Display } from "../kernel/models/enum/display.enum"
 import { Float } from "../kernel/models/enum/float"
 import { UnitySize } from "../kernel/models/enum/unity-font-size.enum"
 import WikiBlockStyle from "../kernel/models/style/wiki-block-style"
@@ -16,7 +17,7 @@ export class BlockStyleBuilder<parentType>{
     private alignment?:AlignContent
     private padding?:string
     private margin?:string
-    private display?:string
+    private display?:Display
     private float?:Float
 
     private parentBuilder:parentType
@@ -25,29 +26,44 @@ export class BlockStyleBuilder<parentType>{
         this.parentBuilder = parentBuilder;
     }
 
-    setBorder(value : number, color:Color, border:Border){
-        let borderConstructed=value+"px "+color+ " "+border
+    setBorder(width : number, color?:Color, border?:Border){
+        if(!color) color = Color.BLACK;
+        if(!border) border = Border.SOLID;
+
+        let borderConstructed=width+"px "+color+ " "+border
         this.border = borderConstructed;
         return this;
     }
 
-    setBorderTop(value : number, color:Color, border:Border){
-        let borderConstructed=value+"px "+color+ " "+border
+    setBorderTop(width : number, color?:Color, border?:Border){
+        if(!color) color = Color.BLACK;
+        if(!border) border = Border.SOLID;
+
+        let borderConstructed=width+"px "+color+ " "+border
         this.borderTop = borderConstructed;
         return this;
     }
-    setBorderBot(value : number, color:Color, border:Border){
-        let borderConstructed=value+"px "+color+ " "+border
+    setBorderBot(width : number, color?:Color, border?:Border){
+        if(!color) color = Color.BLACK;
+        if(!border) border = Border.SOLID;
+
+        let borderConstructed=width+"px "+color+ " "+border
         this.borderBot = borderConstructed;
         return this;
     }
-    setBorderLeft(value : number, color:Color, border:Border){
-        let borderConstructed=value+"px "+color+ " "+border
+    setBorderLeft(width : number, color?:Color, border?:Border){
+        if(!color) color = Color.BLACK;
+        if(!border) border = Border.SOLID;
+
+        let borderConstructed=width+"px "+color+ " "+border
         this.borderLeft = borderConstructed;
         return this;
     }
-    setBorderRight(value : number, color:Color, border:Border){
-        let borderConstructed=value+"px "+color+ " "+border
+    setBorderRight(width : number, color?:Color, border?:Border){
+        if(!color) color = Color.BLACK;
+        if(!border) border = Border.SOLID;
+
+        let borderConstructed=width+"px "+color+ " "+border
         this.borderRight = borderConstructed;
         return this;
     }
@@ -57,12 +73,19 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    centerContent(){
+        this.alignment = AlignContent.CENTER;
+        return this;
+    }
+
     setAlignment(align:AlignContent){
         this.alignment = align;
         return this;
     }
 
-    setPadding(value : number, type : UnitySize){
+    setPadding(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
         if(value<0){
             console.warn('You passed a negative value to setPadding, padding doesn\'t take negative values')
         }
@@ -70,7 +93,9 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
-    setPaddingSides(top:number, right:number, bottom:number, left:number, type:UnitySize){
+    setPaddingSides(top:number, right:number, bottom:number, left:number, type?:UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
         if(top<0 || right<0 || left<0 || bottom<0){
             console.warn('You passed a negative value to setPaddingSides, padding doesn\'t take negative values')
         }
@@ -78,22 +103,38 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
-    setMargin(value : number, type : UnitySize){
+    setMargin(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
         this.margin =value + type;
         return this;
     }
 
-    setMarginSides(top:number, right:number, bottom:number, left:number, type:UnitySize){
+    setMarginSides(top:number, right:number, bottom:number, left:number, type?:UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
         this.margin = top+type+" "+right+type+" "+bottom+type+" "+left+type;
         return this;
     }
 
-    setDisplay(display:string) {
-        this.display = display;
+    displayElementInBlock() {
+        this.display = Display.BLOCK;
+        return this;
+    }
+    displayElementInFlex() {
+        this.display = Display.FLEX;
+        return this;
+    }
+    displayElementInline() {
+        this.display = Display.INLINE;
+        return this;
+    }
+    displayElementInFlow() {
+        this.display = Display.FLOW;
         return this;
     }
 
-    setFloat(float:Float) {
+    putBoxFloatting(float:Float) {
         this.float = float;
         return this;
     }

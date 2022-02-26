@@ -10,6 +10,8 @@ import { UnitySize } from "../kernel/models/enum/unity-font-size.enum";
 
 export class TableStyleBuilder {
 
+
+    //TODO mettre les bonnes méthodes et renommé pour être homogène ???
     private border?:Border
     private alignment?:AlignContent
     private size?:string
@@ -46,7 +48,7 @@ export class TableStyleBuilder {
         return this
     }
 
-    endImageStyle():WikiElementStyleBuilder{
+    endTableEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }
 

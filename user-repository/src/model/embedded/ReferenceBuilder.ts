@@ -11,7 +11,7 @@ export class ReferenceBuilder{
     private block?:BlockStyleBuilder<ReferenceBuilder>
 
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -21,7 +21,7 @@ export class ReferenceBuilder{
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -31,7 +31,7 @@ export class ReferenceBuilder{
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

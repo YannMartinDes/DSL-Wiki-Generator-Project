@@ -6,7 +6,7 @@ export class SummaryBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<SummaryBuilder>
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -16,7 +16,7 @@ export class SummaryBuilder {
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){

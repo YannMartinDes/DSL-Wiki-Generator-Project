@@ -20,9 +20,9 @@ export class ChapterBuilder {
         this.isSubChapter = isSubChapter;
     }
 
-    editSubChapter(){
+    editSubChapterStyle(){
         if(this.isSubChapter){
-            console.warn("You are overriding a subchapter, try not chaining editSubChapter()")
+            console.warn("You are overriding the current subchapter, try not chaining editSubChapterStyle()")
             return this;
         }
 
@@ -35,7 +35,7 @@ export class ChapterBuilder {
         return builder;
     }
 
-    editTitle(){
+    editTitleStyle(){
         let builder = this.title;
 
         if(!builder){
@@ -45,7 +45,7 @@ export class ChapterBuilder {
         return builder;
     }
 
-    editBlock(){
+    editContentBoxStyle(){
         let builder = this.block;
 
         if(!builder){
@@ -55,7 +55,7 @@ export class ChapterBuilder {
         return builder;
     }
 
-    editContent(){
+    editContentStyle(){
         let builder = this.content;
 
         if(!builder){
@@ -65,7 +65,7 @@ export class ChapterBuilder {
         return builder;
     }
 
-    editClassicChapter(){
+    editClassicChapterStyle(){
         let builder = this.classicChapter;
 
         if(!builder){
@@ -75,7 +75,7 @@ export class ChapterBuilder {
         return builder;
     }
 
-    editGallery(){
+    editGalleryStyle(){
         if(!this.gallery){
             this.gallery = new GalleryBuilder();
         }

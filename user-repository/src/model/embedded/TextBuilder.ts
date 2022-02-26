@@ -16,25 +16,25 @@ export class TextBuilder{
     }
 
 
-    boldTextStyle(){
+    editBoldTextStyle(){
         const builder = new TextStyleBuilder(this);
         this.boldText = builder;
         return builder;
     }
 
-    italicTextStyle(){
+    editItalicTextStyle(){
         const builder = new TextStyleBuilder(this);
         this.italicText = builder;
         return builder;
     }
 
-    linkTextStyle(){
+    editLinkTextStyle(){
         const builder = new TextStyleBuilder(this);
         this.linkText = builder;
         return builder;
     }
 
-    textStyle(){
+    editTextStyle(){
         const builder = new TextStyleBuilder(this);
         this.normalText = builder;
         return builder;

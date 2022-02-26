@@ -15,13 +15,13 @@ export class ImageStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-    editStyle(){
+    editContentBoxStyle(){
         if(!this.blockStyle){
             this.blockStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
         }
         return this.blockStyle;
     }
-    editResumeStyle(){
+    editAbstractTextStyle(){
         if(!this.resumeStyle){
             this.resumeStyle=new TextStyleBuilder<ImageStyleBuilder>(this);
         }
@@ -29,7 +29,7 @@ export class ImageStyleBuilder {
     }
 
 
-    endImageStyle():WikiElementStyleBuilder{
+    endImageEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }
 
