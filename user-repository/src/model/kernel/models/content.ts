@@ -7,6 +7,7 @@ export class WikiContent{
 }
 
 export class SubjectContent{
+    url:string
     subject?:string
     summary?:SummaryContent
     tableOfContent?:TOCContent
@@ -14,10 +15,11 @@ export class SubjectContent{
     chapters?:ChapterContent[]
     reference?:ReferencesContent
     relatedSubject?:RelatedSubjectContent
-    constructor({ subject,summary,tableOfContent,infoBox,chapters,reference,relatedSubject}:
-        {subject?:string,summary?:SummaryContent,tableOfContent?:TOCContent,infoBox?:InfoBoxContent,
+    constructor({ url,subject,summary,tableOfContent,infoBox,chapters,reference,relatedSubject}:
+        {url:string,subject?:string,summary?:SummaryContent,tableOfContent?:TOCContent,infoBox?:InfoBoxContent,
             chapters?:ChapterContent[],reference?:ReferencesContent,relatedSubject?:RelatedSubjectContent}
     ){
+        this.url = url
         this.subject=subject
         this.summary=summary
         this.tableOfContent=tableOfContent

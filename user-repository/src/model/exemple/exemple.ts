@@ -21,12 +21,14 @@ const chapter4:ChapterContent = new ClassiqueChapterContent(
 
 const tropidophorusSubject:SubjectContent = new SubjectContent(
     {
-    subject:"Tropidophorus matsuii",
-    summary:new SummaryContent(new TextContent("<span class=\"bold\">Tropidophorus matsuii</span> est une <a href=\"\">espèce</a> de <a href=\"\">sauriens</a> de la famille des <a href=\"\">Scincidae</a>." )),
-    tableOfContent:new TOCContent([{content:"Répartition",url:""},{content:"Étymologie",url:""},{content:"Publication originale",url:""},{content:"Liens externes",url:""}]),
-    chapters:[chapter1,chapter2,chapter3,chapter4]
+        url:"aaa",
+        subject:"Tropidophorus matsuii",
+        summary:new SummaryContent(new TextContent("<span class=\"bold\">Tropidophorus matsuii</span> est une <a href=\"\">espèce</a> de <a href=\"\">sauriens</a> de la famille des <a href=\"\">Scincidae</a>." )),
+        tableOfContent:new TOCContent([{content:"Répartition",url:""},{content:"Étymologie",url:""},{content:"Publication originale",url:""},{content:"Liens externes",url:""}]),
+        chapters:[chapter1,chapter2,chapter3,chapter4]
     }
 )
+tropidophorusSubject.url="tropidophorus-matsuii"
 
 
 
