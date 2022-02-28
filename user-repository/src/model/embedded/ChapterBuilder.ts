@@ -20,6 +20,10 @@ export class ChapterBuilder {
         this.isSubChapter = isSubChapter;
     }
 
+    /**
+     * Permet d'editer le style des sous chapitres
+     * @returns Le builder pour les sous chapitres
+     */
     editSubChapterStyle(){
         if(this.isSubChapter){
             console.warn("You are overriding the current subchapter, try not chaining editSubChapterStyle()")
@@ -35,6 +39,10 @@ export class ChapterBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -45,6 +53,10 @@ export class ChapterBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la box
+     * @returns le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -55,6 +67,10 @@ export class ChapterBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 
@@ -65,6 +81,10 @@ export class ChapterBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style des chapitres classiques
+     * @returns Le builder des chapitre classique
+     */
     editClassicChapterStyle(){
         let builder = this.classicChapter;
 

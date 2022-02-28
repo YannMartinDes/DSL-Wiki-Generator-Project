@@ -29,6 +29,10 @@ export class WikiBuilder{
         return rootBuilder;
     }
 
+    /**
+     * Permet d'editer le style du hover
+     * @returns Le builder du hover du wiki
+     */
     editOnHoverStyle(){
         if(this.isHover) return this;
 
@@ -37,6 +41,12 @@ export class WikiBuilder{
         }
         return this.hover;
     }
+
+    /**
+     * Permet de designer differement selon la taille de l'ecran
+     * @param param0 Les condition de l'affichage en fonction de la taille de l'ecran
+     * @returns Le wiki builder 
+     */
     editAlternativeDisplayStyle({minWidth,minHeght,maxWidth,maxHeight}:
         {minWidth?:number,minHeght?:number,maxWidth?:number,maxHeight?:number}){
         const displaySize = new DisplaySize(new WikiBuilder(this.isHover,this.root))
@@ -59,10 +69,18 @@ export class WikiBuilder{
         return displaySize.element;
     }
 
+    /**
+     * permet de retourné au builder par defaut (sans taille d'ecran particuliere)
+     * @returns le builder principale
+     */
     returnToNormalDisplayStyle(){
         return this.root;
     }
 
+    /**
+     * Permet d'editer le style de la box du wiki
+     * @returns Le builder pour editer la box du wiki
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -73,6 +91,10 @@ export class WikiBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du  sujet
+     * @returns Le builder du sujet
+     */
     editSubjectStyle(){
         let builder = this.subject;
 
@@ -83,6 +105,10 @@ export class WikiBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style des elements de tout le wiki
+     * @returns Le builder du style des element
+     */
     editContentStyle(){
         let builder = this.content;
 
@@ -93,6 +119,10 @@ export class WikiBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la nav bar
+     * @returns Le builder pour editer la nav bar
+     */
     editNavBarStyle(){
         if(!this.navBar){
             this.navBar = new NavBarBuilder();

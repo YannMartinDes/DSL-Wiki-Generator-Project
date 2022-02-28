@@ -6,6 +6,10 @@ export class NavBarBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<NavBarBuilder>
 
+    /**
+     * Permet d'editer le style de la box
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -16,6 +20,10 @@ export class NavBarBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 

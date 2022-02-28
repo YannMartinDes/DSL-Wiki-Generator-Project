@@ -12,6 +12,10 @@ export class TitleStyleBuilder<ParentType>{
         this.parentBuilder = parentBuilder;
     }
 
+    /**
+     * Permet d'editer le style de la box du titre
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -22,6 +26,10 @@ export class TitleStyleBuilder<ParentType>{
         return builder;
     }
 
+    /**
+     * Permet d'editer le titre
+     * @returns Le builder du text
+     */
     editContentStyle(){
         let builder = this.text;
 
@@ -32,6 +40,10 @@ export class TitleStyleBuilder<ParentType>{
         return builder;
     }
 
+    /**
+     * Permet de retourner au builder parent
+     * @returns The parent builder
+     */
     endTitleEdit(){
         return this.parentBuilder;
     }

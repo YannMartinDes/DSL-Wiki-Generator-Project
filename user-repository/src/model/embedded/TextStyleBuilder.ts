@@ -24,6 +24,11 @@ export class TextStyleBuilder<parentType> {
         this.parentBuilder = parentBuilder;
     }
 
+    /**
+     * Permet de changer les majuscule du text
+     * @param caps Le choix du caps (Defaut tout en majuscule)
+     * @returns Le builder
+     */
     capitalizedText(caps?:TextTransform){
         if(!caps) caps = TextTransform.CAPITALIZE;
 
@@ -31,13 +36,22 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    /**
+     * Permet d'editer la largeur de la police
+     * @param bold La largeur de la police
+     * @returns Le builder
+     */
     putInBold(bold?:FontWeight){
         if(!bold) bold = FontWeight.BOLD;
 
         this.bold = bold;
         return this;
     }
-
+    /**
+     * Permet de mettre le text en italic (ou oblique/normal)
+     * @param italic Le type de font (Italic par defaut)
+     * @returns Le builder
+     */
     italicize(italic?:FontStyle){
         if(!italic) italic = FontStyle.ITALIC;
 
@@ -45,11 +59,23 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    /**
+     * Permet de selectionner lune police
+     * @param police Le nom de la police (plusieur peuvent etre ecrite separer par des virgule,
+     * la premiere sera selectionner si possible sinon la suivante)
+     * @returns Le builder
+     */
     setPolice(police:string){
         this.police = police;
         return this;
     }
 
+    /**
+     * Permet d'editer la taille de la police
+     * @param size La taille
+     * @param unit L'unité de la font size
+     * @returns Le builder
+     */
     setFontSize(size:number,unit?:UnitySize){
         if(!unit) unit = UnitySize.POINT;
 
@@ -57,11 +83,21 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    /**
+     * Permet d'editer la couleur du text
+     * @param color La couleur de la police (un code #xxxxxx est accepter)
+     * @returns Le builder
+     */
     setFontColor(color:string | Color){
         this.fontColor = color;
         return this;
     }
 
+    /**
+     * Permet de souligner le text (ou d'autre possibilité comme baré)
+     * @param underline L'action a effectuer (Souligner par defaut)
+     * @returns Le builder
+     */
     underlined(underline?:TextDecoration){
         if(!underline) underline = TextDecoration.UNDERLINE;
 
@@ -69,16 +105,29 @@ export class TextStyleBuilder<parentType> {
         return this;
     }
 
+    /**
+     * Permet de centrer le text
+     * @returns Le builder
+     */
     centerText(){
         this.textAlign = TextAlignment.CENTER;
         return this;
     }
 
+    /**
+     * Permet d'editer l'alignement du text
+     * @param align L'alignement du text
+     * @returns Le builder
+     */
     setTextAlign(align:TextAlignment){
         this.textAlign = align;
         return this;
     }
 
+    /**
+     * Permet de revenir au builder precedent
+     * @returns Le builder parent
+     */
     endTextEdit():parentType{
         return this.parentBuilder;
     }

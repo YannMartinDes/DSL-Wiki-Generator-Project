@@ -10,7 +10,10 @@ export class GalleryBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<GalleryBuilder>
 
-
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 

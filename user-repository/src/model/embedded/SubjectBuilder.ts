@@ -21,6 +21,10 @@ export class SubjectBuilder{
     private chapter?:ChapterBuilder
     private toc?:TOCBuilder
 
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -31,6 +35,10 @@ export class SubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la boxdu sujet
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -41,6 +49,10 @@ export class SubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu du sujet
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 
@@ -51,6 +63,10 @@ export class SubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style des chapitres
+     * @returns Le builder du chapitre
+     */
     editChapterStyle(){
         let builder = this.chapter;
 
@@ -61,6 +77,10 @@ export class SubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la TOC
+     * @returns Le builder de la TOC
+     */
     editTableOfContentStyle(){
         let builder = this.toc;
 
@@ -71,6 +91,10 @@ export class SubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le dtyle du resumé
+     * @returns Le builder qui edit le resumé
+     */
     editSummaryStyle(){
         let builder = this.summary;
 
@@ -81,7 +105,10 @@ export class SubjectBuilder{
         return builder;
     }
 
-
+    /**
+     * Permet d'editer le style de l'info box
+     * @returns Le 
+     */
     editInfoBoxStyle(){
         if(!this.infoBox){
             this.infoBox = new InfoBoxBuilder();
@@ -89,6 +116,10 @@ export class SubjectBuilder{
         return this.infoBox;
     }
 
+    /**
+     * Permet d'editer le style des references
+     * @returns Le builder de la reference
+     */
     editReferenceStyle(){
         if(!this.reference){
             this.reference = new ReferenceBuilder();
@@ -96,6 +127,10 @@ export class SubjectBuilder{
         return this.reference;
     }
 
+    /**
+     * Permet d'editer le style des sujets reliés
+     * @returns Le builder des sujet relié
+     */
     editRelatedSubjectStyle(){
         if(!this.relatedSubject){
             this.relatedSubject = new RelatedSubjectBuilder();

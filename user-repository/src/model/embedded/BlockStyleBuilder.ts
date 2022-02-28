@@ -119,7 +119,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Permet de centrer le contenue
+     * Permet de centrer le contenu
      * @returns Le builder
      */
     centerContent(){
@@ -128,7 +128,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Permet de placer le contenue comme voulue (gauche, centrer, droite,...)
+     * Permet de placer le contenu comme voulue (gauche, centrer, droite,...)
      * @param align L'alignement voulu
      * @returns Le builder
      */
@@ -138,7 +138,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Permet d'ajouter du padding au bloque
+     * Permet d'ajouter du padding au bloc
      * @param value La taille du padding 
      * @param unit le type d'unité pour la taille renseigner (Pixel par defaut)
      * @returns le builder
@@ -203,7 +203,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Display l'element sous forme de bloque
+     * Display l'element sous forme de bloc
      * @returns Le builder
      */
     displayElementInBlock() {
@@ -211,7 +211,7 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
     /**
-     * Display l'element sous forme de bloque flexible
+     * Display l'element sous forme de bloc flexible
      * @returns Le builder
      */
     displayElementInFlex() {
@@ -247,7 +247,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Permet d'ajouter une ombre au bloque
+     * Permet d'ajouter une ombre au bloc
      * @param shadowColor La couleur de l'ombre
      * @returns Le builder
      */
@@ -269,7 +269,7 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
-     * Permet de reprendre le bloque parent
+     * Permet de reprendre le bloc parent
      * @returns Le builder parent
      */
     endBlockEdit():parentType{

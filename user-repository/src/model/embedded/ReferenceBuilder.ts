@@ -10,7 +10,10 @@ export class ReferenceBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ReferenceBuilder>
 
-
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builter du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -21,6 +24,10 @@ export class ReferenceBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la box de reference
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -31,6 +38,10 @@ export class ReferenceBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu de reference
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 

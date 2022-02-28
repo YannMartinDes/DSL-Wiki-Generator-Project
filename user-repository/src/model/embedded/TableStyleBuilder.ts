@@ -23,31 +23,60 @@ export class TableStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
+    /**
+     * Permet d'editer la bordure du tableau
+     * @param border La bordure voulu du tableau
+     * @returns Le builder
+     */
     editBorder(border:Border){
         this.border=border;
         return this;
     }
-
+    /**
+     * 
+     * @param alignment 
+     * @returns Le builder
+     */
     editAlignement(alignment:AlignContent){
         this.alignment=alignment;
         return this;
     }
 
+    /**
+     * Permet d'editer la taille de la font du tableau
+     * @param value 
+     * @param type 
+     * @returns Le builder
+     */
     editSize(value : number, type : UnitySize){
         this.size=value+type;
         return this;
     }
 
+    /**
+     * Permet d'editer la couleur du background
+     * @param color La couleur du background
+     * @returns Le builder
+     */
     editBackgroundColor(color:Color){
         this.backgroundColor=color;
         return this
     }
 
+    /**
+     * La couleur de la font dans le tableau
+     * @param color La couleur du tableau
+     * @returns Le builder
+     */
     editColor(color:Color){
         this.color=color;
         return this
     }
 
+    /**
+     * Permet de revenir au builder precedent
+     * @returns Le builder parent
+     */
     endTableEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }

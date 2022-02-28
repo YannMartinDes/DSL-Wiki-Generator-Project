@@ -15,12 +15,21 @@ export class ImageStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
+     /**
+     * Permet d'editer le style de la box
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         if(!this.blockStyle){
             this.blockStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
         }
         return this.blockStyle;
     }
+
+    /**
+     * Permet d'editer le text de description de l'image
+     * @returns Le builder du text de description
+     */
     editAbstractTextStyle(){
         if(!this.resumeStyle){
             this.resumeStyle=new TextStyleBuilder<ImageStyleBuilder>(this);
@@ -29,6 +38,10 @@ export class ImageStyleBuilder {
     }
 
 
+    /**
+     * Permet de repasser au builder precedent
+     * @returns Le builder parent
+     */
     endImageEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }

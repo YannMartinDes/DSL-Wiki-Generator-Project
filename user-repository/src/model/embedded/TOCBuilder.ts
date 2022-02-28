@@ -9,6 +9,10 @@ export class TOCBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<TOCBuilder>
 
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -19,6 +23,10 @@ export class TOCBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la box du contenu de la TOC
+     * @returns Le builder de la box du contenu de la TOC
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -29,6 +37,10 @@ export class TOCBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style des elements de la TOC
+     * @returns Le builder qui permet d'editer le style des elements de la TOC
+     */
     editContentStyle(){
         let builder = this.content;
 

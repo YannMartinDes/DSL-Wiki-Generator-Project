@@ -10,7 +10,10 @@ export class ClassicChapterBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ClassicChapterBuilder>
 
-
+    /**
+     * Permet d'editer le style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -21,6 +24,10 @@ export class ClassicChapterBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du bloque
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -31,6 +38,10 @@ export class ClassicChapterBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le contenu
+     * @returns Le builder du contenue
+     */
     editContentStyle(){
         let builder = this.content;
 

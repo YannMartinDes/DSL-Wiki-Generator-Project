@@ -10,7 +10,10 @@ export class RelatedSubjectBuilder{
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<RelatedSubjectBuilder>
 
-
+    /**
+     * Permet d'editer style du titre
+     * @returns Le builder du titre
+     */
     editTitleStyle(){
         let builder = this.title;
 
@@ -21,6 +24,10 @@ export class RelatedSubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style de la box de related subject
+     * @returns le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -31,6 +38,10 @@ export class RelatedSubjectBuilder{
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu
+     * @returns Le builder du contenus
+     */
     editContentStyle(){
         let builder = this.content;
 

@@ -7,6 +7,10 @@ export class InfoBoxBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<InfoBoxBuilder>
 
+    /**
+     * Permet d'editer le style du bloc
+     * @returns Le builder du bloc
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -17,6 +21,10 @@ export class InfoBoxBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du contenu
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 

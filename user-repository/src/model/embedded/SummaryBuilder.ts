@@ -6,6 +6,10 @@ export class SummaryBuilder {
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<SummaryBuilder>
 
+    /**
+     * Permet d'editer le style de la box du resumé
+     * @returns Le builder de la box
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -16,6 +20,10 @@ export class SummaryBuilder {
         return builder;
     }
 
+    /**
+     * Permet d'editer le style du  contenu du resumé
+     * @returns Le builder du contenu
+     */
     editContentStyle(){
         let builder = this.content;
 
