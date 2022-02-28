@@ -19,6 +19,7 @@ export class BlockStyleBuilder<parentType>{
     private margin?:string
     private display?:Display
     private float?:Float
+    private shadowColor?:Color
 
     private parentBuilder:parentType
 
@@ -245,6 +246,17 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
+     * Permet d'ajouter une ombre au bloque
+     * @param shadowColor La couleur de l'ombre
+     * @returns Le builder
+     */
+    addShadow(shadowColor?:Color) {
+        if (!shadowColor) this.shadowColor = Color.BLACK
+        else this.shadowColor = shadowColor;
+        return this;
+    }
+
+    /**
      * Permet de reprendre le bloque parent
      * @returns Le builder parent
      */
@@ -264,7 +276,8 @@ export class BlockStyleBuilder<parentType>{
             borderBot:this.borderBot,
             borderLeft:this.borderLeft,
             borderRight: this.borderRight,
-            borderTop: this.borderTop
+            borderTop: this.borderTop,
+            shadowColor:this.shadowColor
         });
     }
 
