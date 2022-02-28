@@ -20,6 +20,7 @@ export class BlockStyleBuilder<parentType>{
     private display?:Display
     private float?:Float
     private shadowColor?:Color
+    private columnNumber?:number
 
     private parentBuilder:parentType
 
@@ -257,6 +258,17 @@ export class BlockStyleBuilder<parentType>{
     }
 
     /**
+     * Permet d'ajouter des colonnes à un bloc
+     * @param columnNumber le nombre de colonnes
+     * @returns le builder
+     */
+    displayInColumn(columnNumber?:number) {
+        if (!columnNumber) columnNumber = 2
+        this.columnNumber = columnNumber;
+        return this;
+    }
+
+    /**
      * Permet de reprendre le bloque parent
      * @returns Le builder parent
      */
@@ -277,7 +289,8 @@ export class BlockStyleBuilder<parentType>{
             borderLeft:this.borderLeft,
             borderRight: this.borderRight,
             borderTop: this.borderTop,
-            shadowColor:this.shadowColor
+            shadowColor:this.shadowColor,
+            columnNumber:this.columnNumber
         });
     }
 
