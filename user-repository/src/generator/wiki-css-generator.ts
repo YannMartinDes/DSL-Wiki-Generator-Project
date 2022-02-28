@@ -213,7 +213,7 @@ export class WikiCssGenerator{
     }
 
     referenceGen(reference:WikiReferences){
-        this.prefix.push(".reference");       
+        this.prefix.push(".references");       
 
         if(reference.blockStyle){
             this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(reference.blockStyle).join("")}}\n`)
@@ -428,7 +428,7 @@ export class WikiCssGenerator{
     }
 
     buttonStyleGen(button:WikiButtonStyle) {
-        this.prefix.push("button")
+        this.prefix.push(".button")
 
         if(button.block){
             const blockStyle = this.blockStyleGen(button.block)
@@ -492,6 +492,9 @@ export class WikiCssGenerator{
         }
         if (block.columnNumber) {
             result.push(`\tcolumn-count: ${block.columnNumber};\n`)
+        }
+        if (block.borderRadius) {
+            result.push(`\tborder-radius: ${block.borderRadius};\n`)
         }
 
         if (result.length == 0){

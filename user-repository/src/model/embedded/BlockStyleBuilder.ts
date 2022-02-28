@@ -23,6 +23,7 @@ export class BlockStyleBuilder<parentType>{
     private columnNumber?:number
     private shadowColor?:Color
     private width?:string
+    private borderRadius?:string
 
     private parentBuilder:parentType
 
@@ -37,12 +38,17 @@ export class BlockStyleBuilder<parentType>{
      * @param border optional - border's type (default : SOLID)
      * @returns this builder
      */
-    setBorder(width : number, color?:Color, border?:Border){
+    setBorder(width : number, color?:Color|string, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
 
         let borderConstructed=width+"px "+color+ " "+border
         this.border = borderConstructed;
+        return this;
+    }
+
+    setBorderRadius(size:number){
+        this.borderRadius = size +"px";
         return this;
     }
 
@@ -53,7 +59,7 @@ export class BlockStyleBuilder<parentType>{
      * @param border optional - border's type (default : SOLID)
      * @returns this builder
      */
-    setBorderTop(width : number, color?:Color, border?:Border){
+    setBorderTop(width : number, color?:Color|string, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
 
@@ -69,7 +75,7 @@ export class BlockStyleBuilder<parentType>{
      * @param border optional - border's type (default : SOLID)
      * @returns this builder
      */
-    setBorderBot(width : number, color?:Color, border?:Border){
+    setBorderBot(width : number, color?:Color|string, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
 
@@ -85,7 +91,7 @@ export class BlockStyleBuilder<parentType>{
      * @param border optional - border's type (default : SOLID)
      * @returns this builder
      */
-    setBorderLeft(width : number, color?:Color, border?:Border){
+    setBorderLeft(width : number, color?:Color|string, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
 
@@ -101,7 +107,7 @@ export class BlockStyleBuilder<parentType>{
      * @param border optional - border's type (default : SOLID)
      * @returns this builder
      */
-    setBorderRight(width : number, color?:Color, border?:Border){
+    setBorderRight(width : number, color?:Color|string, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
 
@@ -319,7 +325,8 @@ export class BlockStyleBuilder<parentType>{
             shadowColor:this.shadowColor,
             columnNumber:this.columnNumber,
             width:this.width,
-            height:this.height
+            height:this.height,
+            borderRadius:this.borderRadius
         });
     }
 

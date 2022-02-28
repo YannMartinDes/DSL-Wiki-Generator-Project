@@ -19,9 +19,10 @@ export default class WikiBlockStyle {
     shadowColor?:Color
     height?:string
     width?:string
-    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot,width,height,shadowColor,columnNumber}:
+    borderRadius?:string
+    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot,width,height,shadowColor,columnNumber,borderRadius}:
         {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:Display, float?:Float,
-        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string,width?:string, height?:string,shadowColor?:Color,columnNumber?:number}) {
+        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string,width?:string, height?:string,shadowColor?:Color,columnNumber?:number, borderRadius?:string}) {
         this.margin = margin;
         this.padding = padding;
         this.border = border;
@@ -37,5 +38,6 @@ export default class WikiBlockStyle {
         this.width = width;
         this.columnNumber = columnNumber;
         this.shadowColor = shadowColor;
+        this.borderRadius = borderRadius;
     }
 }
