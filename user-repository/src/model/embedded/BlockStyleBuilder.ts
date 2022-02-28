@@ -19,7 +19,7 @@ export class BlockStyleBuilder<parentType>{
     private margin?:string
     private display?:Display
     private float?:Float
-    private shadow?:number
+    private shadowColor?:Color
 
     private parentBuilder:parentType
 
@@ -140,8 +140,9 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
-    setBoxShadowDimension(shadow:number) {
-        this.shadow = shadow;
+    addShadow(shadowColor?:Color) {
+        if (!shadowColor) this.shadowColor = Color.BLACK
+        else this.shadowColor = shadowColor;
         return this;
     }
 
@@ -162,7 +163,7 @@ export class BlockStyleBuilder<parentType>{
             borderLeft:this.borderLeft,
             borderRight: this.borderRight,
             borderTop: this.borderTop,
-            shadow:this.shadow
+            shadowColor:this.shadowColor
         });
     }
 

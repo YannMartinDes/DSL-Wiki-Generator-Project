@@ -482,8 +482,8 @@ export class WikiCssGenerator{
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
-        if(block.shadow) {
-            result.push(`\tbox-shadow: ${block.shadow}px ${block.shadow}px;\n`)
+        if(block.shadowColor) {
+            result.push(`\tbox-shadow: 2px 2px ${block.shadowColor};\n`)
         }
 
         if (result.length == 0){
