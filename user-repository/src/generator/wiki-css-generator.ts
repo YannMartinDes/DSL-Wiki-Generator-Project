@@ -339,13 +339,13 @@ export class WikiCssGenerator{
         if(text.bold){
             const boldTextStyle = this.textStyleGen(text.bold)
             if(boldTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .bold${this.hoverPrefix}{\n${boldTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} b${this.hoverPrefix}{\n${boldTextStyle.join("")}}\n`)
             }
         }
         if(text.italic){
             const italicTextStyle = this.textStyleGen(text.italic)
             if(italicTextStyle.length>0){
-                this.generate.push(`${this.prefix.join(" ")} .italic${this.hoverPrefix}{\n${italicTextStyle.join("")}}\n`)
+                this.generate.push(`${this.prefix.join(" ")} i${this.hoverPrefix}{\n${italicTextStyle.join("")}}\n`)
             }
         }
         if(text.link){
