@@ -19,6 +19,8 @@ export class BlockStyleBuilder<parentType>{
     private margin?:string
     private display?:Display
     private float?:Float
+    private width?:string
+    private height?:string
 
     private parentBuilder:parentType
 
@@ -117,6 +119,30 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    setWidth(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setWidth, width doesn\'t take negative values')
+        }
+        this.width =value+ type;
+        return this;
+    }
+
+    setHeight(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setHeight, height doesn\'t take negative values')
+        }
+        this.height =value+ type;
+        return this;
+    }
+
+    
+
+
+
     displayElementInBlock() {
         this.display = Display.BLOCK;
         return this;
@@ -155,7 +181,9 @@ export class BlockStyleBuilder<parentType>{
             borderBot:this.borderBot,
             borderLeft:this.borderLeft,
             borderRight: this.borderRight,
-            borderTop: this.borderTop
+            borderTop: this.borderTop,
+            width:this.width,
+            height:this.height
         });
     }
 

@@ -475,14 +475,18 @@ export class WikiCssGenerator{
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
         }
-
         if(block.display) {
             result.push(`\tdisplay: ${block.display};\n`)
         }
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
-        
+        if(block.width) {
+            result.push(`\twidth: ${block.width};\n`)
+        }
+        if(block.height) {
+            result.push(`\theight: ${block.height};\n`)
+        }
 
         if (result.length == 0){
             console.warn('You created a blockStyle without setting any attributes')
