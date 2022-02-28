@@ -15,12 +15,13 @@ export default class WikiBlockStyle {
     alignment?:AlignContent
     display?:Display
     float?:Float
-    shadowColor?:Color
     columnNumber?:number
-    
-    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot, shadowColor, columnNumber}:
+    shadowColor?:Color
+    height?:string
+    width?:string
+    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot,width,height,shadowColor,columnNumber}:
         {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:Display, float?:Float,
-        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string, shadowColor?:Color, columnNumber?:number}) {
+        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string,width?:string, height?:string,shadowColor?:Color,columnNumber?:number}) {
         this.margin = margin;
         this.padding = padding;
         this.border = border;
@@ -32,7 +33,9 @@ export default class WikiBlockStyle {
         this.borderLeft=borderLeft;
         this.borderTop = borderTop;
         this.borderBot = borderBot;
-        this.shadowColor = shadowColor;
+        this.height = height;
+        this.width = width;
         this.columnNumber = columnNumber;
+        this.shadowColor = shadowColor;
     }
 }

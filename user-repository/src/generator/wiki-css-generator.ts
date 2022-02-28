@@ -475,12 +475,17 @@ export class WikiCssGenerator{
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
         }
-
         if(block.display) {
             result.push(`\tdisplay: ${block.display};\n`)
         }
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
+        }
+        if(block.width) {
+            result.push(`\twidth: ${block.width};\n`)
+        }
+        if(block.height) {
+            result.push(`\theight: ${block.height};\n`)
         }
         if(block.shadowColor) {
             result.push(`\tbox-shadow: 2px 2px ${block.shadowColor};\n`)
