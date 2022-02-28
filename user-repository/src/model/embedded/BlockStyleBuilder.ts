@@ -316,7 +316,7 @@ export class BlockStyleBuilder<parentType>{
             borderRight: this.borderRight,
             borderTop: this.borderTop,
             shadowColor:this.shadowColor,
-            columnNumber:this.columnNumber
+            columnNumber:this.columnNumber,
             width:this.width,
             height:this.height
         });
