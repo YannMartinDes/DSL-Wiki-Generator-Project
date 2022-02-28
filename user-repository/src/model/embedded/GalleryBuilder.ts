@@ -11,8 +11,8 @@ export class GalleryBuilder{
     private block?:BlockStyleBuilder<GalleryBuilder>
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -24,6 +24,10 @@ export class GalleryBuilder{
         return builder;
     }
 
+    /**
+     * Used to edit the style of the box of the gallery
+     * @returns the gallery box style builder
+     */
     editContentBoxStyle(){
         let builder = this.block;
 
@@ -34,6 +38,10 @@ export class GalleryBuilder{
         return builder;
     }
 
+    /**
+     * Used to edit the style of the elements of the gallery
+     * @returns the gallery elements style builder
+     */
     editContentStyle(){
         let builder = this.content;
 

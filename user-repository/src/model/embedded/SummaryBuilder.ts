@@ -7,8 +7,8 @@ export class SummaryBuilder {
     private block?:BlockStyleBuilder<SummaryBuilder>
 
     /**
-     * Permet d'editer le style de la box du resumé
-     * @returns Le builder de la box
+     * Used to edit the style of the summary's box
+     * @returns the summary's box builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -21,8 +21,8 @@ export class SummaryBuilder {
     }
 
     /**
-     * Permet d'editer le style du  contenu du resumé
-     * @returns Le builder du contenu
+     * Used to edit the style of the elements of the summary
+     * @returns the summary elements style builder
      */
     editContentStyle(){
         let builder = this.content;

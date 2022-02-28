@@ -11,8 +11,8 @@ export class RelatedSubjectBuilder{
     private block?:BlockStyleBuilder<RelatedSubjectBuilder>
 
     /**
-     * Permet d'editer style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -25,8 +25,8 @@ export class RelatedSubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style de la box de related subject
-     * @returns le builder de la box
+     * Used to edit the style of the box of the related subject
+     * @returns the related subject box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -39,8 +39,8 @@ export class RelatedSubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style du contenu
-     * @returns Le builder du contenus
+     * Used to edit the style of the elements of the related subject
+     * @returns the related subject elements style builder
      */
     editContentStyle(){
         let builder = this.content;

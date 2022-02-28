@@ -21,8 +21,8 @@ export class ChapterBuilder {
     }
 
     /**
-     * Permet d'editer le style des sous chapitres
-     * @returns Le builder pour les sous chapitres
+     * Used to edit the style of the subchapters
+     * @returns the subchapters style builder
      */
     editSubChapterStyle(){
         if(this.isSubChapter){
@@ -40,8 +40,8 @@ export class ChapterBuilder {
     }
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -54,8 +54,8 @@ export class ChapterBuilder {
     }
 
     /**
-     * Permet d'editer le style de la box
-     * @returns le builder de la box
+     * Used to edit the style of the box of the chapter
+     * @returns the chapter box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -68,8 +68,8 @@ export class ChapterBuilder {
     }
 
     /**
-     * Permet d'editer le style du contenu
-     * @returns Le builder du contenu
+     * Used to edit the style of the elements of the chapter
+     * @returns the chapter elements style builder
      */
     editContentStyle(){
         let builder = this.content;
@@ -82,8 +82,8 @@ export class ChapterBuilder {
     }
 
     /**
-     * Permet d'editer le style des chapitres classiques
-     * @returns Le builder des chapitre classique
+     * Used to edit the style of the classic chapter
+     * @returns the classic chapter style builder
      */
     editClassicChapterStyle(){
         let builder = this.classicChapter;
@@ -95,6 +95,10 @@ export class ChapterBuilder {
         return builder;
     }
 
+    /**
+     * Used to edit the style of the gallery
+     * @returns the the gallery style builder
+     */
     editGalleryStyle(){
         if(!this.gallery){
             this.gallery = new GalleryBuilder();
