@@ -16,10 +16,11 @@ export default class WikiBlockStyle {
     display?:Display
     float?:Float
     shadowColor?:Color
+    columnNumber?:number
     
-    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot, shadowColor}:
+    constructor({margin, padding, border, background, alignment, display, float,borderLeft,borderRight,borderTop,borderBot, shadowColor, columnNumber}:
         {margin?:string, padding?:string, border?:string, background?:string, alignment?:AlignContent, display?:Display, float?:Float,
-        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string, shadowColor?:Color}) {
+        borderLeft?:string,borderRight?:string,borderTop?:string,borderBot?:string, shadowColor?:Color, columnNumber?:number}) {
         this.margin = margin;
         this.padding = padding;
         this.border = border;
@@ -32,5 +33,6 @@ export default class WikiBlockStyle {
         this.borderTop = borderTop;
         this.borderBot = borderBot;
         this.shadowColor = shadowColor;
+        this.columnNumber = columnNumber;
     }
 }

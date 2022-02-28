@@ -20,6 +20,7 @@ export class BlockStyleBuilder<parentType>{
     private display?:Display
     private float?:Float
     private shadowColor?:Color
+    private columnNumber?:number
 
     private parentBuilder:parentType
 
@@ -146,6 +147,12 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    displayInColumn(columnNumber?:number) {
+        if (!columnNumber) columnNumber = 2
+        this.columnNumber = columnNumber;
+        return this;
+    }
+
     endBlockEdit():parentType{
         return this.parentBuilder;
     }
@@ -163,7 +170,8 @@ export class BlockStyleBuilder<parentType>{
             borderLeft:this.borderLeft,
             borderRight: this.borderRight,
             borderTop: this.borderTop,
-            shadowColor:this.shadowColor
+            shadowColor:this.shadowColor,
+            columnNumber:this.columnNumber
         });
     }
 
