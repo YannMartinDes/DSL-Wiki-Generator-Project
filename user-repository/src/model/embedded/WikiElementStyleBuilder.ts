@@ -12,8 +12,8 @@ export class WikiElementStyleBuilder{
     private table?:TableStyleBuilder
 
     /**
-     * Permet d'editer le style des textes de l'element
-     * @returns Le builder qui permet d'editer le style des text
+     * Used to edit the text style of the element
+     * @returns the text style builder
      */
     editTextStyle() {
         const builder = new TextBuilder(this);
@@ -22,8 +22,8 @@ export class WikiElementStyleBuilder{
     }
 
     /**
-     * Permet d'editer le style des images de l'element
-     * @returns Le builder qui permet d'editer le style des images
+     * Used to edit the image style of the element
+     * @returns the image style builder
      */
     editImageStyle() {
         if(!this.image){
@@ -33,8 +33,8 @@ export class WikiElementStyleBuilder{
     }
 
     /**
-     * Permet d'editer le style des bouton de l'element
-     * @returns Le builder des bouton
+     * Used to edit the button style of the element
+     * @returns the button style builder
      */
     editButtonStyle() {
         if(!this.button){
@@ -44,8 +44,8 @@ export class WikiElementStyleBuilder{
     }
 
     /**
-     * Permet d'editer le style des tables de l'element
-     * @returns Le builder des table
+     * Used to edit the table style of the element
+     * @returns the table style builder
      */
     editTableStyle() {
         if(!this.table){

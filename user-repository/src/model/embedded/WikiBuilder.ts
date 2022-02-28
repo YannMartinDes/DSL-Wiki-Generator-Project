@@ -30,8 +30,8 @@ export class WikiBuilder{
     }
 
     /**
-     * Permet d'editer le style du hover
-     * @returns Le builder du hover du wiki
+     * Used to edit the style of the wiki on hover
+     * @returns the on hover wiki builder
      */
     editOnHoverStyle(){
         if(this.isHover) return this;
@@ -43,9 +43,9 @@ export class WikiBuilder{
     }
 
     /**
-     * Permet de designer differement selon la taille de l'ecran
-     * @param param0 Les condition de l'affichage en fonction de la taille de l'ecran
-     * @returns Le wiki builder 
+     * Used to design the wiki differently for different screen size
+     * @param param0 the screen size condition to use this style
+     * @returns the wiki builder
      */
     editAlternativeDisplayStyle({minWidth,minHeght,maxWidth,maxHeight}:
         {minWidth?:number,minHeght?:number,maxWidth?:number,maxHeight?:number}){
@@ -70,16 +70,16 @@ export class WikiBuilder{
     }
 
     /**
-     * permet de retourné au builder par defaut (sans taille d'ecran particuliere)
-     * @returns le builder principale
+     * Used to modify the default style of the wiki (without screen size)
+     * @returns the basic wiki builder
      */
     returnToNormalDisplayStyle(){
         return this.root;
     }
 
     /**
-     * Permet d'editer le style de la box du wiki
-     * @returns Le builder pour editer la box du wiki
+     * Used to edit the wiki box style
+     * @returns the box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -92,8 +92,8 @@ export class WikiBuilder{
     }
 
     /**
-     * Permet d'editer le style du  sujet
-     * @returns Le builder du sujet
+     * Used to edit the style of the subject
+     * @returns the subject builder
      */
     editSubjectStyle(){
         let builder = this.subject;
@@ -106,8 +106,8 @@ export class WikiBuilder{
     }
 
     /**
-     * Permet d'editer le style des elements de tout le wiki
-     * @returns Le builder du style des element
+     * Used to add style to all of the wiki content
+     * @returns the element style builder
      */
     editContentStyle(){
         let builder = this.content;
@@ -120,8 +120,8 @@ export class WikiBuilder{
     }
 
     /**
-     * Permet d'editer le style de la nav bar
-     * @returns Le builder pour editer la nav bar
+     * Used to edit the style of the nav bar
+     * @returns the subject nav bar
      */
     editNavBarStyle(){
         if(!this.navBar){
