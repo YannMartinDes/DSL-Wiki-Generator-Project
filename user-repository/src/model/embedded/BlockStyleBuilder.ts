@@ -19,8 +19,10 @@ export class BlockStyleBuilder<parentType>{
     private margin?:string
     private display?:Display
     private float?:Float
-    private shadowColor?:Color
+    private height?:string
     private columnNumber?:number
+    private shadowColor?:Color
+    private width?:string
 
     private parentBuilder:parentType
 
@@ -203,6 +205,30 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    setWidth(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setWidth, width doesn\'t take negative values')
+        }
+        this.width =value+ type;
+        return this;
+    }
+
+    setHeight(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setHeight, height doesn\'t take negative values')
+        }
+        this.height =value+ type;
+        return this;
+    }
+
+    
+
+
+
     /**
      * Display the element in block
      * @returns this builder
@@ -277,7 +303,7 @@ export class BlockStyleBuilder<parentType>{
         return this.parentBuilder;
     }
 
-    protected createModel(){
+    createModel(){
         return new WikiBlockStyle({
             margin:this.margin,
             padding:this.padding,
@@ -291,7 +317,9 @@ export class BlockStyleBuilder<parentType>{
             borderRight: this.borderRight,
             borderTop: this.borderTop,
             shadowColor:this.shadowColor,
-            columnNumber:this.columnNumber
+            columnNumber:this.columnNumber,
+            width:this.width,
+            height:this.height
         });
     }
 
