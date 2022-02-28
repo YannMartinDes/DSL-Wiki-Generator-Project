@@ -264,7 +264,7 @@ export class BlockStyleBuilder<parentType>{
         return this.parentBuilder;
     }
 
-    protected createModel(){
+    createModel(){
         return new WikiBlockStyle({
             margin:this.margin,
             padding:this.padding,
