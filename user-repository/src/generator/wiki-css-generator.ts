@@ -482,7 +482,9 @@ export class WikiCssGenerator{
         if(block.float) {
             result.push(`\tfloat: ${block.float};\n`)
         }
-        
+        if(block.shadowColor) {
+            result.push(`\tbox-shadow: 2px 2px ${block.shadowColor};\n`)
+        }
 
         if (result.length == 0){
             console.warn('You created a blockStyle without setting any attributes')
