@@ -26,6 +26,13 @@ export class BlockStyleBuilder<parentType>{
         this.parentBuilder = parentBuilder;
     }
 
+    /**
+     * Permet de mettre un bordure a l'element
+     * @param width l'epaiseur de la bordure
+     * @param color optionel - la couleur de la bordure (noir par defaut)
+     * @param border optionel - Le type de bordeur (SOLID par defaut)
+     * @returns le builder
+     */
     setBorder(width : number, color?:Color, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
@@ -35,6 +42,13 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    /**
+     * Permet de mettre un bordure superieur a l'element
+     * @param width l'epaiseur de la bordure
+     * @param color optionel - la couleur de la bordure (noir par defaut)
+     * @param border optionel - Le type de bordeur (SOLID par defaut)
+     * @returns le builder
+     */
     setBorderTop(width : number, color?:Color, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
@@ -43,6 +57,14 @@ export class BlockStyleBuilder<parentType>{
         this.borderTop = borderConstructed;
         return this;
     }
+
+    /**
+     * Permet de mettre un bordure inferieur a l'element
+     * @param width l'epaiseur de la bordure
+     * @param color optionel - la couleur de la bordure (noir par defaut)
+     * @param border optionel - Le type de bordeur (SOLID par defaut)
+     * @returns le builder
+     */
     setBorderBot(width : number, color?:Color, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
@@ -51,6 +73,14 @@ export class BlockStyleBuilder<parentType>{
         this.borderBot = borderConstructed;
         return this;
     }
+
+    /**
+     * Permet de mettre un bordure a gauche de l'element
+     * @param width l'epaiseur de la bordure
+     * @param color optionel - la couleur de la bordure (noir par defaut)
+     * @param border optionel - Le type de bordeur (SOLID par defaut)
+     * @returns le builder
+     */
     setBorderLeft(width : number, color?:Color, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
@@ -59,6 +89,14 @@ export class BlockStyleBuilder<parentType>{
         this.borderLeft = borderConstructed;
         return this;
     }
+
+    /**
+     * Permet de mettre un bordure a droite a l'element
+     * @param width l'epaiseur de la bordure
+     * @param color optionel - la couleur de la bordure (noir par defaut)
+     * @param border optionel - Le type de bordeur (SOLID par defaut)
+     * @returns le builder
+     */
     setBorderRight(width : number, color?:Color, border?:Border){
         if(!color) color = Color.BLACK;
         if(!border) border = Border.SOLID;
@@ -68,82 +106,153 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    /**
+     * Permet de mettre une couleur de fond
+     * @param color La couleur de fond
+     * @returns le builder
+     */
     setBackgroundColor(color:Color | string){
         this.backgroundColor = color;
         return this;
     }
 
+    /**
+     * Permet de centrer le contenue
+     * @returns Le builder
+     */
     centerContent(){
         this.alignment = AlignContent.CENTER;
         return this;
     }
 
+    /**
+     * Permet de placer le contenue comme voulue (gauche, centrer, droite,...)
+     * @param align L'alignement voulu
+     * @returns Le builder
+     */
     setAlignment(align:AlignContent){
         this.alignment = align;
         return this;
     }
 
-    setPadding(value : number, type?: UnitySize){
-        if(!type) type = UnitySize.PIXEL
+    /**
+     * Permet d'ajouter du padding au bloque
+     * @param value La taille du padding 
+     * @param unit le type d'unité pour la taille renseigner (Pixel par defaut)
+     * @returns le builder
+     */
+    setPadding(value : number, unit?: UnitySize){
+        if(!unit) unit = UnitySize.PIXEL
 
         if(value<0){
             console.warn('You passed a negative value to setPadding, padding doesn\'t take negative values')
         }
-        this.padding =value+ type;
+        this.padding =value+ unit;
         return this;
     }
 
-    setPaddingSides(top:number, right:number, bottom:number, left:number, type?:UnitySize){
-        if(!type) type = UnitySize.PIXEL
+    /**
+     * Permet de mettre un padding differents pour chaque coté
+     * {@link setPadding} pour toutes les padding en meme temps.
+     * @param top La taille du padding en haut
+     * @param right La taille du padding a droite
+     * @param bottom La taille du padding en bas
+     * @param left La taille du padding a gauche
+     * @param unit L'unité du padding (Pixel par defaut)
+     * @returns Le builder
+     */
+    setPaddingSides(top:number, right:number, bottom:number, left:number, unit?:UnitySize){
+        if(!unit) unit = UnitySize.PIXEL
 
         if(top<0 || right<0 || left<0 || bottom<0){
             console.warn('You passed a negative value to setPaddingSides, padding doesn\'t take negative values')
         }
-        this.padding = top+type+" "+right+type+" "+bottom+type+" "+left+type;
+        this.padding = top+unit+" "+right+unit+" "+bottom+unit+" "+left+unit;
         return this;
     }
 
-    setMargin(value : number, type?: UnitySize){
-        if(!type) type = UnitySize.PIXEL
+    /**
+     * Permet de mettre des marges
+     * @param value La valeur
+     * @param unit L'unité de la margin (defaut en pixel)
+     * @returns Le builder
+     */
+    setMargin(value : number, unit?: UnitySize){
+        if(!unit) unit = UnitySize.PIXEL
 
-        this.margin =value + type;
+        this.margin =value + unit;
         return this;
     }
 
-    setMarginSides(top:number, right:number, bottom:number, left:number, type?:UnitySize){
-        if(!type) type = UnitySize.PIXEL
+    /**
+     * Permet de mettre des marges
+     * @param top La marge en haut
+     * @param right La marge a droite
+     * @param bottom La marge en bas
+     * @param left La marge a gauche
+     * @param unit L'unite de la marge
+     * @returns Le builder
+     */
+    setMarginSides(top:number, right:number, bottom:number, left:number, unit?:UnitySize){
+        if(!unit) unit = UnitySize.PIXEL
 
-        this.margin = top+type+" "+right+type+" "+bottom+type+" "+left+type;
+        this.margin = top+unit+" "+right+unit+" "+bottom+unit+" "+left+unit;
         return this;
     }
 
+    /**
+     * Display l'element sous forme de bloque
+     * @returns Le builder
+     */
     displayElementInBlock() {
         this.display = Display.BLOCK;
         return this;
     }
+    /**
+     * Display l'element sous forme de bloque flexible
+     * @returns Le builder
+     */
     displayElementInFlex() {
         this.display = Display.FLEX;
         return this;
     }
+
+    /**
+     * Display l'element en ligne
+     * @returns Le builder
+     */
     displayElementInline() {
         this.display = Display.INLINE;
         return this;
     }
+    /**
+     * Display l'element en Flow
+     * @returns Le builder
+     */
     displayElementInFlow() {
         this.display = Display.FLOW;
         return this;
     }
 
+    /**
+     * Display element float
+     * @param float L'endroit ou la box float
+     * @returns Le builder
+     */
     putBoxFloatting(float:Float) {
         this.float = float;
         return this;
     }
 
+    /**
+     * Permet de reprendre le bloque parent
+     * @returns Le builder parent
+     */
     endBlockEdit():parentType{
         return this.parentBuilder;
     }
 
-    createModel(){
+    protected createModel(){
         return new WikiBlockStyle({
             margin:this.margin,
             padding:this.padding,
