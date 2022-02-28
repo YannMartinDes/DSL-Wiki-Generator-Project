@@ -7,14 +7,14 @@ export class TitleStyleBuilder<ParentType>{
     private text?:TextStyleBuilder<TitleStyleBuilder<ParentType>>
     private block?:BlockStyleBuilder<TitleStyleBuilder<ParentType>>
     private parentBuilder:ParentType
-    
+
     constructor (parentBuilder:ParentType){
         this.parentBuilder = parentBuilder;
     }
 
     /**
-     * Permet d'editer le style de la box du titre
-     * @returns Le builder de la box
+     * Used to edit the style of the title box
+     * @returns the title box builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -27,8 +27,8 @@ export class TitleStyleBuilder<ParentType>{
     }
 
     /**
-     * Permet d'editer le titre
-     * @returns Le builder du text
+     * Used to edit the style of the title
+     * @returns the title content builder
      */
     editContentStyle(){
         let builder = this.text;
@@ -41,8 +41,8 @@ export class TitleStyleBuilder<ParentType>{
     }
 
     /**
-     * Permet de retourner au builder parent
-     * @returns The parent builder
+     * Used to return to the parent builder
+     * @returns the parent builder
      */
     endTitleEdit(){
         return this.parentBuilder;

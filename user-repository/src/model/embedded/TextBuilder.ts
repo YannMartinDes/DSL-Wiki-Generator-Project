@@ -16,8 +16,8 @@ export class TextBuilder{
     }
 
     /**
-     * Permet de modifier le style pour le text en gras
-     * @returns Le text builder pour les elements en gras
+     * Used to modify the style of the bold part of the text
+     * @returns the bold text style builder
      */
     editBoldTextStyle(){
         const builder = new TextStyleBuilder(this);
@@ -26,8 +26,8 @@ export class TextBuilder{
     }
 
     /**
-     * Permet de modifier le style pour le text italic
-     * @returns Le text builder pour les elements italic
+     * Used to modify the style of the italic part of the text
+     * @returns the italic text style builder
      */
     editItalicTextStyle(){
         const builder = new TextStyleBuilder(this);
@@ -36,8 +36,8 @@ export class TextBuilder{
     }
 
     /**
-     * Permet de modifier le style pour le text des liens
-     * @returns Le text builder pour les elements des liens
+     * Used to modify the style of the link part of the text
+     * @returns the link text style builder
      */
     editLinkTextStyle(){
         const builder = new TextStyleBuilder(this);
@@ -46,8 +46,8 @@ export class TextBuilder{
     }
 
     /**
-     * Permet de modifier le style pour le text normal
-     * @returns Le text builder pour les elements normal
+     * Used to modify the style of the basic part of the text
+     * @returns the text style builder
      */
     editTextStyle(){
         const builder = new TextStyleBuilder(this);
@@ -56,8 +56,8 @@ export class TextBuilder{
     }
 
     /**
-     * Permet d'arreter d'editer le text et repasser au builder precedent
-     * @returns Le builder parent
+     * Used to stop editing the text and returning to the parent builder
+     * @returns the parent builder
      */
     endTextEdit():WikiElementStyleBuilder{
         return this.parentBuilder;

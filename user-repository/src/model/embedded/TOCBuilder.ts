@@ -10,8 +10,8 @@ export class TOCBuilder{
     private block?:BlockStyleBuilder<TOCBuilder>
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -24,8 +24,8 @@ export class TOCBuilder{
     }
 
     /**
-     * Permet d'editer le style de la box du contenu de la TOC
-     * @returns Le builder de la box du contenu de la TOC
+     * Used to edit the style of the box of the table of content
+     * @returns the table of content box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -38,8 +38,8 @@ export class TOCBuilder{
     }
 
     /**
-     * Permet d'editer le style des elements de la TOC
-     * @returns Le builder qui permet d'editer le style des elements de la TOC
+     * Used to edit the style of the elements of the table of content
+     * @returns the table of content elements style builder
      */
     editContentStyle(){
         let builder = this.content;
