@@ -1,5 +1,9 @@
 # DSL2
-
+## HOW TO RUN
+Instaler les dependance a l'aide de npm
+Lancer l'application react (wiki-react) avec `npm run start`
+Generer le code du builder depuis le repertoire user-repository, lancer `npm run generate`.
+React ce met a jour en temps reel une fois le generate lancer.
 ## SUJET
 Création d'un DSL pour l'interface graphique pour la création d'une application web de type Encyclopédie. 
 
