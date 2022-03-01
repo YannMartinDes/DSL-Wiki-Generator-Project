@@ -11,7 +11,7 @@ export class TableStyleBuilder {
     elementCellStyle?:WikiElementStyleBuilder
 
     borderCollapse=true;
-    
+
     boxColumnHeader?:BlockStyleBuilder<TableStyleBuilder>
     elementCellColumnHeader?:WikiElementStyleBuilder
 
@@ -66,7 +66,7 @@ export class TableStyleBuilder {
         }
         return this.boxRowHeader;
     }
-    
+
     /**
      * Used to edit the cell row header content style
      * @returns this builder for cell content
@@ -88,7 +88,7 @@ export class TableStyleBuilder {
         }
         return this.boxColumnHeader;
     }
-    
+
     /**
      * Used to edit the cell row header content style
      * @returns this builder for cell content
@@ -103,9 +103,11 @@ export class TableStyleBuilder {
     /**
      * Make array with border collapse (default true)
      * @param value is border collapse
+     * @returns this builder
      */
     setBorderCollapse(value:boolean){
         this.borderCollapse=value
+        return this;
     }
 
 
