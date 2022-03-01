@@ -47,11 +47,11 @@ export class WikiBuilder{
      * @param param0 the screen size condition to use this style
      * @returns the wiki builder
      */
-    editAlternativeDisplayStyle({minWidth,minHeght,maxWidth,maxHeight}:
-        {minWidth?:number,minHeght?:number,maxWidth?:number,maxHeight?:number}){
+    editAlternativeDisplayStyle({minWidth,minHeight: minHeight,maxWidth,maxHeight}:
+        {minWidth?:number,minHeight?:number,maxWidth?:number,maxHeight?:number}){
         const displaySize = new DisplaySize(new WikiBuilder(this.isHover,this.root))
-        if(minHeght){
-            displaySize.minHeight=minHeght
+        if(minHeight){
+            displaySize.minHeight=minHeight
         }
         if(minWidth){
             displaySize.minWidth=minWidth

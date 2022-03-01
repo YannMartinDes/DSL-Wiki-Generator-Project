@@ -62,12 +62,15 @@ export class WikiCssGenerator{
         if((!wiki.blockStyle) && (!wiki.contentStyle) && (!wiki.subject) && (!wiki.navBar)){
             console.warn('You created a wiki without any content')
         }
+        
+        this.prefix.pop();
+
         for(const displaySize of wiki.displaySize){
             this.generate.push(this.displaySizeStary(displaySize));
             this.wikiGen(displaySize.element);
             this.generate.push("}");
         }
-        this.prefix.pop();
+
     }
 
     displaySizeStary<T>(displaySize:DisplaySize<T>){
