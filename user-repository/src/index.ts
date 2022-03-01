@@ -11,7 +11,6 @@ import {TextTransform} from "./model/kernel/models/enum/text-transform.enum";
 import {TextDecoration} from "./model/kernel/models/enum/text-decoration.enum";
 import { Float } from "./model/kernel/models/enum/float";
 import { SlayTheSpireModel } from "./style-exemple/wiki-fandom-slaythespire";
-import { wikiLarouseModel } from "./style-exemple/wiki-larousse";
 
 const wikiBuilder = WikiBuilder.createWiki()
 wikiBuilder
@@ -140,4 +139,4 @@ wikiBuilder.editSubjectStyle().editChapterStyle().editSubChapterStyle().editSubC
 // console.log(res);
 
 const cssGenerator = new WikiCssGenerator();
-cssGenerator.generateCssFile(wikiLarouseModel)
+cssGenerator.generateCssFile(SlayTheSpireModel)
