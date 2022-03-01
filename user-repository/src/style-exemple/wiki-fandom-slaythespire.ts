@@ -40,7 +40,7 @@ wikiBuilder
             .endBlockEdit()
         .endButtonEdit()
         .editImageStyle()
-            .editContentBoxStyle()
+            .editBoxStyle()
                 .centerContent()
                 .setWidth(350)
             .endBlockEdit()
@@ -154,6 +154,9 @@ wikiBuilder.editContentStyle().editTableStyle()
         .centerContent()
         .setWidth(80,UnitySize.PERCENT)
 
+wikiBuilder.editSubjectStyle().editChapterStyle().editGalleryStyle()
+    .editImagesStyle()
+        .editImageMaxWidthContainer(330)
 
 export const SlayTheSpireModel = wikiBuilder.createModel();
 const cssGenerator = new WikiCssGenerator();

@@ -1,4 +1,4 @@
-import { ChapterContent, ClassiqueChapterContent, ImageContent, InfoBoxContent, ReferencesContent, RelatedSubjectContent, SubjectContent, SummaryContent, TableContent, TextContent, TOCContent } from "../kernel/models/content";
+import { ChapterContent, ClassiqueChapterContent, GalleryChapterContent, ImageContent, InfoBoxContent, ReferencesContent, RelatedSubjectContent, SubjectContent, SummaryContent, TableContent, TextContent, TOCContent } from "../kernel/models/content";
 
 const diceArray:TableContent = new TableContent(
     [
@@ -86,6 +86,29 @@ const chapter2:ChapterContent = new ClassiqueChapterContent(
         chapter2p1
     ]
 )
+const imageArray:ImageContent[] = [
+    
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+    new ImageContent("/images/DD_Miniatures_2.jpg","Dungeons & Dragons miniature figures. The grid mat underneath uses one-inch squares."),
+]
+const chapter3:GalleryChapterContent = new GalleryChapterContent(
+    "Gallery",
+    imageArray
+)
+
 
 const summary= new SummaryContent(new TextContent(`<i><b>Dungeons &amp; Dragons</b></i> (commonly abbreviated as <i><b>D&amp;D</b></i> or <i><b>DnD</b></i>)<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup> is a <a href="https://en.wikipedia.org//wiki/Fantasy" title="Fantasy">fantasy</a> <a href="https://en.wikipedia.org//wiki/Tabletop_role-playing_game" title="Tabletop role-playing game">tabletop role-playing game</a> (RPG) originally designed by <a href="https://en.wikipedia.org//wiki/Gary_Gygax" title="Gary Gygax">Gary Gygax</a> and <a href="https://en.wikipedia.org//wiki/Dave_Arneson" title="Dave Arneson">Dave Arneson</a>.<sup id="cite_ref-:5_3-0" class="reference"><a href="#cite_note-:5-3">[3]</a></sup><sup id="cite_ref-:1_4-0" class="reference"><a href="#cite_note-:1-4">[4]</a></sup><sup id="cite_ref-:2_5-0" class="reference"><a href="#cite_note-:2-5">[5]</a></sup> It was first published in 1974 by <a href="https://en.wikipedia.org//wiki/TSR_(company)#Tactical_Studies_Rules" class="mw-redirect" title="TSR (company)">Tactical Studies Rules, Inc.</a> (TSR).<sup id="cite_ref-:2_5-1" class="reference"><a href="#cite_note-:2-5">[5]</a></sup> It has been published by <a href="https://en.wikipedia.org//wiki/Wizards_of_the_Coast" title="Wizards of the Coast">Wizards of the Coast</a> (now a subsidiary of <a href="https://en.wikipedia.org//wiki/Hasbro" title="Hasbro">Hasbro</a>) since 1997. The game was derived from <a href="https://en.wikipedia.org//wiki/Miniature_wargaming" title="Miniature wargaming">miniature wargames</a>, with a variation of the 1971 game <a href="https://en.wikipedia.org//wiki/Chainmail_(game)" title="Chainmail (game)"><i>Chainmail</i></a> serving as the initial rule system.<sup id="cite_ref-:1_4-1" class="reference"><a href="#cite_note-:1-4">[4]</a></sup><sup id="cite_ref-Banshee_Gygax_6-0" class="reference"><a href="#cite_note-Banshee_Gygax-6">[6]</a></sup> <i>D&amp;D</i><span class="nowrap" style="padding-left:0.1em;">'s</span> publication is commonly recognized as the beginning of modern role-playing games and the role-playing game industry.<sup id="cite_ref-:2_5-2" class="reference"><a href="#cite_note-:2-5">[5]</a></sup><sup id="cite_ref-:3_7-0" class="reference"><a href="#cite_note-:3-7">[7]</a></sup>
 </br>
@@ -123,16 +146,16 @@ const relatedSubject = new RelatedSubjectContent([
     <li><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r1067248974"><cite id="CITEREFOff_Book2013" class="citation web cs1"><a href="/wiki/Off_Book_(web_series)" class="mw-redirect" title="Off Book (web series)">Off Book</a> (June 20, 2013). <a rel="nofollow" class="external text" href="http://video.pbs.org/video/2365039841/">"<i>Dungeons &amp; Dragons</i> and the Influence of Tabletop RPGs"</a>. PBS.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Dungeons+%26+Dragons+and+the+Influence+of+Tabletop+RPGs&amp;rft.pub=PBS&amp;rft.date=2013-06-20&amp;rft.au=Off+Book&amp;rft_id=http%3A%2F%2Fvideo.pbs.org%2Fvideo%2F2365039841%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADungeons+%26+Dragons" class="Z3988"></span></li></ul>
     `)
 ])
+
 export const dungeonsAndDragons:SubjectContent = new SubjectContent(
     {
         url:"dungeons-drangons",
         subject:"Dungeons & Dragons",
-        chapters:[chapter1,chapter2],
+        chapters:[chapter1,chapter2,chapter3],
         summary: summary,
         tableOfContent:new TOCContent([{content:"Play overview",url:""},{content:"Development history",url:""}]),
         infoBox:infoBox,
         reference:reference,
         relatedSubject:relatedSubject
     }
-
 )

@@ -62,6 +62,18 @@
 	border-bottom: 1px #565252 solid;
 	padding: 0px 0px 10px 0px;
 }
+.wiki .subject .chapter .gallery .gallery-container .image .image-resume{
+	max-height: 600px;
+	max-width: 330px;
+}
+.wiki .subject .chapter .gallery .gallery-container .image img{
+	max-height: 600px;
+	max-width: 330px;
+}
+.wiki .subject .chapter .gallery {
+ŧdisplay: flex;
+ŧflex-wrap: wrap;
+}
 .wiki .subject .chapter .chapter .title {
 	font-size: 15pt;
 	border-bottom: 0px black solid;

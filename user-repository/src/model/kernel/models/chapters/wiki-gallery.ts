@@ -1,17 +1,18 @@
 
 import WikiElementStyle from "../elements/wiki-element";
+import WikiImageStyle from "../elements/wiki-image";
 import WikiBlockStyle from "../style/wiki-block-style";
 import { WikiTitleStyle } from "../style/wiki-title-style";
 
 export default class WikiGallery{
     titleStyle?:WikiTitleStyle
-    contentStyle?:WikiElementStyle
-    blockStyle?:WikiBlockStyle
+    imagesStyle?:WikiImageStyle
+    galeryBoxStyle?:WikiBlockStyle
 
-    constructor({title, content, block}:
-                    {title?:WikiTitleStyle, content?:WikiElementStyle, block?:WikiBlockStyle}){
-        this.titleStyle = title;
-        this.contentStyle = content;
-        this.blockStyle = block;
+    constructor({titleStyle, imagesStyle, galeryBoxStyle}:
+                    {titleStyle?:WikiTitleStyle, imagesStyle?:WikiImageStyle, galeryBoxStyle?:WikiBlockStyle}){
+        this.titleStyle = titleStyle;
+        this.imagesStyle = imagesStyle;
+        this.galeryBoxStyle = galeryBoxStyle;
     }
 }
