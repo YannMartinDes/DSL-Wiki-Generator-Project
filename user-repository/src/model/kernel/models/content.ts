@@ -111,9 +111,13 @@ export class ButtonContent extends WikiElementContent{
     }
 }
 export class TableContent extends WikiElementContent{//TODO??
+
     constructor(
-        public table:WikiElementContent[][]
+        public table:WikiElementContent[][],
+        public isFirstRowHeader=false,
+        public isFirstColumnHeader=false
     ){
         super()
     }
 }
+

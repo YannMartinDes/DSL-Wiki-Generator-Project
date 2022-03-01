@@ -1,22 +1,23 @@
-import { TextAlignment } from "../kernel/models/enum/text-align.enum";
-import WikiTextStyle from "../kernel/models/style/wiki-text-style";
-import {AlignContent} from "../kernel/models/enum/align-content.enum";
-import WikiImageStyle from "../kernel/models/elements/wiki-image";
+
 import WikiTableStyle from "../kernel/models/elements/wiki-table";
 import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
-import { Border } from "../kernel/models/enum/border.enum";
-import { Color } from "../kernel/models/enum/color.enum";
-import { UnitySize } from "../kernel/models/enum/unity-font-size.enum";
+import { BlockStyleBuilder } from "./BlockStyleBuilder";
 
 export class TableStyleBuilder {
 
+    tableBox?:BlockStyleBuilder<TableStyleBuilder>
 
-    //TODO mettre les bonnes méthodes et renommé pour être homogène ???
-    private border?:Border
-    private alignment?:AlignContent
-    private size?:string
-    private backgroundColor?:Color
-    private color?:Color
+    cellBlock?:BlockStyleBuilder<TableStyleBuilder>
+    elementCellStyle?:WikiElementStyleBuilder
+
+    borderCollapse=true;
+    
+    boxColumnHeader?:BlockStyleBuilder<TableStyleBuilder>
+    elementCellColumnHeader?:WikiElementStyleBuilder
+
+    boxRowHeader?:BlockStyleBuilder<TableStyleBuilder>
+    elementCellRowHeader?:WikiElementStyleBuilder
+
     private parentBuilder:WikiElementStyleBuilder;
 
     constructor (parentBuilder:WikiElementStyleBuilder){
@@ -24,54 +25,89 @@ export class TableStyleBuilder {
     }
 
     /**
-     * Used to edit the table border
-     * @param border the border type (dotted, dashed, solid, double, outset, none)
-     * @returns this builder
+     * Edit table box
+     * @returns table box builder
      */
-    editBorder(border:Border){
-        this.border=border;
-        return this;
-    }
-    /**
-     * Used to place the content as needed (left, right, center, ...)
-     * @param alignment the chosen alignment
-     * @returns this builder
-     */
-    editAlignement(alignment:AlignContent){
-        this.alignment=alignment;
-        return this;
-    }
-
-    /**
-     * Used to edit the size of the font
-     * @param value the font size
-     * @param type unit of the font size (point by default)
-     * @returns this builder
-     */
-    editSize(value : number, type : UnitySize){
-        this.size=value+type;
-        return this;
-    }
-
-    /**
-     * Used to add a background color to the table
-     * @param color color of the background
-     * @returns this builder
-     */
-    editBackgroundColor(color:Color){
-        this.backgroundColor=color;
+    editTableBox(){
+        if(!this.tableBox){
+            this.tableBox = new BlockStyleBuilder(this)
+        }
         return this
     }
+    /**
+     * Used to edit the cell
+     * @returns this builder for cell box
+     */
+    editCellBox(){
+        if(!this.cellBlock){
+            this.cellBlock = new BlockStyleBuilder(this)
+        }
+        return this.cellBlock;
+    }
 
     /**
-     * Used to edit the font color in the table
-     * @param color the font color
-     * @returns this builder
+     * Used to edit the cell content style
+     * @returns this builder for cell content
      */
-    editColor(color:Color){
-        this.color=color;
-        return this
+    editCellContent(){
+        if(!this.elementCellStyle){
+            this.elementCellStyle = new WikiElementStyleBuilder()
+        }
+        return this.elementCellStyle;
     }
+
+    /**
+     * Used to edit the cell row header
+     * @returns this builder for cell box
+     */
+    editHeaderRowCellBox(){
+        if(!this.boxRowHeader){
+            this.boxRowHeader = new BlockStyleBuilder(this)
+        }
+        return this.boxRowHeader;
+    }
+    
+    /**
+     * Used to edit the cell row header content style
+     * @returns this builder for cell content
+     */
+    editHeaderRowCellContent(){
+        if(!this.elementCellRowHeader){
+            this.elementCellRowHeader = new WikiElementStyleBuilder()
+        }
+        return this.elementCellRowHeader;
+    }
+
+        /**
+     * Used to edit the cell row header
+     * @returns this builder for cell box
+     */
+    editHeaderColumnCellBox(){
+        if(!this.boxColumnHeader){
+            this.boxColumnHeader = new BlockStyleBuilder(this)
+        }
+        return this.boxColumnHeader;
+    }
+    
+    /**
+     * Used to edit the cell row header content style
+     * @returns this builder for cell content
+     */
+    editHeaderColmunCellContent(){
+        if(!this.elementCellColumnHeader){
+            this.elementCellColumnHeader = new WikiElementStyleBuilder()
+        }
+        return this.elementCellColumnHeader;
+    }
+
+    /**
+     * Make array with border collapse (default true)
+     * @param value is border collapse
+     */
+    setBorderCollapse(value:boolean){
+        this.borderCollapse=value
+    }
+
 
     /**
      * Used to return to the parent builder
@@ -81,11 +117,16 @@ export class TableStyleBuilder {
         return this.parentBuilder;
     }
 
-    createModel(){
-
+    createModel():WikiTableStyle{
         return new WikiTableStyle({
-            border:this.border,
-            alignment:this.alignment
+            tableBoxStyle:this.tableBox?.createModel(),
+            borderCollapse:this.borderCollapse,
+            cellBlock:this.cellBlock?.createModel(),
+            boxColumnHeader:this.boxColumnHeader?.createModel(),
+            elementCellColumHeader:this.elementCellColumnHeader?.createModel(),
+            elementCellRowHeader:this.elementCellRowHeader?.createModel(),
+            elementCellStyle:this.elementCellStyle?.createModel(),
+            boxRowHeader:this.boxRowHeader?.createModel(),
         });
     }
 
