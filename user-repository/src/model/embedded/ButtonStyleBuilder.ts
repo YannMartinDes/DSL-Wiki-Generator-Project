@@ -16,18 +16,30 @@ export class ButtonStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
+    /**
+     * Used to edit the style of the button's box
+     * @returns the button box style builder
+     */
     editContentBoxStyle() {
         const builder = new BlockStyleBuilder(this);
         this.block = builder;
         return builder;
     }
 
+    /**
+     * Used to edit the button's text
+     * @returns the button's text style builder
+     */
     editButtonTextStyle() {
         const builder = new TextStyleBuilder(this);
         this.text = builder;
         return builder;
     }
 
+    /**
+     * Used to stop the image editing and returning to the parent builder
+     * @returns the parent builder
+     */
     endButtonEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
     }

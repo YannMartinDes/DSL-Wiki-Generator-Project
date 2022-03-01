@@ -11,8 +11,8 @@ export class ReferenceBuilder{
     private block?:BlockStyleBuilder<ReferenceBuilder>
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builter du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -25,8 +25,8 @@ export class ReferenceBuilder{
     }
 
     /**
-     * Permet d'editer le style de la box de reference
-     * @returns Le builder de la box
+     * Used to edit the style of the box of the references
+     * @returns the references box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -39,8 +39,8 @@ export class ReferenceBuilder{
     }
 
     /**
-     * Permet d'editer le style du contenu de reference
-     * @returns Le builder du contenu
+     * Used to edit the style of the elements of the references
+     * @returns the references elements style builder
      */
     editContentStyle(){
         let builder = this.content;

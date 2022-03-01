@@ -8,8 +8,8 @@ export class InfoBoxBuilder {
     private block?:BlockStyleBuilder<InfoBoxBuilder>
 
     /**
-     * Permet d'editer le style du bloc
-     * @returns Le builder du bloc
+     * Used to edit the style of the box of the info box
+     * @returns the info box box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -22,8 +22,8 @@ export class InfoBoxBuilder {
     }
 
     /**
-     * Permet d'editer le style du contenu
-     * @returns Le builder du contenu
+     * Used to edit the style of the elements of the info box
+     * @returns the info box elements style builder
      */
     editContentStyle(){
         let builder = this.content;

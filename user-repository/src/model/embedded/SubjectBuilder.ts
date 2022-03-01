@@ -22,8 +22,8 @@ export class SubjectBuilder{
     private toc?:TOCBuilder
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -36,8 +36,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style de la boxdu sujet
-     * @returns Le builder de la box
+     * Used to edit the style of the box of the subject
+     * @returns the subject box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -50,8 +50,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style du contenu du sujet
-     * @returns Le builder du contenu
+     * Used to edit the style of the elements of the subject
+     * @returns the subject elements style builder
      */
     editContentStyle(){
         let builder = this.content;
@@ -64,8 +64,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style des chapitres
-     * @returns Le builder du chapitre
+     * Used to edit the style of the chapters
+     * @returns the chapters style builder
      */
     editChapterStyle(){
         let builder = this.chapter;
@@ -78,8 +78,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style de la TOC
-     * @returns Le builder de la TOC
+     * Used to edit the style of the table of content
+     * @returns the table of content style builder
      */
     editTableOfContentStyle(){
         let builder = this.toc;
@@ -92,8 +92,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le dtyle du resumé
-     * @returns Le builder qui edit le resumé
+     * Used to edit the style of the summary
+     * @returns the summary style builder
      */
     editSummaryStyle(){
         let builder = this.summary;
@@ -106,8 +106,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style de l'info box
-     * @returns Le 
+     * Used to edit the style of the info box
+     * @returns the info box style builder
      */
     editInfoBoxStyle(){
         if(!this.infoBox){
@@ -117,8 +117,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style des references
-     * @returns Le builder de la reference
+     * Used to edit the style of the references
+     * @returns the references style builder
      */
     editReferenceStyle(){
         if(!this.reference){
@@ -128,8 +128,8 @@ export class SubjectBuilder{
     }
 
     /**
-     * Permet d'editer le style des sujets reliés
-     * @returns Le builder des sujet relié
+     * Used to edit the style of the related subjects
+     * @returns the related subjects style builder
      */
     editRelatedSubjectStyle(){
         if(!this.relatedSubject){
