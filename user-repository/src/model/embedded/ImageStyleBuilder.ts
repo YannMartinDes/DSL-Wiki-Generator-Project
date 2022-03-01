@@ -1,20 +1,17 @@
-import {AlignContent} from "../kernel/models/enum/align-content.enum";
 import WikiImageStyle from "../kernel/models/elements/wiki-image";
-import {WikiElementStyleBuilder} from "./WikiElementStyleBuilder";
-import { Border } from "../kernel/models/enum/border.enum";
 import {BlockStyleBuilder} from "./BlockStyleBuilder";
 import { TextStyleBuilder } from "./TextStyleBuilder";
 import { UnitySize } from "../kernel/models/enum/unity-font-size.enum";
 
-export class ImageStyleBuilder {
+export class ImageStyleBuilder<ParentBuilder> {
 
-    private blockStyle?:BlockStyleBuilder<ImageStyleBuilder>
-    private blockResumeStyle?:BlockStyleBuilder<ImageStyleBuilder>
-    private blockImageStyle?:BlockStyleBuilder<ImageStyleBuilder>
-    private resumeStyle?:TextStyleBuilder<ImageStyleBuilder>
-    private parentBuilder:WikiElementStyleBuilder;
+    private blockStyle?:BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>
+    private blockResumeStyle?:BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>
+    private blockImageStyle?:BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>
+    private resumeStyle?:TextStyleBuilder<ImageStyleBuilder<ParentBuilder>>
+    private parentBuilder:ParentBuilder;
 
-    constructor (parentBuilder:WikiElementStyleBuilder){
+    constructor (parentBuilder:ParentBuilder){
         this.parentBuilder = parentBuilder;
     }
 
@@ -22,9 +19,9 @@ export class ImageStyleBuilder {
      * Used to edit the style of the image's conatiner box
      * @returns the image box style builder
      */
-    editContentBoxStyle(){
+    editBoxStyle(){
         if(!this.blockStyle){
-            this.blockStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
+            this.blockStyle=new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
         return this.blockStyle;
     }
@@ -35,24 +32,39 @@ export class ImageStyleBuilder {
      */
     editAbstractTextStyle(){
         if(!this.resumeStyle){
-            this.resumeStyle=new TextStyleBuilder<ImageStyleBuilder>(this);
+            this.resumeStyle=new TextStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
         return this.resumeStyle;
     }
 
-    editImageWidth(value:number,unit?: UnitySize){
+    /**
+     * edit the max width of the image
+     * @param value Size
+     * @param unit unit for the size
+     * @returns same builder
+     */
+    editImageMaxWidthContainer(value:number,unit?: UnitySize){
         if(!this.blockImageStyle){
-            this.blockImageStyle = new BlockStyleBuilder<ImageStyleBuilder>(this);
+            this.blockImageStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
-        this.blockImageStyle.setWidth(value,unit)
+        if(!this.blockResumeStyle){
+            this.blockResumeStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
+        }
+        this.blockImageStyle.setMaxWidth(value,unit)
+        this.blockResumeStyle.setMaxWidth(value,unit)
         return this
     }
 
-    editImageHeight(value:number,unit?: UnitySize){
+    editImageMaxHeightContainer(value:number,unit?: UnitySize){
         if(!this.blockImageStyle){
-            this.blockImageStyle = new BlockStyleBuilder<ImageStyleBuilder>(this);
+            this.blockImageStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
-        this.blockImageStyle.setHeight(value,unit);
+        if(!this.blockResumeStyle){
+            this.blockResumeStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
+        }
+        this.blockImageStyle.setMaxHeight(value,unit);
+        this.blockResumeStyle.setMaxHeight(value,unit)
+
         return this
     }
 
@@ -62,7 +74,7 @@ export class ImageStyleBuilder {
      */
     editImageBox(){
         if(!this.blockImageStyle){
-            this.blockImageStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
+            this.blockImageStyle=new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
         return this.blockImageStyle;
     }
@@ -73,7 +85,7 @@ export class ImageStyleBuilder {
      */
     editImageResumeBox(){
         if(!this.blockResumeStyle){
-            this.blockResumeStyle=new BlockStyleBuilder<ImageStyleBuilder>(this);
+            this.blockResumeStyle=new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
         return this.blockResumeStyle;
     }
@@ -83,7 +95,7 @@ export class ImageStyleBuilder {
      * Used to stop the image editing and returning to the parent builder
      * @returns the parent builder
      */
-    endImageEdit():WikiElementStyleBuilder{
+    endImageEdit():ParentBuilder{
         return this.parentBuilder;
     }
 
@@ -92,7 +104,9 @@ export class ImageStyleBuilder {
 
         return new WikiImageStyle({
             style:style,
-            resumeStyle:this.resumeStyle?.createModel()
+            resumeStyle:this.resumeStyle?.createModel(),
+            blockImageStyle:this.blockImageStyle?.createModel(),
+            blockResumeStyle:this.blockResumeStyle?.createModel()
         });
     }
 

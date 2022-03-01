@@ -5,9 +5,11 @@ export default function GalleryComponent({content}:{content:GalleryChapterConten
   return (
     <div className='gallery'>
         <h2 className='title'>Gallerie</h2>
-        {content.images.map(((elt)=> {
-            return <ImageComponent content={elt}/>;
-        }))}
+        <div className='gallery-container'>
+          {content.images.map(((elt)=> {
+              return <ImageComponent content={elt}/>;
+          }))}
+        </div>
     </div>
   )
 }

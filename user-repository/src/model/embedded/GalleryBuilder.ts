@@ -1,39 +1,46 @@
 import { BlockStyleBuilder } from "./BlockStyleBuilder";
-import { TextStyleBuilder } from "./TextStyleBuilder";
-import { WikiElementStyleBuilder } from "./WikiElementStyleBuilder";
 import WikiGallery from "../kernel/models/chapters/wiki-gallery";
 import { TitleStyleBuilder } from "./TitleStyleBuilder";
+import { ImageStyleBuilder } from "./ImageStyleBuilder";
 
-export class GalleryBuilder{
+export class GalleryBuilder<ParentBuilder>{
 
-    private title?:TitleStyleBuilder<GalleryBuilder>
-    private content?:WikiElementStyleBuilder
-    private block?:BlockStyleBuilder<GalleryBuilder>
+    private titleStyle?:TitleStyleBuilder<GalleryBuilder<ParentBuilder>>
+    private imagesStyle:ImageStyleBuilder<GalleryBuilder<ParentBuilder>>
+    private galeryBoxStyle?:BlockStyleBuilder<GalleryBuilder<ParentBuilder>>
 
+    private parentBuilder:ParentBuilder;
+
+    constructor(parentBuilder:ParentBuilder){
+        this.parentBuilder=parentBuilder;
+        this.imagesStyle = new ImageStyleBuilder(this);
+        this.imagesStyle.editImageMaxHeightContainer(600);//default
+        this.imagesStyle.editImageMaxWidthContainer(600);//default
+    }
     /**
      * Used to edit the style of the title
      * @returns the title builder
      */
     editTitleStyle(){
-        let builder = this.title;
+        let builder = this.titleStyle;
 
         if(!builder){
             builder = new TitleStyleBuilder(this);
-            this.title = builder;
+            this.titleStyle = builder;
         }
         return builder;
     }
 
     /**
-     * Used to edit the style of the box of the gallery
-     * @returns the gallery box style builder
+     * Used to edit the style of the chapter box
+     * @returns the box builder
      */
-    editContentBoxStyle(){
-        let builder = this.block;
+    editGalleryBox(){
+        let builder = this.galeryBoxStyle;
 
         if(!builder){
             builder = new BlockStyleBuilder(this);
-            this.block = builder;
+            this.galeryBoxStyle = builder;
         }
         return builder;
     }
@@ -42,21 +49,30 @@ export class GalleryBuilder{
      * Used to edit the style of the elements of the gallery
      * @returns the gallery elements style builder
      */
-    editContentStyle(){
-        let builder = this.content;
+    editImagesStyle(){
+        let builder = this.imagesStyle;
 
         if(!builder){
-            builder = new WikiElementStyleBuilder();
-            this.content = builder;
+            builder = new ImageStyleBuilder(this);
+            this.imagesStyle = builder;
         }
         return builder;
     }
 
-    createModel(){
-        const title = this.title?.createModel();
-        const content = this.content?.createModel();
-        const block = this.block?.createModel();
+    /**
+     * return to last builder
+     * @returns the parentBuilder
+     */
+    endEditGalleryStyle(){
+        return this.parentBuilder;
+    }
 
-        return new WikiGallery({title:title,content:content,block:block});
+    createModel(){
+
+        return new WikiGallery({
+            galeryBoxStyle:this.galeryBoxStyle?.createModel(),
+            imagesStyle:this.imagesStyle?.createModel(),
+            titleStyle:this.titleStyle?.createModel()
+        });
     }
 }

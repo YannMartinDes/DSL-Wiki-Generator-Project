@@ -20,9 +20,11 @@ export class BlockStyleBuilder<parentType>{
     private display?:Display
     private float?:Float
     private height?:string
+    private maxHeight?:string
     private columnNumber?:number
     private shadowColor?:Color
     private width?:string
+    private maxWidth?:string
     private borderRadius?:string
 
     private parentBuilder:parentType
@@ -231,6 +233,27 @@ export class BlockStyleBuilder<parentType>{
         return this;
     }
 
+    setMaxWidth(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setWidth, width doesn\'t take negative values')
+        }
+        this.maxWidth =value+ type;
+        return this;
+    }
+
+    setMaxHeight(value : number, type?: UnitySize){
+        if(!type) type = UnitySize.PIXEL
+
+        if(value<0){
+            console.warn('You passed a negative value to setHeight, height doesn\'t take negative values')
+        }
+        this.maxHeight =value+ type;
+        return this;
+    }
+
+
     
 
 
@@ -326,7 +349,9 @@ export class BlockStyleBuilder<parentType>{
             columnNumber:this.columnNumber,
             width:this.width,
             height:this.height,
-            borderRadius:this.borderRadius
+            borderRadius:this.borderRadius,
+            maxHeight:this.maxHeight,
+            maxWidth:this.maxWidth
         });
     }
 

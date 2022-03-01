@@ -7,7 +7,7 @@ import {TableStyleBuilder} from "./TableStyleBuilder";
 export class WikiElementStyleBuilder{
 
     private text?:TextBuilder
-    private image?:ImageStyleBuilder
+    private image?:ImageStyleBuilder<WikiElementStyleBuilder>
     private button?:ButtonStyleBuilder
     private table?:TableStyleBuilder
 

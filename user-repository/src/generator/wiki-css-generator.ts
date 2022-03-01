@@ -177,19 +177,22 @@ export class WikiCssGenerator{
     galleryGen(gallery:WikiGallery){
         this.prefix.push(".gallery");
 
-        if(gallery.blockStyle){
-            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(gallery.blockStyle).join("")}}\n`)
+
+        if(gallery.galeryBoxStyle){
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix} {\n${this.blockStyleGen(gallery.galeryBoxStyle).join("")}}\n`)
         }
         if(gallery.titleStyle){
             this.titleGen(gallery.titleStyle);
         }
-        if(gallery.contentStyle){
-            this.wikiElementGen(gallery.contentStyle);
-        }
 
-        if((!gallery.blockStyle) && (!gallery.titleStyle) && (!(gallery.contentStyle))){
-            console.warn('You created a gallery without any content')
+        if(gallery.imagesStyle){
+            this.prefix.push(".gallery-container")
+            this.imageStyleGen(gallery.imagesStyle);
+            this.prefix.pop();
+
         }
+        const defaultStyleGallery=[`\ŧdisplay: flex;\n`,`\ŧflex-wrap: wrap;\n`]
+        this.generate.push(`${this.prefix.join(" ")} {\n${defaultStyleGallery.join("")}}\n`)
         this.prefix.pop();
     }
 
@@ -553,6 +556,12 @@ export class WikiCssGenerator{
         }
         if (block.borderRadius) {
             result.push(`\tborder-radius: ${block.borderRadius};\n`)
+        }
+        if(block.maxHeight){
+            result.push(`\tmax-height: ${block.maxHeight};\n`)
+        }
+        if(block.maxWidth){
+            result.push(`\tmax-width: ${block.maxWidth};\n`)
         }
 
         if (result.length == 0){

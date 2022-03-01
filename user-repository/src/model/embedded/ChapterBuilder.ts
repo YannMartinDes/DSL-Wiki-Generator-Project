@@ -13,7 +13,7 @@ export class ChapterBuilder {
     private title?:TitleStyleBuilder<ChapterBuilder>
     private content?:WikiElementStyleBuilder
     private block?:BlockStyleBuilder<ChapterBuilder>
-    private gallery?:GalleryBuilder
+    private gallery?:GalleryBuilder<ChapterBuilder>
     private isSubChapter?:Boolean;
 
     constructor(isSubChapter:boolean){
@@ -101,7 +101,7 @@ export class ChapterBuilder {
      */
     editGalleryStyle(){
         if(!this.gallery){
-            this.gallery = new GalleryBuilder();
+            this.gallery = new GalleryBuilder(this);
         }
         return this.gallery;
     }

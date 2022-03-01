@@ -9,10 +9,10 @@ export default class WikiImageStyle{
 
 
 
-    constructor({style,resumeStyle,blockResumStyle,blockImageStyle}:{style?:WikiBlockStyle,resumeStyle?:WikiTextStyle,blockResumStyle?:WikiBlockStyle,blockImageStyle?:WikiBlockStyle}) {
+    constructor({style,resumeStyle,blockResumeStyle,blockImageStyle}:{style?:WikiBlockStyle,resumeStyle?:WikiTextStyle,blockResumeStyle?:WikiBlockStyle,blockImageStyle?:WikiBlockStyle}) {
         this.blockStyle=style;
         this.resumeStyle=resumeStyle;
-        this.blockResumeStyle=blockResumStyle;
+        this.blockResumeStyle=blockResumeStyle;
         this.blockImageStyle=blockImageStyle;
     }
 }
