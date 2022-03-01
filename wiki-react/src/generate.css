@@ -1,0 +1,87 @@
+.wiki {
+	background-color: red;
+}
+.wiki .text {
+	color: black;
+	font-family: Trebuchet MS;
+}
+.wiki .text b{
+	font-weight: bold;
+	color: black;
+}
+.wiki .subject {
+	background-color: white;
+	margin: 20px;
+}
+.wiki .subject .infoBox {
+	background-color: #F6F6FB;
+	border: 2px #566BB3 solid;
+	margin: 15px;
+}
+.wiki .subject .infoBox .text b{
+	font-weight: bold;
+	color: black;
+}
+.wiki .subject .infoBox .text a{
+	color: #566BB3;
+}
+.wiki .subject .summary {
+	background-color: white;
+	margin: 15px;
+}
+.wiki .subject .summary .text {
+	color: black;
+	font-family: Trebuchet MS;
+}
+.wiki .subject .summary .text b{
+	font-weight: bold;
+	color: black;
+}
+.wiki .subject .relatedSubject {
+	background-color: white;
+	margin: 15px;
+	box-shadow: 2px 2px gray;
+}
+.wiki .subject .relatedSubject .text {
+	font-size: 10pt;
+}
+.wiki .subject .relatedSubject .text b{
+	font-weight: bold;
+	color: black;
+}
+.wiki .subject .relatedSubject .text a{
+	font-weight: bold;
+	color: #566BB3;
+}
+.wiki .subject .chapter .gallery .gallery-container .image:hover{
+	border: 2px #566BB3 solid;
+}
+.wiki .subject .chapter .gallery .gallery-container .image .image-resume:hover{
+	max-width: 600px;
+}
+.wiki .subject .chapter .gallery .gallery-container .image img:hover{
+	max-height: 600px;
+	max-width: 600px;
+}
+.wiki .subject .chapter .gallery {
+ŧdisplay: flex;
+ŧflex-wrap: wrap;
+}
+@media screen and (max-width: 600px) {
+.wiki {
+	background-color: #F5F5FA;
+}
+.wiki .text {
+	color: black;
+	font-family: Trebuchet MS;
+}
+.wiki .text b{
+	font-weight: bold;
+	color: red;
+}
+}@media screen and (max-width: 600px) {
+.wiki .subject {
+	background-color: red;
+	margin: 20px;
+}
+}

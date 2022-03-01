@@ -1,0 +1,23 @@
+{
+  "name": "user-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "generate": "tsc && node ./dist/index.js",
+    "generate-windows": "tsc && node ./dist/index.js && rmdir /Q /S ..\\wiki-react\\src\\model && npm run copy-gen-windows",
+    "update-model":"npm run remove-gen && npm run copy-gen",
+    "remove-gen":"rm -rf ../wiki-react/src/model",
+    "copy-gen-windows":"Xcopy .\\src\\model ..\\wiki-react\\src\\model /E /H /C /I",
+    "copy-gen":"cp -r ./src/model ../wiki-react/src/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "tslint": "^6.1.3",
+    "typescript": "^4.5.5"
+  }
+}
