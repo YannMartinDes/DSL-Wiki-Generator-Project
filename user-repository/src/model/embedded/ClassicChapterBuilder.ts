@@ -11,8 +11,8 @@ export class ClassicChapterBuilder{
     private block?:BlockStyleBuilder<ClassicChapterBuilder>
 
     /**
-     * Permet d'editer le style du titre
-     * @returns Le builder du titre
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editTitleStyle(){
         let builder = this.title;
@@ -25,8 +25,8 @@ export class ClassicChapterBuilder{
     }
 
     /**
-     * Permet d'editer le style du bloque
-     * @returns Le builder de la box
+     * Used to edit the style of the box of the classic chapter
+     * @returns the classic chapter box style builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -39,8 +39,8 @@ export class ClassicChapterBuilder{
     }
 
     /**
-     * Permet d'editer le contenu
-     * @returns Le builder du contenue
+     * Used to edit the style of the elements of the classic chapter
+     * @returns the classic chapter elements style builder
      */
     editContentStyle(){
         let builder = this.content;

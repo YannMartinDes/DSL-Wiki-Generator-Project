@@ -7,8 +7,8 @@ export class NavBarBuilder {
     private block?:BlockStyleBuilder<NavBarBuilder>
 
     /**
-     * Permet d'editer le style de la box
-     * @returns Le builder de la box
+     * Used to edit the style of the title
+     * @returns the title builder
      */
     editContentBoxStyle(){
         let builder = this.block;
@@ -21,8 +21,8 @@ export class NavBarBuilder {
     }
 
     /**
-     * Permet d'editer le style du contenu
-     * @returns Le builder du contenu
+     * Used to edit the style of the box of the nav bar
+     * @returns the nav bar box style builder
      */
     editContentStyle(){
         let builder = this.content;

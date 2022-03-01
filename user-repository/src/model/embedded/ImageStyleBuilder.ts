@@ -15,9 +15,9 @@ export class ImageStyleBuilder {
         this.parentBuilder = parentBuilder;
     }
 
-     /**
-     * Permet d'editer le style de la box
-     * @returns Le builder de la box
+    /**
+     * Used to edit the style of the image's box
+     * @returns the image box style builder
      */
     editContentBoxStyle(){
         if(!this.blockStyle){
@@ -27,8 +27,8 @@ export class ImageStyleBuilder {
     }
 
     /**
-     * Permet d'editer le text de description de l'image
-     * @returns Le builder du text de description
+     * Used to edit the text of the image's description
+     * @returns the description text style builder
      */
     editAbstractTextStyle(){
         if(!this.resumeStyle){
@@ -39,8 +39,8 @@ export class ImageStyleBuilder {
 
 
     /**
-     * Permet de repasser au builder precedent
-     * @returns Le builder parent
+     * Used to stop the image editing and returning to the parent builder
+     * @returns the parent builder
      */
     endImageEdit():WikiElementStyleBuilder{
         return this.parentBuilder;

@@ -24,18 +24,18 @@ export class TableStyleBuilder {
     }
 
     /**
-     * Permet d'editer la bordure du tableau
-     * @param border La bordure voulu du tableau
-     * @returns Le builder
+     * Used to edit the table border
+     * @param border the border type (dotted, dashed, solid, double, outset, none)
+     * @returns this builder
      */
     editBorder(border:Border){
         this.border=border;
         return this;
     }
     /**
-     * 
-     * @param alignment 
-     * @returns Le builder
+     * Used to place the content as needed (left, right, center, ...)
+     * @param alignment the chosen alignment
+     * @returns this builder
      */
     editAlignement(alignment:AlignContent){
         this.alignment=alignment;
@@ -43,10 +43,10 @@ export class TableStyleBuilder {
     }
 
     /**
-     * Permet d'editer la taille de la font du tableau
-     * @param value 
-     * @param type 
-     * @returns Le builder
+     * Used to edit the size of the font
+     * @param value the font size
+     * @param type unit of the font size (point by default)
+     * @returns this builder
      */
     editSize(value : number, type : UnitySize){
         this.size=value+type;
@@ -54,9 +54,9 @@ export class TableStyleBuilder {
     }
 
     /**
-     * Permet d'editer la couleur du background
-     * @param color La couleur du background
-     * @returns Le builder
+     * Used to add a background color to the table
+     * @param color color of the background
+     * @returns this builder
      */
     editBackgroundColor(color:Color){
         this.backgroundColor=color;
@@ -64,9 +64,9 @@ export class TableStyleBuilder {
     }
 
     /**
-     * La couleur de la font dans le tableau
-     * @param color La couleur du tableau
-     * @returns Le builder
+     * Used to edit the font color in the table
+     * @param color the font color
+     * @returns this builder
      */
     editColor(color:Color){
         this.color=color;
@@ -74,8 +74,8 @@ export class TableStyleBuilder {
     }
 
     /**
-     * Permet de revenir au builder precedent
-     * @returns Le builder parent
+     * Used to return to the parent builder
+     * @returns the parent builder
      */
     endTableEdit():WikiElementStyleBuilder{
         return this.parentBuilder;
