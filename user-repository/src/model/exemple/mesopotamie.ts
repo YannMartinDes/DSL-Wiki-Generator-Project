@@ -3,39 +3,34 @@ import { InfoBoxContent, RelatedSubjectContent, SubjectContent, SummaryContent, 
 const infoBox = new InfoBoxContent([
     new TextContent(`Pour avoir une vue d'ensemble sur la <b>Mésopotamie</b>, consultez en priorité les articles suivants du dossier en cliquant sur celui de votre choix : </p>
 	<ul>
-		<li><a href="/encyclopedie/autre-region/M%C3%A9sopotamie/132908">histoire de la <b>Mésopotamie</b></a>
+		<li><a href="/encyclopedie/autre-region/M%C3%A9sopotamie/132908">histoire de la Mésopotamie</a>
 		</li>
-		<li><a href="/encyclopedie/divers/M%C3%A9sopotamie_art_et_arch%C3%A9ologie/187669">art et archéologie de la <b>Mésopotamie</b></a>
+		<li><a href="/encyclopedie/divers/M%C3%A9sopotamie_art_et_arch%C3%A9ologie/187669">art et archéologie de la Mésopotamie</a>
 		</li>
-		<li><a href="/encyclopedie/groupe-personnage/Ach%C3%A9m%C3%A9nides/103946"><b>Achéménides</b></a>
+		<li><a href="/encyclopedie/groupe-personnage/Ach%C3%A9m%C3%A9nides/103946">Achéménides</a>
 		</li>
-		<li><a href="/encyclopedie/autre-region/Anatolie/105330"><b>Anatolie</b></a>
+		<li><a href="/encyclopedie/autre-region/Anatolie/105330">Anatolie</a>
 		</li>
-		<li><a href="/encyclopedie/autre-region/Assyrie/106482"><b>Assyrie</b></a>
+		<li><a href="/encyclopedie/autre-region/Assyrie/106482">Assyrie</a>
 		</li>
-		<li><a href="/encyclopedie/ville/Babylone/107044"><b>Babylone</b></a>
+		<li><a href="/encyclopedie/ville/Babylone/107044">Babylone</a>
 		</li>
-		<li><a href="/encyclopedie/divers/cun%C3%A9iforme/39105"><b>cunéiforme</b></a>
+		<li><a href="/encyclopedie/divers/cun%C3%A9iforme/39105">cunéiforme</a>
 		</li>
-		<li><a href="/encyclopedie/divers/%C3%A9criture/45711"><b>écriture</b></a>
+		<li><a href="/encyclopedie/divers/%C3%A9criture/45711">écriture</a>
 		</li>
-		<li><a href="/encyclopedie/ville/Our/136594"><b>Our</b></a>
+		<li><a href="/encyclopedie/ville/Our/136594">Our</a>
 		</li>
-		<li><a href="/encyclopedie/divers/Ph%C3%A9niciens/137929"><b>Phéniciens</b></a>
+		<li><a href="/encyclopedie/divers/Ph%C3%A9niciens/137929">Phéniciens</a>
 		</li>
-		<li><a href="/encyclopedie/autre-region/Sumer/145506"><b>Sumer</b></a>
+		<li><a href="/encyclopedie/autre-region/Sumer/145506">Sumer</a>
 		</li>
-		<li><a href="/encyclopedie/divers/ziggourat/102824"><b>ziggourat</b></a>
+		<li><a href="/encyclopedie/divers/ziggourat/102824">ziggourat</a>
 		</li>
 	</ul>`)
 ])
 
-const summary= new SummaryContent(new TextContent(`<figure class="sel"><a href="/encyclopedie/images/Porte_dIshtar_Babylone/1314691"><img src="/encyclopedie/data/images/1314691-Porte_dIshtar_Babylone.jpg" alt="Porte d&#39;Ishtar, Babylone" title="Porte d&#39;Ishtar, Babylone"></a><figcaption>Porte d'Ishtar, Babylone</figcaption></figure>
-<figure><a href="/encyclopedie/images/Darios_Ier/1004968"><img src="/encyclopedie/data/images/1004968-Darios_Ier.jpg" alt="Darios Ier" title="Darios Ier"></a><figcaption>Darios Ier</figcaption></figure>
-<figure><a href="/encyclopedie/images/Sumer_statuette_en_calcaire/1310163"><img src="/encyclopedie/data/images/1310163-Sumer_statuette_en_calcaire.jpg" alt="Sumer, statuette en calcaire" title="Sumer, statuette en calcaire"></a><figcaption>Sumer, statuette en calcaire</figcaption></figure>
-<figure><a href="/encyclopedie/images/Ziggourat_dOur/1005993"><img src="/encyclopedie/data/images/1005993-Ziggourat_dOur.jpg" alt="Ziggourat d&#39;Our" title="Ziggourat d&#39;Our"></a><figcaption>Ziggourat d'Our</figcaption></figure>
-<ul><li class="sel"><img src="/encyclopedie/data/vignettes/1314691.jpg" title="Porte d&#39;Ishtar, Babylone" alt="Porte d&#39;Ishtar, Babylone"></li><li><img src="/encyclopedie/data/vignettes/1004968.jpg" title="Darios Ier" alt="Darios Ier"></li><li><img src="/encyclopedie/data/vignettes/1310163.jpg" title="Sumer, statuette en calcaire" alt="Sumer, statuette en calcaire"></li><li><img src="/encyclopedie/data/vignettes/1005993.jpg" title="Ziggourat d&#39;Our" alt="Ziggourat d&#39;Our"></li></ul>
-<p>Pendant plusieurs millions d’années, les hommes ont été des nomades vivant de la cueillette, de la pêche et de la chasse. Vers 8000 avant J.-C., dans le <b>Croissant fertile</b>, région du Moyen-Orient s’étendant entre la mer Morte et le golfe Persique, en passant par le sud de la Turquie actuelle, ils développent une <b>agriculture</b> et se sédentarisent. Ce changement de mode de vie déclenche la <b>« révolution néolithique »</b>, 
+const summary= new SummaryContent(new TextContent(`<p>Pendant plusieurs millions d’années, les hommes ont été des nomades vivant de la cueillette, de la pêche et de la chasse. Vers 8000 avant J.-C., dans le <b>Croissant fertile</b>, région du Moyen-Orient s’étendant entre la mer Morte et le golfe Persique, en passant par le sud de la Turquie actuelle, ils développent une <b>agriculture</b> et se sédentarisent. Ce changement de mode de vie déclenche la <b>« révolution néolithique »</b>, 
 caractérisée par la constitution des premiers villages, peu à peu fortifiés, l’essor de la <b>poterie</b>, du <b>tissage</b> et de la <b>métallurgie</b>, et la mise en place de systèmes d‘<b>irrigation</b>. Des premiers échanges commerciaux se développent entre les communautés villageoises. Le commerce et la comptabilité, qui nécessitent des traces écrites, entraînent la naissance d’une <b>écriture cunéiforme</b>, consistant en des symboles tracés sur des plaquettes d’argile. Contemporaines de cette invention fondamentale, 
 des entités politiques se développent en pays de <b>Sumer</b>, qui donnent lieu à la création de <b>cités-États</b> (Nippour, Our, Ourouk, Mari, Ebla). Ces grandes agglomérations de type urbain entrent en conflit. Akkad, Our (aux célèbres <b>ziggourats</b>), <b>Babylone</b> et les <b>Assyriens</b> affichent successivement leur suprématie. Leurs souverains élaborent des codes juridiques qui sont transcrits sur des stèles. Vers 1200 avant J.-C., les <b>Phéniciens</b> mettent au point le premier <b>alphabet</b>. À la fin du <small>vi</small><sup>e</sup> s. avant J.-C., 
 les <b>Perses</b> de <b>Cyrus II</b> mettent fin à la civilisation mésopotamienne.</p>`))
@@ -213,10 +208,14 @@ const relatedSubject = new RelatedSubjectContent([new TextContent(`<article><a h
 <p>Fleuve de Turquie et d'Iraq, qui forme avec l'Euphrate le Chatt al-Arab...</p></a>
 </article>`)])
 
-export const dungeonsAndDragons:SubjectContent = new SubjectContent(
+export const mesopotamie:SubjectContent = new SubjectContent(
     {
-        url:"mesopotamie",
+        url:"meso",
         subject:"Mésopotamie",
+		chapters: [],
         summary: summary,
-        relatedSubject: relatedSubject
+		tableOfContent: undefined,
+		reference: undefined,
+        relatedSubject: relatedSubject,
+		infoBox:infoBox
     })

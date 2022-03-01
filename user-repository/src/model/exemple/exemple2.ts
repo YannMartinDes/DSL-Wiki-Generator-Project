@@ -1,5 +1,6 @@
 import { ButtonContent, ChapterContent, ClassiqueChapterContent, ImageContent, InfoBoxContent, NavBarContent, ReferencesContent, RelatedSubjectContent, SubjectContent, SummaryContent, TextContent, TOCContent, WikiContent, WikiElementContent } from "../kernel/models/content"
 import { dungeonsAndDragons } from "./dungeons-and-dragons"
+import { mesopotamie } from "./mesopotamie"
 
 const chapter1:ChapterContent = new ClassiqueChapterContent(
     "Répartition",
@@ -53,9 +54,9 @@ const tropidophorusSubject2:SubjectContent = new SubjectContent(
 )
 const navBarList :{content:WikiElementContent,url:string}[]= [
     {content:new TextContent("matsuii"),url:"tropidophorus-matsuii"},
-    {content:new TextContent("matsuii"),url:"tropidophorus-matsuii-2"},
+    {content:new TextContent("Mésopotamie"),url:"meso"},
     {content:new TextContent("Dungeons &amp; Dragons"),url:"dungeons-drangons"},
 ]
 const navBar = new NavBarContent(navBarList)
 
-export const exemplePageTropidophorus:WikiContent=new WikiContent([tropidophorusSubject,tropidophorusSubject2,dungeonsAndDragons],navBar)
+export const exemplePageTropidophorus:WikiContent=new WikiContent([tropidophorusSubject,mesopotamie,dungeonsAndDragons],navBar)

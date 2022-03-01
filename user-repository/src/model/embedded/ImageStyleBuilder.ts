@@ -16,7 +16,7 @@ export class ImageStyleBuilder<ParentBuilder> {
     }
 
     /**
-     * Used to edit the style of the image's conatiner box
+     * Used to edit the style of the image's container box
      * @returns the image box style builder
      */
     editBoxStyle(){
