@@ -1,8 +1,8 @@
-import { WikiCssGenerator } from "../../generator/wiki-css-generator"
-import { WikiBuilder } from "../embedded/WikiBuilder"
-import { Color } from "../kernel/models/enum/color.enum"
-import { TextDecoration } from "../kernel/models/enum/text-decoration.enum"
-import { UnitySize } from "../kernel/models/enum/unity-font-size.enum"
+import { WikiCssGenerator } from "../generator/wiki-css-generator"
+import { WikiBuilder } from "../model/embedded/WikiBuilder"
+import { Color } from "../model/kernel/models/enum/color.enum"
+import { TextDecoration } from "../model/kernel/models/enum/text-decoration.enum"
+import { UnitySize } from "../model/kernel/models/enum/unity-font-size.enum"
 
 
 const wikiBuilder = WikiBuilder.createWiki()
