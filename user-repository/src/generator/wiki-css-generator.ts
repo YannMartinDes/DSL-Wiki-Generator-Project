@@ -316,7 +316,7 @@ export class WikiCssGenerator{
             this.imageStyleGen(element.image)
          }
         if (element.table) {
-            this.generate.push(`${this.prefix.join(" ")} .table${this.hoverPrefix}{\n${this.tableStyleGen(element.table).join("")}}\n`);
+            this.tableStyleGen(element.table)
         }
         if (element.button) {
             this.buttonStyleGen(element.button)
@@ -431,16 +431,47 @@ export class WikiCssGenerator{
     }
 
     tableStyleGen(table:WikiTableStyle) {//TODO
-        let result:string[] = []
-
-        if(table.border){
-            result.push(`\tborder: ${table.border};\n`)
-        }
-        if(table.alignment){
-            result.push(`\talign-content: ${table.alignment};\n`)
-        }
-
-        return result;
+        this.prefix.push("table")
+        this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n\tborder-collapse: ${table.borderCollapse?"collapse":"separate"};\n}\n`)
+        if(table.tableBoxStyle){
+            const tableBlockStyle = this.blockStyleGen(table.tableBoxStyle)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${tableBlockStyle.join("")}}\n`)
+        }        
+        if(table.cellBlock){
+            this.prefix.push("td")
+            const cellStyle = this.blockStyleGen(table.cellBlock)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${cellStyle.join("")}}\n`)
+            this.prefix.pop()
+        } 
+        if(table.elementCellStyle){
+            this.prefix.push("td")
+            this.wikiElementGen(table.elementCellStyle)
+            this.prefix.pop()
+        } 
+        if(table.boxColumnHeader){
+            this.prefix.push(".table-header-column")
+            const cellStyle = this.blockStyleGen(table.boxColumnHeader)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${cellStyle.join("")}}\n`)
+            this.prefix.pop()
+        } 
+        if(table.elementCellColumnHeader){
+            this.prefix.push(".table-header-column")
+            this.wikiElementGen(table.elementCellColumnHeader)
+            this.prefix.pop()
+        } 
+        if(table.boxRowHeader){
+            this.prefix.push("tr.table-header-row>td")
+            const cellStyle = this.blockStyleGen(table.boxRowHeader)
+            this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${cellStyle.join("")}}\n`)
+            this.prefix.pop()
+        } 
+        if(table.elementCellRowHeader){
+            this.prefix.push("tr.table-header-row>td")
+            this.wikiElementGen(table.elementCellRowHeader)
+            this.prefix.pop()
+        } 
+        this.prefix.pop()
+        return;
     }
 
     buttonStyleGen(button:WikiButtonStyle) {
@@ -496,10 +527,10 @@ export class WikiCssGenerator{
                 result.push(`\tmargin-right: auto;\n`)
             }
             if(block.alignment==AlignContent.NORMAL){
-                result.push(`\tmargin-left: 0;\n`)
+                result.push(`\tmargin-right: auto;\n`)
             }
             if(block.alignment==AlignContent.END){
-                result.push(`\tmargin-right: 0;\n`);
+                result.push(`\tmargin-left: auto;\n`);
             }
         }
         if(block.display) {

@@ -32,7 +32,7 @@ export class TableStyleBuilder {
         if(!this.tableBox){
             this.tableBox = new BlockStyleBuilder(this)
         }
-        return this
+        return this.tableBox
     }
     /**
      * Used to edit the cell
@@ -123,7 +123,7 @@ export class TableStyleBuilder {
             borderCollapse:this.borderCollapse,
             cellBlock:this.cellBlock?.createModel(),
             boxColumnHeader:this.boxColumnHeader?.createModel(),
-            elementCellColumHeader:this.elementCellColumnHeader?.createModel(),
+            elementCellColumnHeader:this.elementCellColumnHeader?.createModel(),
             elementCellRowHeader:this.elementCellRowHeader?.createModel(),
             elementCellStyle:this.elementCellStyle?.createModel(),
             boxRowHeader:this.boxRowHeader?.createModel(),

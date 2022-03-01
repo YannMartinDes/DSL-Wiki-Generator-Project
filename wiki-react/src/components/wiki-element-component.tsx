@@ -12,7 +12,7 @@ export default function WikiElementComponent({content}:{content:WikiElementConte
         return <ImageComponent content={content}/>
     }
     if(content instanceof TableContent){
-        <TableComponent table={content}/>
+        return <TableComponent table={content}/>
     }
     if(content instanceof ButtonContent){
         return <ButtonComponent content={content}/>

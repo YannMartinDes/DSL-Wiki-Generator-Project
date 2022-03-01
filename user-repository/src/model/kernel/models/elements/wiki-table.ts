@@ -6,7 +6,7 @@ export default class WikiTableStyle{
     borderCollapse=true;
     
     boxColumnHeader?:WikiBlockStyle
-    elementCellColumHeader?:WikiElement
+    elementCellColumnHeader?:WikiElement
 
     boxRowHeader?:WikiBlockStyle
     elementCellRowHeader?:WikiElement
@@ -18,7 +18,7 @@ export default class WikiTableStyle{
         tableBoxStyle,
         borderCollapse,
         boxColumnHeader,
-        elementCellColumHeader,
+        elementCellColumnHeader,
         boxRowHeader,
         elementCellRowHeader,
         cellBlock,
@@ -28,7 +28,7 @@ export default class WikiTableStyle{
                         tableBoxStyle?:WikiBlockStyle,
                         borderCollapse?:boolean,
                         boxColumnHeader?:WikiBlockStyle,
-                        elementCellColumHeader?:WikiElement,
+                        elementCellColumnHeader?:WikiElement,
                         boxRowHeader?:WikiBlockStyle,
                         elementCellRowHeader?:WikiElement,
                         cellBlock?:WikiBlockStyle,
@@ -38,7 +38,7 @@ export default class WikiTableStyle{
         if(borderCollapse!==undefined)
             this.borderCollapse = borderCollapse
         this.boxColumnHeader =boxColumnHeader
-        this.elementCellColumHeader =elementCellColumHeader
+        this.elementCellColumnHeader =elementCellColumnHeader
         this.boxRowHeader =boxRowHeader
         this.elementCellRowHeader =elementCellRowHeader
         this.cellBlock =cellBlock

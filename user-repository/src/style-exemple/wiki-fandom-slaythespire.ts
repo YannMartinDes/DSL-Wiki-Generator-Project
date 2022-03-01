@@ -1,5 +1,6 @@
 import { WikiCssGenerator } from "../generator/wiki-css-generator"
 import { WikiBuilder } from "../model/embedded/WikiBuilder"
+import { AlignContent } from "../model/kernel/models/enum/align-content.enum"
 import { Color } from "../model/kernel/models/enum/color.enum"
 import { TextDecoration } from "../model/kernel/models/enum/text-decoration.enum"
 import { UnitySize } from "../model/kernel/models/enum/unity-font-size.enum"
@@ -137,6 +138,22 @@ wikiBuilder.editSubjectStyle().editRelatedSubjectStyle()
         .setBorder(1,"#5A5485")
         .setPaddingSides(0,15,5,15)
     .endBlockEdit()
+
+wikiBuilder.editContentStyle().editTableStyle()
+    .editCellBox()
+        .setBackgroundColor("#161111")
+        .setBorder(2,"#F8CA01")
+    .endBlockEdit()
+    .editHeaderColumnCellBox()
+        .setBackgroundColor("#060101")
+    .endBlockEdit()
+    .editHeaderRowCellBox()
+        .setBackgroundColor("#363131")
+    .endBlockEdit()
+    .editTableBox()
+        .centerContent()
+        .setWidth(80,UnitySize.PERCENT)
+
 
 export const SlayTheSpireModel = wikiBuilder.createModel();
 const cssGenerator = new WikiCssGenerator();

@@ -1,5 +1,17 @@
-import { ChapterContent, ClassiqueChapterContent, ImageContent, InfoBoxContent, ReferencesContent, RelatedSubjectContent, SubjectContent, SummaryContent, TextContent, TOCContent } from "../kernel/models/content";
+import { ChapterContent, ClassiqueChapterContent, ImageContent, InfoBoxContent, ReferencesContent, RelatedSubjectContent, SubjectContent, SummaryContent, TableContent, TextContent, TOCContent } from "../kernel/models/content";
 
+const diceArray:TableContent = new TableContent(
+    [
+        [new TextContent("Dice"),new TextContent("min value"),new TextContent("max value")],
+        [new TextContent("4"),new TextContent("1"),new TextContent("4")],
+        [new TextContent("6"),new TextContent("1"),new TextContent("6")],
+        [new TextContent("8"),new TextContent("1"),new TextContent("8")],
+        [new TextContent("10"),new TextContent("1"),new TextContent("10")],
+        [new TextContent("12"),new TextContent("1"),new TextContent("12")],
+        [new TextContent("20"),new TextContent("1"),new TextContent("20")],
+        [new TextContent("100"),new TextContent("1"),new TextContent("100")]],
+        true,true
+)
 const chapter1p1:ChapterContent = new ClassiqueChapterContent(
     "Game mechanics",
     [
@@ -11,7 +23,8 @@ const chapter1p1:ChapterContent = new ClassiqueChapterContent(
         new TextContent(`As the game is played, each PC changes over time and generally increases in capability. Characters gain (or sometimes lose) experience, skills<sup id="cite_ref-39" class="reference"><a href="#cite_note-39">[39]</a></sup> and wealth, and may even alter their alignment<sup id="cite_ref-40" class="reference"><a href="#cite_note-40">[40]</a></sup> or gain <a href="https://en.wikipedia.org//wiki/Character_class_(Dungeons_%26_Dragons)#Multi-classing" title="Character class (Dungeons &amp; Dragons)">additional character classes</a>.<sup id="cite_ref-41" class="reference"><a href="#cite_note-41">[41]</a></sup> The key way characters progress is by earning <a href="https://en.wikipedia.org//wiki/Experience_point" title="Experience point">experience points</a> (XP), which happens when they defeat an enemy or accomplish a difficult task.<sup id="cite_ref-42" class="reference"><a href="#cite_note-42">[42]</a></sup> Acquiring enough XP allows a PC to advance a <a href="https://en.wikipedia.org//wiki/Experience_level" class="mw-redirect" title="Experience level">level</a>, which grants the character improved class features, abilities and skills.<sup id="cite_ref-43" class="reference"><a href="#cite_note-43">[43]</a></sup> XP can be lost in some circumstances, such as encounters with creatures that drain life energy, or by use of certain magical powers that come with an XP cost.<sup id="cite_ref-44" class="reference"><a href="#cite_note-44">[44]</a></sup>
         `),
         new TextContent(`<a href="https://en.wikipedia.org//wiki/Hit_point" class="mw-redirect" title="Hit point">Hit points</a> (HP) are a measure of a character's vitality and health and are determined by the class, level and constitution of each character. They can be temporarily lost when a character sustains wounds in combat or otherwise comes to harm, and loss of HP is the most common way for a character to die in the game.<sup id="cite_ref-45" class="reference"><a href="#cite_note-45">[45]</a></sup> Death can also result from the loss of key ability scores<sup id="cite_ref-46" class="reference"><a href="#cite_note-46">[46]</a></sup> or character levels.<sup id="cite_ref-47" class="reference"><a href="#cite_note-47">[47]</a></sup> When a PC dies, it is often possible for the dead character to be resurrected through magic, although some penalties may be imposed as a result. If resurrection is not possible or not desired, the player may instead create a new PC to resume playing the game.<sup id="cite_ref-48" class="reference"><a href="#cite_note-48">[48]</a></sup>
-        `)
+        `),
+        diceArray
     ]
 )
 const chapter1p2:ChapterContent = new ClassiqueChapterContent(
