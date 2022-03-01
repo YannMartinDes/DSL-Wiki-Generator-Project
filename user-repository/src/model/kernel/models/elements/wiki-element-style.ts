@@ -4,7 +4,7 @@ import WikiTableStyle from "./wiki-table";
 import WikiImageStyle from "./wiki-image";
 
 
-export default class WikiElement{
+export default class WikiElementStyle {
     button?:WikiButtonStyle
     table?:WikiTableStyle
     image?:WikiImageStyle

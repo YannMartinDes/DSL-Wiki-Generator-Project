@@ -1,4 +1,4 @@
-import WikiElement from "../kernel/models/elements/wiki-element";
+import WikiElementStyle from "../kernel/models/elements/wiki-element-style";
 import { TextBuilder } from "./TextBuilder";
 import {ImageStyleBuilder} from "./ImageStyleBuilder";
 import {ButtonStyleBuilder} from "./ButtonStyleBuilder";
@@ -59,6 +59,6 @@ export class WikiElementStyleBuilder{
         const image = this.image?.createModel();
         const button = this.button?.createModel();
         const table = this.table?.createModel();
-        return new WikiElement({text:text, image:image, button:button, table:table});
+        return new WikiElementStyle({text:text, image:image, button:button, table:table});
     }
 }

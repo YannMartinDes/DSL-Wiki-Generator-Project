@@ -1,18 +1,18 @@
 import WikiBlockStyle from "../style/wiki-block-style";
-import WikiElement from "./wiki-element";
+import WikiElementStyle from "./wiki-element-style";
 
 export default class WikiTableStyle{
     tableBoxStyle?:WikiBlockStyle;
     borderCollapse=true;
     
     boxColumnHeader?:WikiBlockStyle
-    elementCellColumnHeader?:WikiElement
+    elementCellColumnHeader?:WikiElementStyle
 
     boxRowHeader?:WikiBlockStyle
-    elementCellRowHeader?:WikiElement
+    elementCellRowHeader?:WikiElementStyle
 
     cellBlock?:WikiBlockStyle
-    elementCellStyle?:WikiElement
+    elementCellStyle?:WikiElementStyle
 
     constructor({
         tableBoxStyle,
@@ -28,11 +28,11 @@ export default class WikiTableStyle{
                         tableBoxStyle?:WikiBlockStyle,
                         borderCollapse?:boolean,
                         boxColumnHeader?:WikiBlockStyle,
-                        elementCellColumnHeader?:WikiElement,
+                        elementCellColumnHeader?:WikiElementStyle,
                         boxRowHeader?:WikiBlockStyle,
-                        elementCellRowHeader?:WikiElement,
+                        elementCellRowHeader?:WikiElementStyle,
                         cellBlock?:WikiBlockStyle,
-                        elementCellStyle?:WikiElement,
+                        elementCellStyle?:WikiElementStyle,
                     }) {
         this.tableBoxStyle =tableBoxStyle
         if(borderCollapse!==undefined)

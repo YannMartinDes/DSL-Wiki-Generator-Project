@@ -3,7 +3,7 @@ import WikiTextStyle from "../model/kernel/models/style/wiki-text-style";
 import Wiki from "../model/kernel/models/wiki";
 import WikiSubject from "../model/kernel/models/wiki-subject"
 import createFile from "./utils/file-utils";
-import WikiElementStyle from "../model/kernel/models/elements/wiki-element";
+import WikiElementStyle from "../model/kernel/models/elements/wiki-element-style";
 import WikiText from "../model/kernel/models/elements/wiki-text";
 import WikiBlockStyle from "../model/kernel/models/style/wiki-block-style";
 import WikiTableOfContent from "../model/kernel/models/wiki-table-of-content";

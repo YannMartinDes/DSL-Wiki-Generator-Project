@@ -1,4 +1,4 @@
-import WikiElementStyle from "./elements/wiki-element";
+import WikiElementStyle from "./elements/wiki-element-style";
 import WikiBlockStyle from "./style/wiki-block-style";
 export default class WikiInfoBox {
 

@@ -42,9 +42,10 @@ export class RelatedSubjectContent{
 
 export class NavBarContent{
     constructor(
-        public navBar:{content:WikiElementContent,url:string}[]
+        public navBar:NavBarElementContent[]
     ){}
 }
+export interface NavBarElementContent{content:WikiElementContent,url:string}
 
 export class SummaryContent{
     constructor(

@@ -1,5 +1,5 @@
 import WikiChapter from "./chapters/wiki-chapter";
-import WikiElementStyle from "./elements/wiki-element";
+import WikiElementStyle from "./elements/wiki-element-style";
 import WikiInfoBox from "./wiki-info-box";
 import WikiBlockStyle from "./style/wiki-block-style";
 import WikiSummary from "./wiki-summary";

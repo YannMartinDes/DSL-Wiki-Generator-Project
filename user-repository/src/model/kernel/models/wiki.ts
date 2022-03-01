@@ -1,6 +1,6 @@
 import { WikiContent } from "./content";
 import { DisplaySize } from "./display-size";
-import WikiElementStyle from "./elements/wiki-element";
+import WikiElementStyle from "./elements/wiki-element-style";
 import WikiBlockStyle from "./style/wiki-block-style";
 import WikiNavBar from "./wiki-nav-bar";
 import WikiSubject from "./wiki-subject";

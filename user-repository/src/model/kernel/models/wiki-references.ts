@@ -1,5 +1,5 @@
 import WikiBlockStyle from "./style/wiki-block-style";
-import WikiElementStyle from "./elements/wiki-element";
+import WikiElementStyle from "./elements/wiki-element-style";
 import { WikiTitleStyle } from "./style/wiki-title-style";
 
 export default class WikiReferences{
