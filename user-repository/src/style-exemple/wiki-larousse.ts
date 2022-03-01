@@ -92,5 +92,11 @@ wikiBuilder
                 .endTextEdit()
             .endTextEdit()
 
+wikiBuilder.editOnHoverStyle()
+    .editSubjectStyle().editChapterStyle().editGalleryStyle()
+        .editImagesStyle()
+            .editBoxStyle()
+                .setBorder(2, "#566BB3", Border.SOLID)
+
 export const wikiLarouseModel = wikiBuilder.createModel();
 //const cssGenerator = new WikiCssGenerator();

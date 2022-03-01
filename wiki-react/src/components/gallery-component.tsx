@@ -4,7 +4,7 @@ import ImageComponent from "./image-component";
 export default function GalleryComponent({content}:{content:GalleryChapterContent}) {
   return (
     <div className='gallery'>
-        <h2 className='title'>Gallerie</h2>
+        <h2 className='title'>Galerie</h2>
         <div className='gallery-container'>
           {content.images.map(((elt)=> {
               return <ImageComponent content={elt}/>;
