@@ -1,5 +1,7 @@
 import { WikiCssGenerator } from "../generator/wiki-css-generator";
+import { BlockStyleBuilder } from "../model/embedded/BlockStyleBuilder";
 import { WikiBuilder } from "../model/embedded/WikiBuilder";
+import { AlignContent } from "../model/kernel/models/enum/align-content.enum";
 import { Border } from "../model/kernel/models/enum/border.enum";
 import { Color } from "../model/kernel/models/enum/color.enum";
 import { FontWeight } from "../model/kernel/models/enum/font-weight.enum";
@@ -24,17 +26,23 @@ wikiBuilder
 
 wikiBuilder
     .editSubjectStyle()
+        .editContentBoxStyle()
+            .setBackgroundColor(Color.WHITE)
+            .setMargin(20)
+        .endBlockEdit()
+
+wikiBuilder
+    .editSubjectStyle()
         .editInfoBoxStyle()
             .editContentBoxStyle()
                 .setBorder(2, "#566BB3", Border.SOLID)
                 .setBackgroundColor("#F6F6FB")
-                .setMargin(5, undefined)
+                .setMargin(15, undefined)
             .endBlockEdit()
             .editContentStyle()
                 .editTextStyle()
                     .editLinkTextStyle()
                         .setFontColor("#566BB3")
-                        .putInBold(FontWeight.BOLD)
                     .endTextEdit()
                     .editBoldTextStyle()
                         .setFontColor(Color.BLACK)
@@ -48,10 +56,13 @@ wikiBuilder
             .editContentBoxStyle()
                 .addShadow(Color.GRAY)
                 .setBackgroundColor(Color.WHITE)
-                .setMargin(5, undefined)
+                .setMargin(15, undefined)
             .endBlockEdit()
             .editContentStyle()
                 .editTextStyle()
+                    .editTextStyle()
+                        .setFontSize(10)
+                    .endTextEdit()
                     .editLinkTextStyle()
                         .setFontColor("#566BB3")
                         .putInBold(FontWeight.BOLD)
@@ -65,6 +76,10 @@ wikiBuilder
 wikiBuilder
     .editSubjectStyle()
         .editSummaryStyle()
+            .editContentBoxStyle()
+                .setBackgroundColor(Color.WHITE)
+                .setMargin(15)
+            .endBlockEdit()
             .editContentStyle()
             .editTextStyle()
                 .editBoldTextStyle()
@@ -78,5 +93,4 @@ wikiBuilder
             .endTextEdit()
 
 export const wikiLarouseModel = wikiBuilder.createModel();
-// const cssGenerator = new WikiCssGenerator();
-// cssGenerator.generateCssFile(res)
+//const cssGenerator = new WikiCssGenerator();
