@@ -1,6 +1,5 @@
 **/node_modules
 .env
 .idea
-wiki-react/**/model
 **/dist/
 
