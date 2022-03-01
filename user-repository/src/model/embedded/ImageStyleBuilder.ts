@@ -38,7 +38,7 @@ export class ImageStyleBuilder<ParentBuilder> {
     }
 
     /**
-     * edit the max width of the image
+     * edit the max width of the image and container
      * @param value Size
      * @param unit unit for the size
      * @returns same builder
@@ -55,15 +55,11 @@ export class ImageStyleBuilder<ParentBuilder> {
         return this
     }
 
-    editImageMaxHeightContainer(value:number,unit?: UnitySize){
+    editImageMaxHeightImage(value:number,unit?: UnitySize){
         if(!this.blockImageStyle){
             this.blockImageStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
         }
-        if(!this.blockResumeStyle){
-            this.blockResumeStyle = new BlockStyleBuilder<ImageStyleBuilder<ParentBuilder>>(this);
-        }
         this.blockImageStyle.setMaxHeight(value,unit);
-        this.blockResumeStyle.setMaxHeight(value,unit)
 
         return this
     }
