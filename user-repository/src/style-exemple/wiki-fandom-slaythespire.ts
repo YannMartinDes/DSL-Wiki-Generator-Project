@@ -41,6 +41,7 @@ wikiBuilder
         .editImageStyle()
             .editContentBoxStyle()
                 .centerContent()
+                .setWidth(350)
             .endBlockEdit()
             .editAbstractTextStyle()
                 .setFontColor(Color.WHITE)
@@ -137,6 +138,6 @@ wikiBuilder.editSubjectStyle().editRelatedSubjectStyle()
         .setPaddingSides(0,15,5,15)
     .endBlockEdit()
 
-const res = wikiBuilder.createModel();
+export const SlayTheSpireModel = wikiBuilder.createModel();
 const cssGenerator = new WikiCssGenerator();
-cssGenerator.generateCssFile(res)
+

@@ -10,6 +10,8 @@ import {TextAlignment} from "./model/kernel/models/enum/text-align.enum";
 import {TextTransform} from "./model/kernel/models/enum/text-transform.enum";
 import {TextDecoration} from "./model/kernel/models/enum/text-decoration.enum";
 import { Float } from "./model/kernel/models/enum/float";
+import { SlayTheSpireModel } from "./style-exemple/wiki-fandom-slaythespire";
+import { wikiLarouseModel } from "./style-exemple/wiki-larousse";
 
 const wikiBuilder = WikiBuilder.createWiki()
 wikiBuilder
@@ -134,8 +136,8 @@ wikiBuilder.editSubjectStyle().editChapterStyle().editSubChapterStyle().editSubC
 // wikiBuilder.editNavBarStyle().editContentBoxStyle().setBackgroundColor("#EEEEEE")
 // wikiBuilder.editSubjectStyle().editTableOfContentStyle().editContentBoxStyle().setBorder(1,Color.GRAY,Border.SOLID).setBackgroundColor("#EEEEEE")
 
-const res = wikiBuilder.createModel();
-console.log(res);
+// const res = wikiBuilder.createModel();
+// console.log(res);
 
 const cssGenerator = new WikiCssGenerator();
-cssGenerator.generateCssFile(res)
+cssGenerator.generateCssFile(wikiLarouseModel)

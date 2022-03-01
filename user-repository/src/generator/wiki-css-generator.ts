@@ -20,6 +20,7 @@ import WikiTableStyle from "../model/kernel/models/elements/wiki-table";
 import WikiReferences from "../model/kernel/models/wiki-references";
 import { DisplaySize } from "../model/kernel/models/display-size";
 import { WikiTitleStyle } from "../model/kernel/models/style/wiki-title-style";
+import { AlignContent } from "../model/kernel/models/enum/align-content.enum";
 
 export class WikiCssGenerator{
     generate:string[]=[]
@@ -399,16 +400,31 @@ export class WikiCssGenerator{
 
     imageStyleGen(image:WikiImageStyle) {
         this.prefix.push(".image")
+        let isUse = false;
 
         if(image.blockStyle){
             const imageStyle = this.blockStyleGen(image.blockStyle)
             this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${imageStyle.join("")}}\n`)
+            isUse=true;
         }
         if(image.resumeStyle){
             const resumeStyle = this.textStyleGen(image.resumeStyle)
             this.generate.push(`${this.prefix.join(" ")+this.hoverPrefix}{\n${resumeStyle.join("")}}\n`)
+            isUse=true;
+
         }
-        if((!image.blockStyle)){
+        if(image.blockResumeStyle){
+            const blockResumeStyle = this.blockStyleGen(image.blockResumeStyle)
+            this.generate.push(`${this.prefix.join(" ")+" .image-resume"+this.hoverPrefix}{\n${blockResumeStyle.join("")}}\n`)
+            isUse=true;
+
+        }
+        if(image.blockImageStyle){
+            const blockImageStyle = this.blockStyleGen(image.blockImageStyle)
+            this.generate.push(`${this.prefix.join(" ")+" img"+this.hoverPrefix}{\n${blockImageStyle.join("")}}\n`)
+            isUse=true;
+        }
+        if(!isUse){
             console.warn('You created a image without any content')
         }
         this.prefix.pop();
@@ -474,6 +490,17 @@ export class WikiCssGenerator{
         }
         if(block.alignment){
             result.push(`\talign-content: ${block.alignment};\n`)
+            result.push(`\ttext-align: ${block.alignment};\n`)
+            if(block.alignment=="center"){
+                result.push(`\tmargin-left: auto;\n`);
+                result.push(`\tmargin-right: auto;\n`)
+            }
+            if(block.alignment==AlignContent.NORMAL){
+                result.push(`\tmargin-left: 0;\n`)
+            }
+            if(block.alignment==AlignContent.END){
+                result.push(`\tmargin-right: 0;\n`);
+            }
         }
         if(block.display) {
             result.push(`\tdisplay: ${block.display};\n`)

@@ -1,8 +1,8 @@
-import { WikiCssGenerator } from "../../generator/wiki-css-generator";
-import { WikiBuilder } from "../embedded/WikiBuilder";
-import { Border } from "../kernel/models/enum/border.enum";
-import { Color } from "../kernel/models/enum/color.enum";
-import { FontWeight } from "../kernel/models/enum/font-weight.enum";
+import { WikiCssGenerator } from "../generator/wiki-css-generator";
+import { WikiBuilder } from "../model/embedded/WikiBuilder";
+import { Border } from "../model/kernel/models/enum/border.enum";
+import { Color } from "../model/kernel/models/enum/color.enum";
+import { FontWeight } from "../model/kernel/models/enum/font-weight.enum";
 
 const wikiBuilder = WikiBuilder.createWiki()
 
@@ -77,6 +77,6 @@ wikiBuilder
                 .endTextEdit()
             .endTextEdit()
 
-const res = wikiBuilder.createModel();
-const cssGenerator = new WikiCssGenerator();
-cssGenerator.generateCssFile(res)
+export const wikiLarouseModel = wikiBuilder.createModel();
+// const cssGenerator = new WikiCssGenerator();
+// cssGenerator.generateCssFile(res)

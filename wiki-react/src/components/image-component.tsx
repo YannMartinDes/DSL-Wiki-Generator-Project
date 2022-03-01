@@ -4,7 +4,7 @@ export default function ImageComponent({content}:{content:ImageContent}) {
   return (
     <div className="image">
       <img src={content.url} alt={content.description}/>
-      <p>{content.description}</p>
+      <p className="image-resume">{content.description}</p>
     </div>
   )
 }
