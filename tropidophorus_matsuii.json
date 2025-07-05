@@ -1,75 +1,88 @@
 {
-  "wiki":{
+  "wiki": {
     "subject": "Tropidophorus matsuii",
     "summary": "<span class=\"bold\">Tropidophorus matsuii</span> est une <a href=\"\">espèce</a> de <a href=\"\">sauriens</a> de la famille des <a href=\"\">Scincidae</a>.",
-    "tableOfContent": [{"content":"Répartition","lien":""},{"content":"Étymologie","lien":""},{"content":"Publication originale","lien":""},{"content":"Liens externes","lien":""}],
+    "tableOfContent": [
+      { "content": "Répartition", "lien": "" },
+      { "content": "Étymologie", "lien": "" },
+      { "content": "Publication originale", "lien": "" },
+      { "content": "Liens externes", "lien": "" }
+    ],
     "chapters": [
-      {"chapter": {
-        "title": "Répartition",
-        "sections":[
-          {
-            "section": {
-              "title": "",
-              "texts": [
-                {
-                  "text": "Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>."
-                }
-              ]
+      {
+        "chapter": {
+          "title": "Répartition",
+          "sections": [
+            {
+              "section": {
+                "title": "",
+                "texts": [
+                  {
+                    "text": "Cette espèce est <a href=\"\">endémique</a> de l'Est de la <a href=\"\">Thaïlande</a>."
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }},
-      {"chapter":{
-        "title": "Étymologie",
-        "sections":[
-          {
-            "section": {
-              "title": "",
-              "texts": [
-                {
-                  "text": "Cette espèce est nommée en l'honneur de <a href=\"\">Masafumi Matsui.</a> "
-                }
-              ]
+          ]
+        }
+      },
+      {
+        "chapter": {
+          "title": "Étymologie",
+          "sections": [
+            {
+              "section": {
+                "title": "",
+                "texts": [
+                  {
+                    "text": "Cette espèce est nommée en l'honneur de <a href=\"\">Masafumi Matsui.</a> "
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }},
-      {"chapter":{
-        "title": "Publication originale",
-        "sections":[
-          {
-            "section": {
-              "title": "",
-              "texts": [
-                {
-                  "text": "Hikida, Orlov, Nabhitabhata & Ota, 2002 : <span class=\"italic\">Three new depressed-bodied water skinks of the genus Tropidophorus (Lacertilia: Scincidae) from Thailand and Vietnam</span>. Current Herpetology, vol. 21, no 1, p. 9-23 (<a href=\"\">texte intégral</a> [<a href=\"\">archive</a>])."
-                }
-              ]
+          ]
+        }
+      },
+      {
+        "chapter": {
+          "title": "Publication originale",
+          "sections": [
+            {
+              "section": {
+                "title": "",
+                "texts": [
+                  {
+                    "text": "Hikida, Orlov, Nabhitabhata & Ota, 2002 : <span class=\"italic\">Three new depressed-bodied water skinks of the genus Tropidophorus (Lacertilia: Scincidae) from Thailand and Vietnam</span>. Current Herpetology, vol. 21, no 1, p. 9-23 (<a href=\"\">texte intégral</a> [<a href=\"\">archive</a>])."
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }},
-      {"chapter":{
-        "title": "Liens externes",
-        "sections":[
-          {
-            "section": {
-              "title": "",
-              "texts": [
-                {
-                  "text": "(en) Référence <a href=\"\"><span class=\"italic\">NCBI</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span></a> [<a href=\"\">archive</a>] (<a href=\"\">taxons inclus</a> [<a href=\"\">archive</a>]) (consulté le 19 décembre 2012)"
-                },
-                {
-                  "text": "(en) Référence <a href=\"\"><span class=\"italic\">Reptarium Reptile Database</span></a> [<a href=\"\">archive</span>] : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota, 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
-                },
-                {
-                  "text": "(en) Référence <a href=\"\"><span class=\"italic\">uBio</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
-                }
-              ]
+          ]
+        }
+      },
+      {
+        "chapter": {
+          "title": "Liens externes",
+          "sections": [
+            {
+              "section": {
+                "title": "",
+                "texts": [
+                  {
+                    "text": "(en) Référence <a href=\"\"><span class=\"italic\">NCBI</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span></a> [<a href=\"\">archive</a>] (<a href=\"\">taxons inclus</a> [<a href=\"\">archive</a>]) (consulté le 19 décembre 2012)"
+                  },
+                  {
+                    "text": "(en) Référence <a href=\"\"><span class=\"italic\">Reptarium Reptile Database</span></a> [<a href=\"\">archive</span>] : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota, 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
+                  },
+                  {
+                    "text": "(en) Référence <a href=\"\"><span class=\"italic\">uBio</span></a> : <a href=\"\"><span class=\"italic\">Tropidophorus matsuii</span> Hikida, Orlov, Nabhitabhata & Ota 2002</a> [<a href=\"\">archive</a>] (consulté le 19 décembre 2012)"
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }}
+          ]
+        }
+      }
     ]
   }
 }
