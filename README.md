@@ -21,7 +21,7 @@ Style of the content is in `\user-repository\src\style-exemple`
 
 You can change the style in `\user-repository\src\index.ts` then do the generate to dynamically change the style
 
-(The report in french)[https://github.com/YannMartinDes/DSL-Wiki-Generator-Project/blob/main/RAPPORT_GROUP_I.pdf]  
+[The report in french](https://github.com/YannMartinDes/DSL-Wiki-Generator-Project/blob/main/RAPPORT_GROUP_I.pdf) 
 
 ## SCOPE
 
